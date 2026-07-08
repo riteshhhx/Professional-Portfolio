@@ -376,7 +376,7 @@
         </div>
     </section>
 
-    <!-- Academic Counters Strip (Responsive colors and states) -->
+    <!-- Academic Counters Strip -->
     <section class="py-20 px-6 border-y border-slate-100 dark:border-slate-900 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm">
         <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
             <div class="reveal group cursor-pointer">
@@ -434,7 +434,7 @@
         </div>
     </section>
 
-    <!-- SPOTIFY LIVE DEMONSTRATION WORKSPACE (Referencing Screenshot 2026-07-08 at 2.57.50 PM.jpg & Screenshot 2026-07-08 at 2.57.54 PM.jpg verbatim) -->
+    <!-- SPOTIFY LIVE DEMONSTRATION WORKSPACE -->
     <section id="sandbox" class="py-24 px-4 lg:px-8 bg-[#121212] text-white rounded-[3rem] mx-2 lg:mx-6 my-10 overflow-hidden relative shadow-2xl border border-neutral-800">
         <!-- Hidden Audio Element for real song output -->
         <audio id="sandbox-native-player" preload="auto"></audio>
@@ -444,10 +444,10 @@
             <div class="mb-10 flex flex-col md:flex-row items-start md:items-end justify-between gap-4">
                 <div>
                     <div class="inline-flex items-center gap-2 px-3 py-1 bg-spotify/15 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] text-spotify mb-3">
-                        <i data-lucide="disc" class="w-3 h-3 text-spotify animate-spin-slow"></i> SCREENSHOT ALIGNED EXPERIMENTAL HUB
+                        <i data-lucide="disc" class="w-3 h-3 text-spotify animate-spin-slow"></i> STREAMING AUDIO & LEXICON ENGINE
                     </div>
-                    <h2 class="text-4xl font-black tracking-tight mb-2">Live Spotify Music Showcase</h2>
-                    <p class="text-neutral-400 text-xs max-w-xl">This environment replicates layout structures, playlists, mixes, and typography based on <strong>Screenshot 2026-07-08 at 2.57.50 PM.jpg</strong> and <strong>Screenshot 2026-07-08 at 2.57.54 PM.jpg</strong> verbatim.</p>
+                    <h2 class="text-4xl font-black tracking-tight mb-2">Spotify Stream Dynamics Portal</h2>
+                    <p class="text-neutral-400 text-xs max-w-xl">Interactive environment modeled directly on <strong>Screenshot 2026-07-08 at 2.57.50 PM.jpg</strong> and <strong>Screenshot 2026-07-08 at 2.57.54 PM.jpg</strong>. Maps Python VADER NLP sentiment scores to k-Nearest Neighbors audio telemetry.</p>
                 </div>
                 <div class="flex items-center gap-3">
                     <div class="px-3.5 py-1.5 rounded-full bg-neutral-900 text-xs font-mono font-bold text-spotify tracking-widest border border-neutral-800 flex items-center gap-2 animate-pulse-soft">
@@ -459,7 +459,7 @@
             <!-- Dashboard Frame wrapper -->
             <div class="grid grid-cols-1 lg:grid-cols-12 bg-black rounded-3xl overflow-hidden border border-neutral-900 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.8)]">
                 
-                <!-- Left Sidebar Navigation Panel -->
+                <!-- Left Sidebar Navigation Panel (As in Screenshot 2.57.50 PM) -->
                 <div class="lg:col-span-3 bg-[#121212] p-5 flex flex-col justify-between border-r border-neutral-900">
                     <div class="space-y-6">
                         <div class="space-y-2">
@@ -471,25 +471,25 @@
                             </button>
                         </div>
                         
-                        <!-- Library Track Selector (These load real playable audio) -->
+                        <!-- Track selectors with actual project data -->
                         <div class="pt-4 border-t border-neutral-900">
-                            <p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest px-4 mb-4">Your Library</p>
+                            <p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest px-4 mb-4">Stream Clusters</p>
                             <div class="space-y-1.5">
                                 <div onclick="selectMixTrack(0)" class="cursor-pointer group flex items-center justify-between px-4 py-2 text-xs rounded-xl text-neutral-400 hover:text-white hover:bg-neutral-900 transition-all">
-                                    <span class="truncate font-semibold"><i data-lucide="music-3" class="inline w-3.5 h-3.5 mr-2 text-spotify"></i> Sanson Ki Mala Pey</span>
-                                    <span class="text-[8px] bg-neutral-800 px-1.5 py-0.5 rounded text-neutral-500 font-bold">2:43</span>
+                                    <span class="truncate font-semibold"><i data-lucide="music-3" class="inline w-3.5 h-3.5 mr-2 text-spotify"></i> Positive Sentiment Cluster</span>
+                                    <span class="text-[8px] bg-neutral-800 px-1.5 py-0.5 rounded text-neutral-500 font-bold">VADER 0.82</span>
                                 </div>
                                 <div onclick="selectMixTrack(1)" class="cursor-pointer group flex items-center justify-between px-4 py-2 text-xs rounded-xl text-neutral-400 hover:text-white hover:bg-neutral-900 transition-all">
-                                    <span class="truncate font-semibold"><i data-lucide="music-3" class="inline w-3.5 h-3.5 mr-2 text-spotify"></i> Midnight Highway</span>
-                                    <span class="text-[8px] bg-neutral-800 px-1.5 py-0.5 rounded text-neutral-500 font-bold">3:12</span>
+                                    <span class="truncate font-semibold"><i data-lucide="music-3" class="inline w-3.5 h-3.5 mr-2 text-spotify"></i> Melancholic Stream Cluster</span>
+                                    <span class="text-[8px] bg-neutral-800 px-1.5 py-0.5 rounded text-neutral-500 font-bold">VADER -0.68</span>
                                 </div>
                                 <div onclick="selectMixTrack(2)" class="cursor-pointer group flex items-center justify-between px-4 py-2 text-xs rounded-xl text-neutral-400 hover:text-white hover:bg-neutral-900 transition-all">
-                                    <span class="truncate font-semibold"><i data-lucide="music-3" class="inline w-3.5 h-3.5 mr-2 text-spotify"></i> Acoustic Sunsets</span>
-                                    <span class="text-[8px] bg-neutral-800 px-1.5 py-0.5 rounded text-neutral-500 font-bold">2:18</span>
+                                    <span class="truncate font-semibold"><i data-lucide="music-3" class="inline w-3.5 h-3.5 mr-2 text-spotify"></i> Acoustic Chill Study</span>
+                                    <span class="text-[8px] bg-neutral-800 px-1.5 py-0.5 rounded text-neutral-500 font-bold">VADER 0.15</span>
                                 </div>
                                 <div onclick="selectMixTrack(3)" class="cursor-pointer group flex items-center justify-between px-4 py-2 text-xs rounded-xl text-neutral-400 hover:text-white hover:bg-neutral-900 transition-all">
-                                    <span class="truncate font-semibold"><i data-lucide="music-3" class="inline w-3.5 h-3.5 mr-2 text-spotify"></i> Neon Club Beats</span>
-                                    <span class="text-[8px] bg-neutral-800 px-1.5 py-0.5 rounded text-neutral-500 font-bold">4:01</span>
+                                    <span class="truncate font-semibold"><i data-lucide="music-3" class="inline w-3.5 h-3.5 mr-2 text-spotify"></i> Explicit Dynamic Stream</span>
+                                    <span class="text-[8px] bg-neutral-800 px-1.5 py-0.5 rounded text-neutral-500 font-bold">VADER 0.45</span>
                                 </div>
                             </div>
                         </div>
@@ -509,18 +509,18 @@
                     
                     <!-- Centered Large Art block verbatim from Screenshot 2.57.50 PM -->
                     <div class="flex flex-col items-center justify-center py-6">
-                        <p class="text-xs font-black text-neutral-400 uppercase tracking-widest mb-4">Liked Songs</p>
+                        <p class="text-xs font-black text-neutral-400 uppercase tracking-widest mb-4">Acoustic-Sentiment Model</p>
                         
                         <div class="relative w-72 h-72 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-neutral-800 group mb-6">
                             <!-- Visual placeholder representing the actual playing cover style -->
-                            <div id="main-art-block" class="w-full h-full bg-gradient-to-tr from-orange-500 to-rose-600 flex flex-col justify-between p-6 transition-all duration-500">
+                            <div id="main-art-block" class="w-full h-full bg-gradient-to-tr from-emerald-500 to-teal-800 flex flex-col justify-between p-6 transition-all duration-500">
                                 <div class="flex justify-between items-start">
-                                    <span class="text-[9px] font-black uppercase bg-white/20 px-2 py-0.5 rounded backdrop-blur-md">SPEED RECORDS</span>
+                                    <span class="text-[9px] font-black uppercase bg-white/20 px-2 py-0.5 rounded backdrop-blur-md">VADER NLP ENGINE</span>
                                     <i data-lucide="music" class="w-5 h-5 text-white/60"></i>
                                 </div>
                                 <div class="space-y-1">
-                                    <p id="artwork-title" class="text-2xl font-black tracking-tighter leading-none text-white drop-shadow">Sanson Ki Mala Pey</p>
-                                    <p id="artwork-artist" class="text-xs text-white/80 font-bold">Nusrat Fateh Ali Khan</p>
+                                    <p id="artwork-title" class="text-2xl font-black tracking-tighter leading-none text-white drop-shadow">Positive Sentiment Cluster</p>
+                                    <p id="artwork-artist" class="text-xs text-white/80 font-bold">VADER Lexicon Score: 0.82</p>
                                 </div>
                             </div>
                             <!-- Subtle overlay indicator when playing -->
@@ -534,12 +534,12 @@
                         <!-- Info tags below the cover art -->
                         <div class="w-full max-w-md grid grid-cols-2 gap-4 text-xs font-sans">
                             <div class="p-4 bg-neutral-900 rounded-xl border border-neutral-800/60 hover:border-neutral-700 transition-colors">
-                                <p class="text-[10px] font-black uppercase text-neutral-500 mb-1">Acousticness</p>
-                                <p id="telemetry-box-acoustic" class="text-lg font-black font-mono text-spotify">0.85</p>
+                                <p class="text-[10px] font-black uppercase text-neutral-500 mb-1">Acousticness Mapping</p>
+                                <p id="telemetry-box-acoustic" class="text-lg font-black font-mono text-spotify">0.78</p>
                             </div>
                             <div class="p-4 bg-neutral-900 rounded-xl border border-neutral-800/60 hover:border-neutral-700 transition-colors">
-                                <p class="text-[10px] font-black uppercase text-neutral-500 mb-1">Energy</p>
-                                <p id="telemetry-box-energy" class="text-lg font-black font-mono text-spotify">0.15</p>
+                                <p class="text-[10px] font-black uppercase text-neutral-500 mb-1">Energy Vector</p>
+                                <p id="telemetry-box-energy" class="text-lg font-black font-mono text-spotify">0.65</p>
                             </div>
                         </div>
                     </div>
@@ -550,15 +550,15 @@
                             
                             <!-- "About the artist" visual container -->
                             <div class="relative bg-neutral-900 rounded-2xl overflow-hidden border border-neutral-800/80 min-h-[260px] flex flex-col justify-end p-5 group">
-                                <div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:scale-105 transition-transform duration-700" style="background-image: url('https://placehold.co/400x300/151515/333333?text=Ritesh+Yadav')"></div>
+                                <div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:scale-105 transition-transform duration-700" style="background-image: url('https://placehold.co/400x300/151515/333333?text=Ritesh+Yadav+Analytics')"></div>
                                 <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/40 to-transparent"></div>
                                 
                                 <div class="relative z-10 space-y-2">
-                                    <p class="text-xs font-black text-neutral-400 uppercase tracking-widest">About the Artist</p>
-                                    <h4 class="text-xl font-black">Ritesh Yadav</h4>
-                                    <p class="text-[10px] text-neutral-400 font-bold">36,62,613 monthly listeners</p>
-                                    <p class="text-[11px] text-neutral-300 leading-relaxed">Lead Analytics Engineer bridging corporate performance matrices and high-dimension statistical streams to automate corporate growth vectors.</p>
-                                    <button onclick="window.open('https://linkedin.com/in/ritesh-yadav', '_blank')" class="mt-3 text-[10px] font-black tracking-widest uppercase bg-white text-black px-4 py-1.5 rounded-full hover:scale-105 active:scale-95 transition-all">Follow</button>
+                                    <p class="text-xs font-black text-neutral-400 uppercase tracking-widest">About the Project</p>
+                                    <h4 class="text-xl font-black">Spotify Stream Dynamics</h4>
+                                    <p class="text-[10px] text-neutral-400 font-bold">5,200+ global songs mapped</p>
+                                    <p class="text-[11px] text-neutral-300 leading-relaxed">This analytics model extracts explicit audio markers, measuring valence indexes across global music streams using customized NLP and k-Nearest Neighbor algorithms.</p>
+                                    <button onclick="window.open('https://linkedin.com/in/ritesh-yadav', '_blank')" class="mt-3 text-[10px] font-black tracking-widest uppercase bg-white text-black px-4 py-1.5 rounded-full hover:scale-105 active:scale-95 transition-all">Explore Study</button>
                                 </div>
                             </div>
 
@@ -573,7 +573,7 @@
                                         <div class="flex justify-between items-center text-xs">
                                             <div>
                                                 <p class="font-bold text-white">Ritesh Yadav</p>
-                                                <p class="text-[9px] text-neutral-400">Main Analyst / Engineer</p>
+                                                <p class="text-[9px] text-neutral-400">Principal Data Scientist</p>
                                             </div>
                                             <button class="text-[9px] font-bold border border-neutral-700 hover:border-white rounded-full px-3 py-1 transition-colors">Follow</button>
                                         </div>
@@ -608,16 +608,16 @@
                                 <div>
                                     <div class="flex justify-between text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-1">
                                         <span>Acousticness</span>
-                                        <span id="val-acoustic" class="text-spotify font-mono">0.85</span>
+                                        <span id="val-acoustic" class="text-spotify font-mono">0.78</span>
                                     </div>
-                                    <input id="slider-acoustic" type="range" min="0" max="1" step="0.01" value="0.85" class="w-full h-1 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-spotify" oninput="runKnnSimulation()">
+                                    <input id="slider-acoustic" type="range" min="0" max="1" step="0.01" value="0.78" class="w-full h-1 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-spotify" oninput="runKnnSimulation()">
                                 </div>
                                 <div>
                                     <div class="flex justify-between text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-1">
                                         <span>Energy</span>
-                                        <span id="val-energy" class="text-spotify font-mono">0.15</span>
+                                        <span id="val-energy" class="text-spotify font-mono">0.65</span>
                                     </div>
-                                    <input id="slider-energy" type="range" min="0" max="1" step="0.01" value="0.15" class="w-full h-1 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-spotify" oninput="runKnnSimulation()">
+                                    <input id="slider-energy" type="range" min="0" max="1" step="0.01" value="0.65" class="w-full h-1 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-spotify" oninput="runKnnSimulation()">
                                 </div>
                             </div>
                         </div>
@@ -646,8 +646,8 @@
                         <div class="flex gap-3">
                             <div class="w-10 h-10 bg-gradient-to-tr from-spotify to-black rounded flex items-center justify-center text-white"><i data-lucide="music" class="w-5 h-5 text-white"></i></div>
                             <div class="truncate">
-                                <p id="artist-title-widget" class="text-xs font-bold text-white truncate">Sanson Ki Mala Pey</p>
-                                <p id="artist-sub-widget" class="text-[9px] text-neutral-400 truncate">Nusrat Fateh Ali Khan Mix</p>
+                                <p id="artist-title-widget" class="text-xs font-bold text-white truncate">Positive Sentiment Cluster</p>
+                                <p id="artist-sub-widget" class="text-[9px] text-neutral-400 truncate">VADER Lexicon Score: 0.82</p>
                             </div>
                         </div>
                     </div>
@@ -658,12 +658,12 @@
             <!-- Spotify Themed Integrated Bottom Playback Control Bar -->
             <div class="bg-neutral-900 border-t border-neutral-800 p-4 lg:p-6 flex flex-col md:flex-row items-center justify-between gap-4 mt-1 rounded-b-3xl">
                 <div class="flex items-center gap-4 w-full md:w-1/3">
-                    <div id="playing-artwork" class="w-12 h-12 rounded bg-gradient-to-tr from-orange-500 to-rose-600 flex items-center justify-center text-white shrink-0 shadow-lg border border-white/10">
+                    <div id="playing-artwork" class="w-12 h-12 rounded bg-gradient-to-tr from-emerald-500 to-teal-800 flex items-center justify-center text-white shrink-0 shadow-lg border border-white/10">
                         <i data-lucide="music" class="w-6 h-6"></i>
                     </div>
                     <div class="truncate">
-                        <p id="playing-track-name" class="text-sm font-bold text-white truncate">Sanson Ki Mala Pey</p>
-                        <p id="playing-artist" class="text-xs text-neutral-400 truncate">Nusrat Fateh Ali Khan - Love and Devotion</p>
+                        <p id="playing-track-name" class="text-sm font-bold text-white truncate">Positive Sentiment Cluster</p>
+                        <p id="playing-artist" class="text-xs text-neutral-400 truncate">VADER Sentiment Index: 0.82</p>
                     </div>
                 </div>
 
@@ -682,15 +682,15 @@
                         <div class="flex-1 h-1 bg-neutral-800 rounded-full relative overflow-hidden cursor-pointer" onclick="handleTrackSeek(event)">
                             <div id="player-time-progress" class="absolute top-0 left-0 h-full bg-spotify" style="width: 0%"></div>
                         </div>
-                        <span id="player-time-total" class="text-[10px] font-mono text-neutral-400 font-bold">2:43</span>
+                        <span id="player-time-total" class="text-[10px] font-mono text-neutral-400 font-bold">6:12</span>
                     </div>
                 </div>
 
                 <div class="hidden md:flex items-center justify-end gap-6 w-full md:w-1/3">
                     <div class="text-right">
                         <div class="flex items-center gap-2 text-xs font-semibold text-spotify font-mono">
-                            <span>Acousticness: <strong id="telemetry-acoustics">0.85</strong></span>
-                            <span>Energy: <strong id="telemetry-energy">0.15</strong></span>
+                            <span>Acousticness: <strong id="telemetry-acoustics">0.78</strong></span>
+                            <span>Energy: <strong id="telemetry-energy">0.65</strong></span>
                         </div>
                         <p class="text-[8px] text-neutral-500 font-black uppercase tracking-widest mt-0.5">Spotify Audio Coordinates</p>
                     </div>
@@ -840,7 +840,7 @@
                     </div>
                     <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal" style="transition-delay: 100ms;">
                         <div class="flex items-center justify-between mb-6">
-                            <div class="w-12 h-12 bg-indigo-50 dark:bg-indigo-950/40 rounded-2xl flex items-center justify-center text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform duration-300"><i data-lucide="line-chart" class="animate-float-subtle"></i></div>
+                            <div cl ass="w-12 h-12 bg-indigo-50 dark:bg-indigo-950/40 rounded-2xl flex items-center justify-center text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform duration-300"><i data-lucide="line-chart" class="animate-float-subtle"></i></div>
                             <span class="text-xs font-black text-slate-400 uppercase tracking-widest"><span class="counter" data-target="88">0</span>%</span>
                         </div>
                         <h4 class="text-lg font-bold mb-2 text-[#2D1F27] dark:text-slate-200">Looker & Google Analytics</h4>
@@ -1351,42 +1351,42 @@ print("Financial literacy metrics...")
             }, 50);
         }
 
-        // Real Playable Audio streams (SoundHelix public domain MP3 links)
+        // Real Playable Audio streams (SoundHelix public domain MP3 links) matching actual Spotify Dynamics model
         const trackDataset = [
             { 
-                title: "Sanson Ki Mala Pey", 
-                artist: "Ritesh Yadav (Acoustic Mix)", 
-                acousticness: 0.85, 
-                energy: 0.15, 
+                title: "Positive Sentiment Cluster", 
+                artist: "VADER Sentiment Index: 0.82", 
+                acousticness: 0.78, 
+                energy: 0.65, 
                 duration: "6:12", 
-                gradient: "from-orange-500 to-rose-600",
+                gradient: "from-emerald-500 to-teal-800",
                 streamUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
             },
             { 
-                title: "Midnight Highway", 
-                artist: "ElectroWave Mix", 
-                acousticness: 0.12, 
-                energy: 0.88, 
+                title: "Melancholic Stream Cluster", 
+                artist: "VADER Sentiment Index: -0.68", 
+                acousticness: 0.88, 
+                energy: 0.22, 
                 duration: "7:05", 
-                gradient: "from-indigo-500 to-purple-800",
+                gradient: "from-indigo-950 to-blue-900",
                 streamUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
             },
             { 
-                title: "Acoustic Sunsets", 
-                artist: "Folk Whisper Duo", 
+                title: "Acoustic Chill Study", 
+                artist: "VADER Sentiment Index: 0.15", 
                 acousticness: 0.95, 
-                energy: 0.25, 
+                energy: 0.18, 
                 duration: "5:44", 
-                gradient: "from-red-500 to-orange-600",
+                gradient: "from-amber-600 to-orange-950",
                 streamUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
             },
             { 
-                title: "Neon Club Beats", 
-                artist: "Synth Lord", 
+                title: "Explicit Dynamic Stream", 
+                artist: "VADER Sentiment Index: 0.45", 
                 acousticness: 0.05, 
-                energy: 0.95, 
+                energy: 0.92, 
                 duration: "5:02", 
-                gradient: "from-teal-500 to-emerald-700",
+                gradient: "from-rose-600 to-purple-950",
                 streamUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"
             }
         ];
