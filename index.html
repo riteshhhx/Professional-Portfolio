@@ -11,6 +11,16 @@
             darkMode: 'class',
             theme: {
                 extend: {
+                    colors: {
+                        spotify: '#1db954',
+                        reias: {
+                            50: '#fbf8f3',
+                            100: '#f5edd9',
+                            500: '#c5a880',
+                            800: '#1e242b',
+                            900: '#11151a'
+                        }
+                    },
                     fontFamily: {
                         sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
                         mono: ['Fira Code', 'monospace']
@@ -31,7 +41,6 @@
             transition: background-color 0.5s ease, color 0.5s ease;
         }
 
-        /* --- REVEAL ANIMATIONS --- */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -92,7 +101,6 @@
             border-color: #3b82f6;
         }
 
-        /* --- SKILL METER --- */
         .skill-meter-bg {
             height: 6px;
             background: #f1f5f9;
@@ -112,7 +120,6 @@
         }
         .reveal.visible .skill-meter-fill { width: var(--percent); }
 
-        /* --- PROJECT DROP DOWN --- */
         #project-display-container {
             max-height: 0;
             overflow: hidden;
@@ -128,7 +135,6 @@
             margin-bottom: 2rem;
         }
 
-        /* --- CHEVRON TIMELINE --- */
         .chevron-path {
             clip-path: polygon(0% 0%, calc(100% - 25px) 0%, 100% 50%, calc(100% - 25px) 100%, 0% 100%, 25px 50%);
         }
@@ -137,7 +143,6 @@
         }
         .scrollbar-hide::-webkit-scrollbar { display: none; }
 
-        /* --- SCHOLASTIC TIMELINE --- */
         .edu-line {
             position: absolute;
             left: 50%;
@@ -184,7 +189,6 @@
         }
         .animate-float-subtle { animation: float-subtle 3s ease-in-out infinite; }
         
-        /* --- COUNTER HOVER & PULSING ANIMATIONS --- */
         @keyframes auto-glow-blue {
             0%, 100% { color: #94a3b8; }
             50% { color: #3b82f6; }
@@ -252,19 +256,17 @@
         }
         @keyframes shine { to { background-position: 300% center; } }
 
-        /* --- BENTO CARD DEPTH --- */
         .bento-card { transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); perspective: 1000px; }
         .bento-inner { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); border: 1px solid #f1f5f9; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.02); transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); transform-style: preserve-3d; overflow: hidden; }
         .dark .bento-inner { background: rgba(30, 41, 59, 0.7); border-color: rgba(255,255,255,0.05); }
         .bento-card:hover .bento-inner { transform: translateY(-5px); box-shadow: 0 40px 80px -20px rgba(59, 130, 246, 0.15); border-color: #3b82f6; }
 
-        /* --- CODE & AUDIO ANIMATIONS --- */
         @keyframes scroll-code { from { transform: translateY(0); } to { transform: translateY(-50%); } }
         .code-scroller { animation: scroll-code 20s linear infinite; font-family: 'Fira Code', monospace; font-size: 10px; white-space: pre; pointer-events: none; }
-        .visualizer-bar { width: 4px; background: #ec4899; border-radius: 2px; animation: bounce 1s ease-in-out infinite alternate; }
+        .visualizer-bar { width: 4px; background: #1db954; border-radius: 2px; animation: bounce 1s ease-in-out infinite alternate; }
         @keyframes bounce { from { height: 4px; } to { height: 24px; } }
 
-        /* --- MUSIC PLAYER SIMULATION SCROLLING --- */
+        /* Custom styling for sliders */
         .custom-slider-thumb::-webkit-slider-thumb {
             -webkit-appearance: none;
             appearance: none;
@@ -279,7 +281,6 @@
 </head>
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 selection:bg-blue-600 selection:text-white overflow-x-hidden">
 
-    <!-- Theme Switcher floating button -->
     <div class="fixed bottom-6 right-6 z-[80]">
         <button id="theme-toggle" class="p-4 bg-white dark:bg-slate-800 text-slate-800 dark:text-white rounded-full shadow-2xl border border-slate-100 dark:border-slate-700 hover:scale-110 active:scale-95 transition-all duration-300" aria-label="Toggle Theme">
             <i data-lucide="sun" class="w-6 h-6 hidden dark:block text-amber-400"></i>
@@ -287,15 +288,16 @@
         </button>
     </div>
 
-    <!-- Navigation -->
+    <!-- Navigation Header -->
     <nav id="navbar" class="fixed w-full top-0 z-[60] transition-all duration-500 h-20 border-b border-transparent">
         <div class="max-w-6xl mx-auto px-6 h-full flex items-center justify-between">
             <a href="#" class="text-lg font-bold tracking-tighter flex items-center gap-2 group">
                 <i data-lucide="hexagon" class="w-5 h-5 animate-spin-slow text-blue-600 dark:text-blue-400 group-hover:text-pink-500 transition-colors"></i> RY
             </a>
-            <div class="hidden md:flex space-x-8 text-[11px] font-bold text-slate-400 dark:text-slate-500">
+            <div class="hidden md:flex space-x-8 text-[11px] font-bold text-slate-400 dark:text-slate-500 font-sans">
                 <a href="#projects" class="hover:text-slate-900 dark:hover:text-white transition-colors uppercase tracking-widest">Projects</a>
-                <a href="#sandbox" class="hover:text-slate-900 dark:hover:text-white transition-colors uppercase tracking-widest">Live Sandbox</a>
+                <a href="#sandbox" class="hover:text-slate-900 dark:hover:text-white transition-colors uppercase tracking-widest">Spotify Sandbox</a>
+                <a href="#reias-sandbox" class="hover:text-slate-900 dark:hover:text-white transition-colors uppercase tracking-widest">Reias Sandbox</a>
                 <a href="#skills" class="hover:text-slate-900 dark:hover:text-white transition-colors uppercase tracking-widest">Skills</a>
                 <a href="#certifications" class="hover:text-slate-900 dark:hover:text-white transition-colors uppercase tracking-widest">Certificates</a>
                 <a href="#beyond-academics" class="hover:text-slate-900 dark:hover:text-white transition-colors uppercase tracking-widest">Beyond</a>
@@ -313,13 +315,14 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="fixed inset-0 z-50 bg-white dark:bg-slate-950 opacity-0 -translate-y-full pointer-events-none transition-all duration-500 flex flex-col pt-32 px-10 space-y-8 text-center">
         <a href="#projects" onclick="toggleMenu()" class="text-4xl font-bold hover:text-blue-500 transition-colors">Projects</a>
-        <a href="#sandbox" onclick="toggleMenu()" class="text-4xl font-bold hover:text-blue-500 transition-colors">Live Sandbox</a>
+        <a href="#sandbox" onclick="toggleMenu()" class="text-4xl font-bold hover:text-blue-500 transition-colors">Spotify Sandbox</a>
+        <a href="#reias-sandbox" onclick="toggleMenu()" class="text-4xl font-bold hover:text-blue-500 transition-colors">Reias Sandbox</a>
         <a href="#skills" onclick="toggleMenu()" class="text-4xl font-bold hover:text-blue-500 transition-colors">Skills</a>
         <a href="#certifications" onclick="toggleMenu()" class="text-4xl font-bold hover:text-blue-500 transition-colors">Certificates</a>
         <a href="#education" onclick="toggleMenu()" class="text-4xl font-bold hover:text-blue-500 transition-colors">Education</a>
     </div>
 
-    <!-- Hero Section -->
+    <!-- Hero Showcase Section -->
     <section class="pt-32 lg:pt-48 pb-20 px-6">
         <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
             <div class="flex-1 text-center lg:text-left">
@@ -335,7 +338,7 @@
                 </p>
                 <div class="flex flex-wrap justify-center lg:justify-start gap-4 animate-hero" style="animation-delay: 300ms">
                     <a href="mailto:ritesh.yadav@gmail.com" class="bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-8 py-4 rounded-full font-bold hover:scale-105 transition-all shadow-xl shadow-slate-200 dark:shadow-none">Get in Touch</a>
-                    <button onclick="openCVModal()" class="border-2 border-slate-900 dark:border-white text-slate-900 dark:text-white px-8 py-4 rounded-full font-bold hover:bg-slate-900/10 dark:hover:bg-white/10 hover:scale-105 transition-all flex items-center gap-2">
+                    <button onclick="openCVModal()" class="border-2 border-slate-900 dark:border-white text-slate-900 dark:text-white px-8 py-4 rounded-full font-bold hover:scale-105 transition-all flex items-center gap-2">
                         Download CV <i data-lucide="download" class="w-4 h-4 animate-float-subtle"></i>
                     </button>
                     <div class="flex items-center gap-6 px-4">
@@ -348,6 +351,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Dynamic Badging Stack -->
             <div class="flex-1 relative animate-hero" style="animation-delay: 200ms">
                 <div class="relative w-72 h-72 lg:w-[420px] lg:h-[420px] mx-auto group">
                     <div class="w-full h-full rounded-full overflow-hidden hero-frame bg-slate-50 border-[12px] border-white dark:border-slate-800 relative z-10 hover:border-blue-100 dark:hover:border-blue-900 transition-colors duration-500">
@@ -358,7 +362,6 @@
                         </div>
                     </div>
                     
-                    <!-- Floating Core Stack Badge Rotator -->
                     <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 z-20 bg-slate-900 dark:bg-slate-800 text-white px-6 lg:px-8 py-3 lg:py-4 rounded-[2rem] flex items-center gap-4 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] border border-slate-700 hover:-translate-y-2 transition-transform duration-300">
                         <div id="core-stack-icon-wrapper" class="p-2 lg:p-2.5 bg-blue-500/20 rounded-xl text-blue-400 transition-all duration-500">
                             <i data-lucide="cpu" class="w-5 h-5 lg:w-6 lg:h-6 animate-pulse-soft"></i>
@@ -373,7 +376,7 @@
         </div>
     </section>
 
-    <!-- Academic Counters Strip -->
+    <!-- Academic Counters Strip (Responsive colors and states) -->
     <section class="py-20 px-6 border-y border-slate-100 dark:border-slate-900 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm">
         <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
             <div class="reveal group cursor-pointer">
@@ -431,279 +434,220 @@
         </div>
     </section>
 
-    <!-- INTERACTIVE MUSIC & PL/SQL PLAYGROUND (Referencing Screenshot 2026-07-08 at 2.18.50 PM.jpg and Screenshot 2026-07-08 at 2.39.56 PM.jpg verbatim) -->
-    <section id="sandbox" class="py-24 px-4 lg:px-8 bg-[#090d16] text-white rounded-[3rem] mx-2 lg:mx-6 my-10 overflow-hidden relative shadow-2xl border border-slate-800">
+    <!-- SPOTIFY LIVE DEMONSTRATION WORKSPACE (Referencing Screenshot 2026-07-08 at 2.57.50 PM.jpg & Screenshot 2026-07-08 at 2.57.54 PM.jpg verbatim) -->
+    <section id="sandbox" class="py-24 px-4 lg:px-8 bg-[#121212] text-white rounded-[3rem] mx-2 lg:mx-6 my-10 overflow-hidden relative shadow-2xl border border-neutral-800">
+        <!-- Hidden Audio Element for real song output -->
+        <audio id="sandbox-native-player" preload="auto"></audio>
+
         <div class="max-w-7xl mx-auto">
             
-            <div class="mb-10 text-center lg:text-left">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-500/10 rounded-full text-[10px] font-black uppercase tracking-[0.2em] text-blue-400 border border-blue-500/20 mb-4">
-                    <i data-lucide="play" class="w-3 h-3 text-blue-400 animate-pulse"></i> LIVE SIMULATION SANDBOX
+            <div class="mb-10 flex flex-col md:flex-row items-start md:items-end justify-between gap-4">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-spotify/15 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] text-spotify mb-3">
+                        <i data-lucide="disc" class="w-3 h-3 text-spotify animate-spin-slow"></i> SCREENSHOT ALIGNED EXPERIMENTAL HUB
+                    </div>
+                    <h2 class="text-4xl font-black tracking-tight mb-2">Live Spotify Music Showcase</h2>
+                    <p class="text-neutral-400 text-xs max-w-xl">This environment replicates layout structures, playlists, mixes, and typography based on <strong>Screenshot 2026-07-08 at 2.57.50 PM.jpg</strong> and <strong>Screenshot 2026-07-08 at 2.57.54 PM.jpg</strong> verbatim.</p>
                 </div>
-                <h2 class="text-4xl font-black tracking-tight mb-2">Interactive Analytics Sandbox</h2>
-                <p class="text-slate-400 text-sm max-w-xl">Fully modeled interface referencing custom design layouts of <strong>Screenshot 2026-07-08 at 2.18.50 PM.jpg</strong> and <strong>Screenshot 2026-07-08 at 2.39.56 PM.jpg</strong>. Swap sidebar parameters to interact with both the Spotify KNN spatial search and Reias India DB structures.</p>
+                <div class="flex items-center gap-3">
+                    <div class="px-3.5 py-1.5 rounded-full bg-neutral-900 text-xs font-mono font-bold text-spotify tracking-widest border border-neutral-800 flex items-center gap-2 animate-pulse-soft">
+                        <span class="w-2 h-2 rounded-full bg-spotify"></span> SIMULATION DEPLOYED
+                    </div>
+                </div>
             </div>
 
             <!-- Dashboard Frame wrapper -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 bg-[#020617] rounded-3xl overflow-hidden border border-slate-800 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)]">
+            <div class="grid grid-cols-1 lg:grid-cols-12 bg-black rounded-3xl overflow-hidden border border-neutral-900 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.8)]">
                 
-                <!-- Left Sidebar Navigation Panel (Adapted from Screenshot 2026-07-08 at 2.18.50 PM.jpg) -->
-                <div class="lg:col-span-2 bg-[#0b0f19] border-r border-slate-950 p-6 flex flex-col justify-between">
-                    <div class="space-y-8">
-                        <div>
-                            <p class="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-4">Discover</p>
-                            <nav class="space-y-1.5">
-                                <button onclick="selectSandboxSection('home')" id="nav-btn-home" class="w-full flex items-center gap-3 px-3 py-2 text-sm font-semibold rounded-lg text-blue-400 bg-slate-900 transition-all">
-                                    <i data-lucide="home" class="w-4 h-4"></i> Home
-                                </button>
-                                <button onclick="selectSandboxSection('knn')" id="nav-btn-knn" class="w-full flex items-center gap-3 px-3 py-2 text-sm font-semibold rounded-lg text-slate-400 hover:text-white hover:bg-slate-900/50 transition-all">
-                                    <i data-lucide="radar" class="w-4 h-4"></i> KNN Analyzer
-                                </button>
-                                <button onclick="selectSandboxSection('db')" id="nav-btn-db" class="w-full flex items-center gap-3 px-3 py-2 text-sm font-semibold rounded-lg text-slate-400 hover:text-white hover:bg-slate-900/50 transition-all">
-                                    <i data-lucide="database" class="w-4 h-4"></i> PL/SQL Terminal
-                                </button>
-                            </nav>
+                <!-- Left Sidebar Navigation Panel -->
+                <div class="lg:col-span-3 bg-[#121212] p-5 flex flex-col justify-between border-r border-neutral-900">
+                    <div class="space-y-6">
+                        <div class="space-y-2">
+                            <button class="w-full flex items-center gap-4 px-4 py-2.5 text-xs font-black rounded-xl text-white bg-neutral-900 transition-all text-left">
+                                <i data-lucide="home" class="w-4 h-4 text-spotify"></i> Home
+                            </button>
+                            <button class="w-full flex items-center gap-4 px-4 py-2.5 text-xs font-bold rounded-xl text-neutral-400 hover:text-white transition-all text-left">
+                                <i data-lucide="search" class="w-4 h-4"></i> Search
+                            </button>
                         </div>
-                        <div>
-                            <p class="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-4">Analytics Mixes</p>
-                            <div class="space-y-3">
-                                <div onclick="selectMixTrack(0)" class="cursor-pointer group flex items-center justify-between text-xs text-slate-400 hover:text-emerald-400 transition-colors">
-                                    <span class="truncate font-semibold"><i data-lucide="music" class="inline w-3 h-3 mr-1.5"></i> Acoustic Mix</span>
-                                    <span class="text-[8px] bg-slate-800 px-1.5 py-0.5 rounded text-slate-500">Active</span>
+                        
+                        <!-- Library Track Selector (These load real playable audio) -->
+                        <div class="pt-4 border-t border-neutral-900">
+                            <p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest px-4 mb-4">Your Library</p>
+                            <div class="space-y-1.5">
+                                <div onclick="selectMixTrack(0)" class="cursor-pointer group flex items-center justify-between px-4 py-2 text-xs rounded-xl text-neutral-400 hover:text-white hover:bg-neutral-900 transition-all">
+                                    <span class="truncate font-semibold"><i data-lucide="music-3" class="inline w-3.5 h-3.5 mr-2 text-spotify"></i> Sanson Ki Mala Pey</span>
+                                    <span class="text-[8px] bg-neutral-800 px-1.5 py-0.5 rounded text-neutral-500 font-bold">2:43</span>
                                 </div>
-                                <div onclick="selectMixTrack(1)" class="cursor-pointer group flex items-center justify-between text-xs text-slate-400 hover:text-blue-400 transition-colors">
-                                    <span class="truncate font-semibold"><i data-lucide="music" class="inline w-3 h-3 mr-1.5"></i> High Energy Mix</span>
-                                    <span class="text-[8px] bg-slate-800 px-1.5 py-0.5 rounded text-slate-500">Active</span>
+                                <div onclick="selectMixTrack(1)" class="cursor-pointer group flex items-center justify-between px-4 py-2 text-xs rounded-xl text-neutral-400 hover:text-white hover:bg-neutral-900 transition-all">
+                                    <span class="truncate font-semibold"><i data-lucide="music-3" class="inline w-3.5 h-3.5 mr-2 text-spotify"></i> Midnight Highway</span>
+                                    <span class="text-[8px] bg-neutral-800 px-1.5 py-0.5 rounded text-neutral-500 font-bold">3:12</span>
                                 </div>
-                                <div onclick="selectMixTrack(2)" class="cursor-pointer group flex items-center justify-between text-xs text-slate-400 hover:text-amber-400 transition-colors">
-                                    <span class="truncate font-semibold"><i data-lucide="music" class="inline w-3 h-3 mr-1.5"></i> Variance Mix</span>
-                                    <span class="text-[8px] bg-slate-800 px-1.5 py-0.5 rounded text-slate-500">Active</span>
+                                <div onclick="selectMixTrack(2)" class="cursor-pointer group flex items-center justify-between px-4 py-2 text-xs rounded-xl text-neutral-400 hover:text-white hover:bg-neutral-900 transition-all">
+                                    <span class="truncate font-semibold"><i data-lucide="music-3" class="inline w-3.5 h-3.5 mr-2 text-spotify"></i> Acoustic Sunsets</span>
+                                    <span class="text-[8px] bg-neutral-800 px-1.5 py-0.5 rounded text-neutral-500 font-bold">2:18</span>
+                                </div>
+                                <div onclick="selectMixTrack(3)" class="cursor-pointer group flex items-center justify-between px-4 py-2 text-xs rounded-xl text-neutral-400 hover:text-white hover:bg-neutral-900 transition-all">
+                                    <span class="truncate font-semibold"><i data-lucide="music-3" class="inline w-3.5 h-3.5 mr-2 text-spotify"></i> Neon Club Beats</span>
+                                    <span class="text-[8px] bg-neutral-800 px-1.5 py-0.5 rounded text-neutral-500 font-bold">4:01</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="pt-6 border-t border-slate-900/50 flex items-center gap-2.5">
-                        <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-xs font-black text-slate-400 border border-slate-700">RY</div>
-                        <div>
-                            <p class="text-[10px] font-black text-slate-300 tracking-tight truncate max-w-[80px]">Ritesh Yadav</p>
-                            <p class="text-[8px] font-black uppercase text-blue-500 tracking-widest">Admin Mode</p>
+                    <div class="pt-6 border-t border-neutral-900 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-neutral-800 flex items-center justify-center text-xs font-black text-spotify border border-neutral-700">RY</div>
+                        <div class="truncate">
+                            <p class="text-xs font-black text-neutral-300 truncate">Riteshh Yadav</p>
+                            <p class="text-[9px] font-black uppercase text-neutral-500 tracking-wider">LPU Student Account</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Main Content Panel -->
-                <div class="lg:col-span-7 bg-[#05070e] p-6 lg:p-8 flex flex-col justify-between overflow-y-auto max-h-[600px] scrollbar-hide">
+                <!-- Main Content Panel (Spotify Centered View from screenshot 2.57.50 PM) -->
+                <div class="lg:col-span-6 bg-[#0c0c0c] p-6 lg:p-8 overflow-y-auto max-h-[600px] scrollbar-hide">
                     
-                    <!-- Sandbox Home View Container -->
-                    <div id="sandbox-view-home" class="space-y-8 block">
-                        <!-- Custom styled promo header card (Adapted from Screenshot 2026-07-08 at 2.39.56 PM.jpg) -->
-                        <div class="bg-gradient-to-r from-blue-900/40 via-indigo-950/40 to-[#0c0f24] rounded-2xl p-6 lg:p-8 border border-indigo-900/20 relative overflow-hidden group">
-                            <div class="absolute inset-0 bg-cover bg-center opacity-10 bg-[url('https://placehold.co/800x400/020617/3b82f6?text=Data+Science')]"></div>
-                            <div class="relative z-10 flex flex-col md:flex-row items-center gap-6 justify-between">
-                                <div class="space-y-3 text-center md:text-left">
-                                    <span class="px-2 py-0.5 bg-blue-500/20 text-blue-400 text-[9px] font-black uppercase tracking-widest rounded-full border border-blue-500/30">FEATURED MODEL</span>
-                                    <h3 class="text-3xl font-black tracking-tight text-white leading-none">Ritesh's Stream Mood Dynamics</h3>
-                                    <p class="text-xs text-slate-400 max-w-md">Live implementation tracking Acousticness, Valence, Energy, and NLP sentiment to predict streaming success indices.</p>
-                                    <button onclick="toggleGlobalPlayback()" class="px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white rounded-full text-xs font-black uppercase tracking-wider transition-all inline-flex items-center gap-1.5 shadow-lg shadow-blue-900/30">
-                                        <i data-lucide="play" class="w-3.5 h-3.5 fill-white"></i> Listen & Analyze
-                                    </button>
+                    <!-- Centered Large Art block verbatim from Screenshot 2.57.50 PM -->
+                    <div class="flex flex-col items-center justify-center py-6">
+                        <p class="text-xs font-black text-neutral-400 uppercase tracking-widest mb-4">Liked Songs</p>
+                        
+                        <div class="relative w-72 h-72 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-neutral-800 group mb-6">
+                            <!-- Visual placeholder representing the actual playing cover style -->
+                            <div id="main-art-block" class="w-full h-full bg-gradient-to-tr from-orange-500 to-rose-600 flex flex-col justify-between p-6 transition-all duration-500">
+                                <div class="flex justify-between items-start">
+                                    <span class="text-[9px] font-black uppercase bg-white/20 px-2 py-0.5 rounded backdrop-blur-md">SPEED RECORDS</span>
+                                    <i data-lucide="music" class="w-5 h-5 text-white/60"></i>
                                 </div>
-                                <div class="w-24 h-24 bg-gradient-to-tr from-slate-800 to-indigo-950 rounded-xl border border-slate-700 flex items-center justify-center text-blue-400 shadow-2xl relative overflow-hidden group-hover:scale-105 transition-transform duration-500">
-                                    <i data-lucide="music-4" class="w-12 h-12 text-blue-400 animate-float-subtle"></i>
+                                <div class="space-y-1">
+                                    <p id="artwork-title" class="text-2xl font-black tracking-tighter leading-none text-white drop-shadow">Sanson Ki Mala Pey</p>
+                                    <p id="artwork-artist" class="text-xs text-white/80 font-bold">Nusrat Fateh Ali Khan</p>
                                 </div>
+                            </div>
+                            <!-- Subtle overlay indicator when playing -->
+                            <div id="art-visual-wave" class="absolute bottom-4 right-4 flex items-end gap-0.5 opacity-0 transition-opacity">
+                                <span class="w-1 h-3 bg-spotify animate-bounce" style="animation-delay: 0.1s"></span>
+                                <span class="w-1 h-5 bg-spotify animate-bounce" style="animation-delay: 0.3s"></span>
+                                <span class="w-1 h-2 bg-spotify animate-bounce" style="animation-delay: 0.2s"></span>
                             </div>
                         </div>
 
-                        <!-- "Playlists Made for You" Section (Direct visual match to Screenshot 2026-07-08 at 2.18.50 PM.jpg) -->
-                        <div>
-                            <div class="flex items-center justify-between mb-4">
-                                <p class="text-xs font-black uppercase tracking-wider text-slate-400">Playlists Made for You</p>
-                                <span class="text-[10px] text-slate-500 hover:text-white cursor-pointer font-black tracking-wider uppercase">Show All</span>
+                        <!-- Info tags below the cover art -->
+                        <div class="w-full max-w-md grid grid-cols-2 gap-4 text-xs font-sans">
+                            <div class="p-4 bg-neutral-900 rounded-xl border border-neutral-800/60 hover:border-neutral-700 transition-colors">
+                                <p class="text-[10px] font-black uppercase text-neutral-500 mb-1">Acousticness</p>
+                                <p id="telemetry-box-acoustic" class="text-lg font-black font-mono text-spotify">0.85</p>
                             </div>
-                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                                <!-- Card 1 -->
-                                <div onclick="selectMixTrack(0)" class="cursor-pointer group flex flex-col justify-between p-5 rounded-2xl h-56 transition-all duration-300 relative overflow-hidden shadow-lg hover:-translate-y-1 hover:shadow-2xl border border-white/5 bg-gradient-to-br from-orange-500 to-rose-600">
-                                    <div class="absolute top-4 right-4 bg-white/10 backdrop-blur-md p-1.5 rounded-full"><i data-lucide="music-2" class="w-3.5 h-3.5 text-white"></i></div>
-                                    <div class="space-y-1 z-10">
-                                        <p class="text-2xl font-black tracking-tight leading-none text-white drop-shadow-md">Heavy Rotation</p>
-                                        <p class="text-[8px] text-white/75 font-semibold truncate leading-tight">Navjot Ahuja, Young Stunners, King, Raftaar, Eminem and more</p>
-                                    </div>
-                                </div>
-                                <!-- Card 2 -->
-                                <div onclick="selectMixTrack(1)" class="cursor-pointer group flex flex-col justify-between p-5 rounded-2xl h-56 transition-all duration-300 relative overflow-hidden shadow-lg hover:-translate-y-1 hover:shadow-2xl border border-white/5 bg-gradient-to-br from-indigo-500 to-purple-800">
-                                    <div class="absolute top-4 right-4 bg-white/10 backdrop-blur-md p-1.5 rounded-full"><i data-lucide="music-2" class="w-3.5 h-3.5 text-white"></i></div>
-                                    <div class="space-y-1 z-10">
-                                        <p class="text-2xl font-black tracking-tight leading-none text-white drop-shadow-md">Your Essentials</p>
-                                        <p class="text-[8px] text-white/75 font-semibold truncate leading-tight">Taimour Baig, Young Stunners, Dino James, Rap Demon, Bali and more</p>
-                                    </div>
-                                </div>
-                                <!-- Card 3 -->
-                                <div onclick="selectMixTrack(2)" class="cursor-pointer group flex flex-col justify-between p-5 rounded-2xl h-56 transition-all duration-300 relative overflow-hidden shadow-lg hover:-translate-y-1 hover:shadow-2xl border border-white/5 bg-gradient-to-br from-red-500 to-orange-600">
-                                    <div class="absolute top-4 right-4 bg-white/10 backdrop-blur-md p-1.5 rounded-full"><i data-lucide="music-2" class="w-3.5 h-3.5 text-white"></i></div>
-                                    <div class="space-y-1 z-10">
-                                        <p class="text-2xl font-black tracking-tight leading-none text-white drop-shadow-md">Get Up!</p>
-                                        <p class="text-[8px] text-white/75 font-semibold truncate leading-tight">Karan Aujla, Bohemia, Aditya Rikhari, som., Seedhe Maut and more</p>
-                                    </div>
-                                </div>
-                                <!-- Card 4 -->
-                                <div onclick="selectMixTrack(3)" class="cursor-pointer group flex flex-col justify-between p-5 rounded-2xl h-56 transition-all duration-300 relative overflow-hidden shadow-lg hover:-translate-y-1 hover:shadow-2xl border border-white/5 bg-gradient-to-br from-teal-500 to-emerald-700">
-                                    <div class="absolute top-4 right-4 bg-white/10 backdrop-blur-md p-1.5 rounded-full"><i data-lucide="music-2" class="w-3.5 h-3.5 text-white"></i></div>
-                                    <div class="space-y-1 z-10">
-                                        <p class="text-2xl font-black tracking-tight leading-none text-white drop-shadow-md">Chill</p>
-                                        <p class="text-[8px] text-white/75 font-semibold truncate leading-tight">Tanzeel Khan, ccx, AHSAN, Dream Note, Tanay Chaturvedi, Umair and more</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- "Your Top Mixes" Grid Layout (Direct visual match to Screenshot 2026-07-08 at 2.39.56 PM.jpg) -->
-                        <div>
-                            <div class="flex items-center justify-between mb-4">
-                                <p class="text-xs font-black uppercase tracking-wider text-slate-400">Your Top Mixes</p>
-                                <span class="text-[10px] text-slate-500 hover:text-white cursor-pointer font-black tracking-wider uppercase">Show All</span>
-                            </div>
-                            <div class="grid grid-cols-2 sm:grid-cols-5 gap-4">
-                                <!-- Mix Card 1 -->
-                                <div onclick="selectMixTrack(0)" class="cursor-pointer bg-slate-900/40 hover:bg-slate-900/80 p-3.5 rounded-xl border border-white/5 hover:border-white/10 transition-all flex flex-col justify-between h-52 group">
-                                    <div class="w-full aspect-square bg-[#101524] rounded-lg mb-3 relative overflow-hidden flex flex-col items-center justify-center border border-white/5">
-                                        <i data-lucide="music" class="w-8 h-8 text-emerald-400 opacity-60 group-hover:scale-110 transition-transform"></i>
-                                        <div class="absolute bottom-0 left-0 right-0 h-1.5 bg-emerald-500"></div>
-                                    </div>
-                                    <div>
-                                        <p class="text-xs font-bold text-white leading-tight truncate">Acoustic Mix</p>
-                                        <p class="text-[8px] text-slate-400 truncate mt-0.5">Navjot Ahuja, Young Stunners...</p>
-                                    </div>
-                                </div>
-                                <!-- Mix Card 2 -->
-                                <div onclick="selectMixTrack(1)" class="cursor-pointer bg-slate-900/40 hover:bg-slate-900/80 p-3.5 rounded-xl border border-white/5 hover:border-white/10 transition-all flex flex-col justify-between h-52 group">
-                                    <div class="w-full aspect-square bg-[#101524] rounded-lg mb-3 relative overflow-hidden flex flex-col items-center justify-center border border-white/5">
-                                        <i data-lucide="music" class="w-8 h-8 text-blue-400 opacity-60 group-hover:scale-110 transition-transform"></i>
-                                        <div class="absolute bottom-0 left-0 right-0 h-1.5 bg-blue-500"></div>
-                                    </div>
-                                    <div>
-                                        <p class="text-xs font-bold text-white leading-tight truncate">High Energy Mix</p>
-                                        <p class="text-[8px] text-slate-400 truncate mt-0.5">Karan Aujla, Bohemia, Aditya...</p>
-                                    </div>
-                                </div>
-                                <!-- Mix Card 3 -->
-                                <div onclick="selectMixTrack(2)" class="cursor-pointer bg-slate-900/40 hover:bg-slate-900/80 p-3.5 rounded-xl border border-white/5 hover:border-white/10 transition-all flex flex-col justify-between h-52 group">
-                                    <div class="w-full aspect-square bg-[#101524] rounded-lg mb-3 relative overflow-hidden flex flex-col items-center justify-center border border-white/5">
-                                        <i data-lucide="music" class="w-8 h-8 text-amber-400 opacity-60 group-hover:scale-110 transition-transform"></i>
-                                        <div class="absolute bottom-0 left-0 right-0 h-1.5 bg-amber-500"></div>
-                                    </div>
-                                    <div>
-                                        <p class="text-xs font-bold text-white leading-tight truncate">Variance Mix</p>
-                                        <p class="text-[8px] text-slate-400 truncate mt-0.5">Taimour Baig, Dino James...</p>
-                                    </div>
-                                </div>
-                                <!-- Mix Card 4 -->
-                                <div onclick="selectMixTrack(3)" class="cursor-pointer bg-slate-900/40 hover:bg-slate-900/80 p-3.5 rounded-xl border border-white/5 hover:border-white/10 transition-all flex flex-col justify-between h-52 group">
-                                    <div class="w-full aspect-square bg-[#101524] rounded-lg mb-3 relative overflow-hidden flex flex-col items-center justify-center border border-white/5">
-                                        <i data-lucide="music" class="w-8 h-8 text-rose-400 opacity-60 group-hover:scale-110 transition-transform"></i>
-                                        <div class="absolute bottom-0 left-0 right-0 h-1.5 bg-rose-500"></div>
-                                    </div>
-                                    <div>
-                                        <p class="text-xs font-bold text-white leading-tight truncate">NLP Mood Mix</p>
-                                        <p class="text-[8px] text-slate-400 truncate mt-0.5">Himesh Reshammiya, Neha...</p>
-                                    </div>
-                                </div>
-                                <!-- Mix Card 5 -->
-                                <div onclick="selectMixTrack(1)" class="cursor-pointer bg-slate-900/40 hover:bg-slate-900/80 p-3.5 rounded-xl border border-white/5 hover:border-white/10 transition-all flex flex-col justify-between h-52 group">
-                                    <div class="w-full aspect-square bg-[#101524] rounded-lg mb-3 relative overflow-hidden flex flex-col items-center justify-center border border-white/5">
-                                        <i data-lucide="music" class="w-8 h-8 text-indigo-400 opacity-60 group-hover:scale-110 transition-transform"></i>
-                                        <div class="absolute bottom-0 left-0 right-0 h-1.5 bg-indigo-500"></div>
-                                    </div>
-                                    <div>
-                                        <p class="text-xs font-bold text-white leading-tight truncate">Eminem Mix</p>
-                                        <p class="text-[8px] text-slate-400 truncate mt-0.5">Eminem & Similar Artists...</p>
-                                    </div>
-                                </div>
+                            <div class="p-4 bg-neutral-900 rounded-xl border border-neutral-800/60 hover:border-neutral-700 transition-colors">
+                                <p class="text-[10px] font-black uppercase text-neutral-500 mb-1">Energy</p>
+                                <p id="telemetry-box-energy" class="text-lg font-black font-mono text-spotify">0.15</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Sandbox Spotify KNN Radar Map View -->
-                    <div id="sandbox-view-knn" class="space-y-6 hidden">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white flex items-center gap-2"><i data-lucide="radar" class="text-emerald-400"></i> Acoustic Spatial Visualizer</h3>
-                            <p class="text-xs text-slate-400">Run a live client-side K-Nearest Neighbors prediction model across your music inventory. Adjust parameters below to calculate real-time vector projections.</p>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-slate-950 p-6 rounded-2xl border border-white/5">
-                            <div class="space-y-4">
-                                <div>
-                                    <div class="flex justify-between text-xs mb-1">
-                                        <span class="text-slate-400 font-bold uppercase tracking-widest text-[9px]">Acousticness (X)</span>
-                                        <span id="val-acoustic" class="text-emerald-400 font-black font-mono">0.50</span>
-                                    </div>
-                                    <input id="slider-acoustic" type="range" min="0" max="1" step="0.01" value="0.5" class="w-full h-1 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-400" oninput="runKnnSimulation()">
-                                </div>
-                                <div>
-                                    <div class="flex justify-between text-xs mb-1">
-                                        <span class="text-slate-400 font-bold uppercase tracking-widest text-[9px]">Energy (Y)</span>
-                                        <span id="val-energy" class="text-emerald-400 font-black font-mono">0.60</span>
-                                    </div>
-                                    <input id="slider-energy" type="range" min="0" max="1" step="0.01" value="0.6" class="w-full h-1 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-400" oninput="runKnnSimulation()">
-                                </div>
-                                <div class="bg-slate-900 p-4 rounded-xl space-y-2">
-                                    <p class="text-[10px] font-black uppercase text-slate-500 tracking-widest">Active Core Stack Target</p>
-                                    <p class="text-xs text-slate-300">Models acoustic plane vector metrics dynamically using standard L2 norms inside the user's browser.</p>
+                    <!-- Scroll Down Details: About the Artist & Credits verbatim from Screenshot 2.57.54 PM -->
+                    <div class="pt-8 border-t border-neutral-900 space-y-8 mt-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            
+                            <!-- "About the artist" visual container -->
+                            <div class="relative bg-neutral-900 rounded-2xl overflow-hidden border border-neutral-800/80 min-h-[260px] flex flex-col justify-end p-5 group">
+                                <div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:scale-105 transition-transform duration-700" style="background-image: url('https://placehold.co/400x300/151515/333333?text=Ritesh+Yadav')"></div>
+                                <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/40 to-transparent"></div>
+                                
+                                <div class="relative z-10 space-y-2">
+                                    <p class="text-xs font-black text-neutral-400 uppercase tracking-widest">About the Artist</p>
+                                    <h4 class="text-xl font-black">Ritesh Yadav</h4>
+                                    <p class="text-[10px] text-neutral-400 font-bold">36,62,613 monthly listeners</p>
+                                    <p class="text-[11px] text-neutral-300 leading-relaxed">Lead Analytics Engineer bridging corporate performance matrices and high-dimension statistical streams to automate corporate growth vectors.</p>
+                                    <button onclick="window.open('https://linkedin.com/in/ritesh-yadav', '_blank')" class="mt-3 text-[10px] font-black tracking-widest uppercase bg-white text-black px-4 py-1.5 rounded-full hover:scale-105 active:scale-95 transition-all">Follow</button>
                                 </div>
                             </div>
-                            <div class="flex flex-col justify-between">
-                                <p class="text-[9px] font-black uppercase text-slate-400 tracking-widest text-center mb-2">Calculated Matches (k=3)</p>
-                                <div id="knn-results-container" class="space-y-2"></div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Sandbox PL/SQL Live Logs Console View -->
-                    <div id="sandbox-view-db" class="space-y-6 hidden">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white flex items-center gap-2"><i data-lucide="database" class="text-amber-400"></i> Corporate Cost & Allocation System</h3>
-                            <p class="text-xs text-slate-400">Verifying live overhead allocation triggers, variance matrices, and auditing transactions mapped directly to Reias India operations.</p>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <button onclick="runLibraryQuery(1)" class="text-left p-4 rounded-xl border border-slate-800 bg-slate-950 hover:bg-slate-900 transition-all flex justify-between items-center group">
+                            <!-- "Credits" panel matching screenshot 2.57.54 PM -->
+                            <div class="bg-neutral-900 rounded-2xl p-5 border border-neutral-800/80 flex flex-col justify-between">
                                 <div>
-                                    <p class="text-[10px] font-mono text-amber-400 font-black">SELECT * FROM overhead_variance;</p>
-                                    <p class="text-[9px] text-slate-400 mt-0.5">Audits spending limits and variance thresholds.</p>
+                                    <div class="flex justify-between items-center mb-4">
+                                        <h4 class="text-xs font-black text-neutral-400 uppercase tracking-widest">Credits</h4>
+                                        <span class="text-[9px] text-neutral-500 hover:text-white cursor-pointer font-bold uppercase tracking-wider">Show all</span>
+                                    </div>
+                                    <div class="space-y-3">
+                                        <div class="flex justify-between items-center text-xs">
+                                            <div>
+                                                <p class="font-bold text-white">Ritesh Yadav</p>
+                                                <p class="text-[9px] text-neutral-400">Main Analyst / Engineer</p>
+                                            </div>
+                                            <button class="text-[9px] font-bold border border-neutral-700 hover:border-white rounded-full px-3 py-1 transition-colors">Follow</button>
+                                        </div>
+                                        <div class="flex justify-between items-center text-xs">
+                                            <div>
+                                                <p class="font-bold text-white">Python VADER</p>
+                                                <p class="text-[9px] text-neutral-400">Natural Language Processor</p>
+                                            </div>
+                                            <button class="text-[9px] font-bold border border-neutral-700 hover:border-white rounded-full px-3 py-1 transition-colors">Follow</button>
+                                        </div>
+                                        <div class="flex justify-between items-center text-xs">
+                                            <div>
+                                                <p class="font-bold text-white">Scikit-Learn KNN</p>
+                                                <p class="text-[9px] text-neutral-400">Space Dimension Allocator</p>
+                                            </div>
+                                            <button class="text-[9px] font-bold border border-neutral-700 hover:border-white rounded-full px-3 py-1 transition-colors">Follow</button>
+                                        </div>
+                                    </div>
                                 </div>
-                                <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:translate-x-1 transition-all"></i>
-                            </button>
-                            <button onclick="runLibraryQuery(2)" class="text-left p-4 rounded-xl border border-slate-800 bg-slate-950 hover:bg-slate-900 transition-all flex justify-between items-center group">
-                                <div>
-                                    <p class="text-[10px] font-mono text-amber-400 font-black">SELECT * FROM business_pipelines;</p>
-                                    <p class="text-[9px] text-slate-400 mt-0.5">Outputs core channel margins & closed pipelines.</p>
+                                <div class="pt-4 border-t border-neutral-800 mt-4">
+                                    <p class="text-[9px] text-neutral-500 font-semibold uppercase tracking-widest">Active Core Release</p>
                                 </div>
-                                <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:translate-x-1 transition-all"></i>
-                            </button>
+                            </div>
+
                         </div>
-                        <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 flex flex-col justify-between min-h-[160px]">
-                            <div class="font-mono text-xs text-slate-300 space-y-2" id="sql-terminal-body">
-                                <span class="text-slate-500">// Oracle DB ready. Click queries above to load live transaction tables.</span>
+
+                        <!-- Manual Acousticness & Energy Vectors Setup (The actual KNN calculator interface) -->
+                        <div class="p-6 bg-neutral-950 rounded-2xl border border-neutral-900">
+                            <p class="text-xs font-black uppercase text-spotify tracking-widest mb-3">Live KNN Vector Adjustment</p>
+                            <p class="text-[10px] text-neutral-400 mb-4 leading-relaxed">Adjust these vectors to dynamically update matching playlists and track recommendation coordinates.</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <div class="flex justify-between text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-1">
+                                        <span>Acousticness</span>
+                                        <span id="val-acoustic" class="text-spotify font-mono">0.85</span>
+                                    </div>
+                                    <input id="slider-acoustic" type="range" min="0" max="1" step="0.01" value="0.85" class="w-full h-1 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-spotify" oninput="runKnnSimulation()">
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-1">
+                                        <span>Energy</span>
+                                        <span id="val-energy" class="text-spotify font-mono">0.15</span>
+                                    </div>
+                                    <input id="slider-energy" type="range" min="0" max="1" step="0.01" value="0.15" class="w-full h-1 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-spotify" oninput="runKnnSimulation()">
+                                </div>
                             </div>
                         </div>
                     </div>
 
                 </div>
 
-                <!-- Right-hand Sidebar Panel (Adapted from Screenshot 2026-07-08 at 2.39.56 PM.jpg) -->
-                <div class="lg:col-span-3 bg-[#080c14] border-l border-slate-950 p-6 flex flex-col gap-6">
-                    <div>
-                        <p class="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-4">Acoustic Radar Projection</p>
-                        <div class="relative w-full aspect-square bg-[#030610] rounded-xl overflow-hidden border border-slate-800">
-                            <canvas id="knn-canvas" class="absolute inset-0 w-full h-full cursor-crosshair"></canvas>
+                <!-- Right-hand Sidebar (Acoustic Space Visualization) -->
+                <div class="lg:col-span-3 bg-[#121212] p-5 flex flex-col justify-between border-l border-neutral-900">
+                    <div class="space-y-6">
+                        <div>
+                            <p class="text-[10px] font-black text-neutral-500 uppercase tracking-widest mb-4">Acoustic Radar Projections</p>
+                            <div class="relative w-full aspect-square bg-[#050505] rounded-xl overflow-hidden border border-neutral-900 shadow-inner">
+                                <canvas id="knn-canvas" class="absolute inset-0 w-full h-full cursor-crosshair"></canvas>
+                            </div>
+                            <p class="text-[8px] text-neutral-500 text-center mt-2 font-semibold">Click coordinates above to project custom vectors</p>
                         </div>
-                        <p class="text-[8px] text-slate-500 text-center mt-2">Interactive 2D vector space tracking Acousticness vs Energy</p>
+                        
+                        <div class="bg-neutral-950 p-3 rounded-lg border border-neutral-900">
+                            <p class="text-[9px] font-black text-neutral-500 uppercase tracking-widest mb-2">KNN Matches (k=3)</p>
+                            <div id="knn-results-container" class="space-y-1.5"></div>
+                        </div>
                     </div>
 
-                    <div class="border-t border-slate-900/50 pt-4">
-                        <p class="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-3">About the Track</p>
-                        <div class="bg-slate-950 p-3 rounded-lg border border-slate-900 flex gap-3">
-                            <div class="w-10 h-10 bg-gradient-to-tr from-[#1db954] to-[#0d0d0d] rounded flex items-center justify-center text-white"><i data-lucide="music" class="w-5 h-5"></i></div>
+                    <div class="bg-neutral-950 p-3 rounded-lg border border-neutral-900">
+                        <div class="flex gap-3">
+                            <div class="w-10 h-10 bg-gradient-to-tr from-spotify to-black rounded flex items-center justify-center text-white"><i data-lucide="music" class="w-5 h-5 text-white"></i></div>
                             <div class="truncate">
                                 <p id="artist-title-widget" class="text-xs font-bold text-white truncate">Sanson Ki Mala Pey</p>
-                                <p id="artist-sub-widget" class="text-[9px] text-slate-400 truncate">Nusrat Fateh Ali Khan Mix</p>
+                                <p id="artist-sub-widget" class="text-[9px] text-neutral-400 truncate">Nusrat Fateh Ali Khan Mix</p>
                             </div>
                         </div>
                     </div>
@@ -711,52 +655,49 @@
 
             </div>
 
-            <!-- Integrated Bottom Playback Control Bar (Direct visual match to Screenshot 2026-07-08 at 2.39.56 PM.jpg and Screenshot 2026-07-08 at 2.18.50 PM.jpg) -->
-            <div class="bg-[#0b0f19] border-t border-slate-800 p-4 lg:p-6 flex flex-col md:flex-row items-center justify-between gap-4 mt-1 rounded-b-3xl">
-                <!-- Track Left section -->
+            <!-- Spotify Themed Integrated Bottom Playback Control Bar -->
+            <div class="bg-neutral-900 border-t border-neutral-800 p-4 lg:p-6 flex flex-col md:flex-row items-center justify-between gap-4 mt-1 rounded-b-3xl">
                 <div class="flex items-center gap-4 w-full md:w-1/3">
                     <div id="playing-artwork" class="w-12 h-12 rounded bg-gradient-to-tr from-orange-500 to-rose-600 flex items-center justify-center text-white shrink-0 shadow-lg border border-white/10">
                         <i data-lucide="music" class="w-6 h-6"></i>
                     </div>
                     <div class="truncate">
                         <p id="playing-track-name" class="text-sm font-bold text-white truncate">Sanson Ki Mala Pey</p>
-                        <p id="playing-artist" class="text-xs text-slate-400 truncate">Nusrat Fateh Ali Khan - Love and Devotion</p>
+                        <p id="playing-artist" class="text-xs text-neutral-400 truncate">Nusrat Fateh Ali Khan - Love and Devotion</p>
                     </div>
                 </div>
 
-                <!-- Track Center Player controls -->
                 <div class="flex flex-col items-center gap-2 w-full md:w-1/3">
                     <div class="flex items-center gap-6">
-                        <button onclick="shuffleTrack()" class="text-slate-400 hover:text-white transition-colors" aria-label="Shuffle"><i data-lucide="shuffle" class="w-4 h-4"></i></button>
-                        <button onclick="skipPrev()" class="text-slate-400 hover:text-white transition-colors" aria-label="Previous"><i data-lucide="skip-back" class="w-4 h-4"></i></button>
-                        <button onclick="toggleGlobalPlayback()" id="global-play-btn" class="w-9 h-9 bg-white text-slate-950 rounded-full flex items-center justify-center hover:scale-105 active:scale-95 transition-all shadow-md" aria-label="Play">
-                            <i data-lucide="play" class="w-5 h-5 fill-slate-950 text-slate-950"></i>
+                        <button onclick="shuffleTrack()" class="text-neutral-400 hover:text-white transition-colors" aria-label="Shuffle"><i data-lucide="shuffle" class="w-4 h-4"></i></button>
+                        <button onclick="skipPrev()" class="text-neutral-400 hover:text-white transition-colors" aria-label="Previous"><i data-lucide="skip-back" class="w-4 h-4"></i></button>
+                        <button onclick="toggleGlobalPlayback()" id="global-play-btn" class="w-9 h-9 bg-white text-black rounded-full flex items-center justify-center hover:scale-105 active:scale-95 transition-all shadow-md" aria-label="Play">
+                            <i data-lucide="play" class="w-5 h-5 fill-black text-black"></i>
                         </button>
-                        <button onclick="skipNext()" class="text-slate-400 hover:text-white transition-colors" aria-label="Next"><i data-lucide="skip-forward" class="w-4 h-4"></i></button>
-                        <button class="text-slate-400 hover:text-white transition-colors" aria-label="Repeat"><i data-lucide="repeat" class="w-4 h-4"></i></button>
+                        <button onclick="skipNext()" class="text-neutral-400 hover:text-white transition-colors" aria-label="Next"><i data-lucide="skip-forward" class="w-4 h-4"></i></button>
+                        <button class="text-neutral-400 hover:text-white transition-colors" aria-label="Repeat"><i data-lucide="repeat" class="w-4 h-4"></i></button>
                     </div>
                     <div class="flex items-center gap-3 w-full">
-                        <span id="player-time-current" class="text-[10px] font-mono text-slate-400">0:10</span>
-                        <div class="flex-1 h-1 bg-slate-800 rounded-full relative overflow-hidden group cursor-pointer">
-                            <div id="player-time-progress" class="absolute top-0 left-0 h-full bg-emerald-400" style="width: 15%"></div>
+                        <span id="player-time-current" class="text-[10px] font-mono text-neutral-400 font-bold">0:00</span>
+                        <div class="flex-1 h-1 bg-neutral-800 rounded-full relative overflow-hidden cursor-pointer" onclick="handleTrackSeek(event)">
+                            <div id="player-time-progress" class="absolute top-0 left-0 h-full bg-spotify" style="width: 0%"></div>
                         </div>
-                        <span id="player-time-total" class="text-[10px] font-mono text-slate-400">2:43</span>
+                        <span id="player-time-total" class="text-[10px] font-mono text-neutral-400 font-bold">2:43</span>
                     </div>
                 </div>
 
-                <!-- Track Right Telemetry readout -->
                 <div class="hidden md:flex items-center justify-end gap-6 w-full md:w-1/3">
                     <div class="text-right">
-                        <div class="flex items-center gap-2 text-xs font-semibold text-emerald-400 font-mono">
-                            <span>A: <strong id="telemetry-acoustics">0.85</strong></span>
-                            <span>E: <strong id="telemetry-energy">0.15</strong></span>
+                        <div class="flex items-center gap-2 text-xs font-semibold text-spotify font-mono">
+                            <span>Acousticness: <strong id="telemetry-acoustics">0.85</strong></span>
+                            <span>Energy: <strong id="telemetry-energy">0.15</strong></span>
                         </div>
-                        <p class="text-[8px] text-slate-500 font-black uppercase tracking-widest mt-0.5">Live Vector Feeds</p>
+                        <p class="text-[8px] text-neutral-500 font-black uppercase tracking-widest mt-0.5">Spotify Audio Coordinates</p>
                     </div>
                     <div class="flex items-center gap-2">
-                        <i data-lucide="volume-2" class="w-4 h-4 text-slate-400"></i>
-                        <div class="w-16 h-1 bg-slate-800 rounded-full">
-                            <div class="h-full bg-slate-400 rounded-full" style="width: 70%"></div>
+                        <i data-lucide="volume-2" class="w-4 h-4 text-neutral-400 animate-pulse-soft"></i>
+                        <div class="w-16 h-1 bg-neutral-800 rounded-full cursor-pointer" onclick="handleVolumeSeek(event)">
+                            <div id="volume-indicator" class="h-full bg-neutral-400 rounded-full" style="width: 70%"></div>
                         </div>
                     </div>
                 </div>
@@ -765,7 +706,110 @@
         </div>
     </section>
 
-    <!-- TECHNICAL STACK GRID (Categorized with Progress Meters) -->
+    <!-- REIAS INDIA WORKPLACE ANALYTICS PORTAL (Styled around reiasindia.com Verbatim) -->
+    <section id="reias-sandbox" class="py-24 px-4 lg:px-8 bg-neutral-900 text-white rounded-[3rem] mx-2 lg:mx-6 my-10 overflow-hidden relative shadow-2xl border border-neutral-800">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="mb-10 text-center lg:text-left flex flex-col lg:flex-row items-center lg:items-end justify-between gap-6">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-reias-500/15 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] text-reias-500 mb-3 border border-reias-500/30">
+                        <i data-lucide="building-2" class="w-3 h-3 text-reias-500"></i> CORPORATE CONSULTING INTELLIGENCE
+                    </div>
+                    <h2 class="text-4xl font-black tracking-tight mb-2 text-reias-100">Reias India Portfolio Portal</h2>
+                    <p class="text-neutral-400 text-xs max-w-xl">Interactive dashboard mapping Gurugram premium residential & commercial projects managed by Ritesh as a Business Analyst.</p>
+                </div>
+                <div class="bg-neutral-950 px-4 py-2 rounded-xl border border-neutral-800 text-[10px] text-neutral-400 font-semibold flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-amber-500 animate-ping"></span> Gurugram Real Estate Feed Active
+                </div>
+            </div>
+
+            <!-- Corporate Panel Grid Layout -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 bg-black rounded-3xl overflow-hidden border border-neutral-800">
+                
+                <!-- Left Hand Premium Property Catalog -->
+                <div class="lg:col-span-4 bg-[#111] p-6 border-r border-neutral-900 flex flex-col justify-between">
+                    <div>
+                        <p class="text-[10px] font-black uppercase text-neutral-500 tracking-wider mb-4">Gurgaon Premium Portfolios</p>
+                        <div id="reias-properties-list" class="space-y-3">
+                            <!-- Injected by JavaScript dynamically -->
+                        </div>
+                    </div>
+                    <div class="bg-neutral-950 p-4 rounded-xl border border-neutral-900 mt-6">
+                        <p class="text-[10px] font-black uppercase text-reias-500 tracking-widest mb-1.5">Internship Insight</p>
+                        <p class="text-[10px] text-neutral-400 leading-relaxed">Ritesh analyzed property cost pipelines, minimized overheads by 10%, and streamlined client valuation matrices at Reias Gurgaon Office.</p>
+                    </div>
+                </div>
+
+                <!-- Right Hand Calculator and Transaction Logging Terminal -->
+                <div class="lg:col-span-8 bg-black p-6 lg:p-8 flex flex-col justify-between">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        
+                        <!-- Valuation Interactive Matrix -->
+                        <div class="space-y-4">
+                            <p class="text-[10px] font-black uppercase tracking-widest text-neutral-500">Property Yield Calculator</p>
+                            <div class="space-y-3">
+                                <div>
+                                    <label class="text-[10px] font-bold text-neutral-400 block mb-1">Portfolio Size (sq. ft.)</label>
+                                    <input id="reias-calc-size" type="number" value="3500" class="w-full bg-neutral-950 rounded-lg p-2.5 text-xs text-white border border-neutral-800 font-mono" oninput="calculateReiasYield()">
+                                </div>
+                                <div>
+                                    <label class="text-[10px] font-bold text-neutral-400 block mb-1">Premium Brokerage Rate (%)</label>
+                                    <select id="reias-calc-rate" class="w-full bg-neutral-950 rounded-lg p-2.5 text-xs text-white border border-neutral-800 font-mono" onchange="calculateReiasYield()">
+                                        <option value="1.0">1.0% Standard</option>
+                                        <option value="1.5">1.5% Corporate Yield</option>
+                                        <option value="2.0">2.0% Luxury Tier</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="text-[10px] font-bold text-neutral-400 block mb-1">Property Overhead Burden (%)</label>
+                                    <input id="reias-calc-overhead" type="range" min="5" max="25" value="12" class="w-full h-1 bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-reias-500" oninput="calculateReiasYield()">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Real-Time Metrics Output -->
+                        <div class="bg-neutral-950 p-6 rounded-2xl border border-neutral-900 flex flex-col justify-between">
+                            <div>
+                                <p class="text-[10px] font-black uppercase tracking-widest text-neutral-500 mb-4">Calculated Brokerage Metrics</p>
+                                <div class="space-y-4">
+                                    <div>
+                                        <p class="text-xs text-neutral-400 font-bold">Estimated Deal Value</p>
+                                        <p id="reias-out-deal-value" class="text-2xl font-black text-white font-mono">₹ 0.00</p>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-2">
+                                        <div>
+                                            <p class="text-[9px] text-neutral-500 uppercase font-black">Brokerage Margin</p>
+                                            <p id="reias-out-brokerage" class="text-sm font-black text-reias-500 font-mono">₹ 0.00</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-[9px] text-neutral-500 uppercase font-black">Overhead Cut</p>
+                                            <p id="reias-out-overhead" class="text-sm font-black text-rose-400 font-mono">₹ 0.00</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pt-4 border-t border-neutral-900">
+                                <span class="text-[9px] text-neutral-500">Formulated utilizing Sector 66 Real Estate Indices.</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Live transaction timeline logs simulation -->
+                    <div class="mt-8 border-t border-neutral-900 pt-6">
+                        <p class="text-[10px] font-black uppercase text-neutral-500 tracking-wider mb-3">Reias Gurugram Transaction Ledger logs</p>
+                        <div class="bg-neutral-950 p-4 rounded-xl border border-neutral-900 font-mono text-[10px] text-neutral-400 space-y-1.5" id="reias-logs-ledg">
+                            <!-- Injected by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- TECHNICAL STACK GRID -->
     <section id="skills" class="py-32 px-6 border-y border-slate-100 dark:border-slate-900 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-20 reveal">
@@ -802,54 +846,6 @@
                         <h4 class="text-lg font-bold mb-2 text-[#2D1F27] dark:text-slate-200">Looker & Google Analytics</h4>
                         <div class="skill-meter-bg"><div class="skill-meter-fill bg-indigo-500" style="--percent: 88%"></div></div>
                     </div>
-                    <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal" style="transition-delay: 150ms;">
-                        <div class="flex items-center justify-between mb-6">
-                            <div class="w-12 h-12 bg-yellow-50 dark:bg-yellow-950/40 rounded-2xl flex items-center justify-center text-yellow-600 dark:text-yellow-400 group-hover:scale-110 transition-transform duration-300"><i data-lucide="code-2" class="animate-pulse-soft"></i></div>
-                            <span class="text-xs font-black text-slate-400 uppercase tracking-widest"><span class="counter" data-target="85">0</span>%</span>
-                        </div>
-                        <h4 class="text-lg font-bold mb-2 text-[#2D1F27] dark:text-slate-200">Python Programming</h4>
-                        <div class="skill-meter-bg"><div class="skill-meter-fill bg-yellow-500" style="--percent: 85%"></div></div>
-                    </div>
-                    <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal" style="transition-delay: 200ms;">
-                        <div class="flex items-center justify-between mb-6">
-                            <div class="w-12 h-12 bg-purple-50 dark:bg-purple-950/40 rounded-2xl flex items-center justify-center text-purple-600 dark:text-purple-400 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300"><i data-lucide="cpu" class="animate-float-subtle"></i></div>
-                            <span class="text-xs font-black text-slate-400 uppercase tracking-widest"><span class="counter" data-target="82">0</span>%</span>
-                        </div>
-                        <h4 class="text-lg font-bold mb-2 text-[#2D1F27] dark:text-slate-200">Machine Learning & GenAI</h4>
-                        <div class="skill-meter-bg"><div class="skill-meter-fill bg-purple-500" style="--percent: 82%"></div></div>
-                    </div>
-                    <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal" style="transition-delay: 250ms;">
-                        <div class="flex items-center justify-between mb-6">
-                            <div class="w-12 h-12 bg-blue-50 dark:bg-blue-950/40 rounded-2xl flex items-center justify-center text-blue-600 dark:text-blue-400 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300"><i data-lucide="bar-chart-3" class="animate-pulse-soft"></i></div>
-                            <span class="text-xs font-black text-slate-400 uppercase tracking-widest"><span class="counter" data-target="90">0</span>%</span>
-                        </div>
-                        <h4 class="text-lg font-bold mb-2 text-[#2D1F27] dark:text-slate-200">Financial Modeling</h4>
-                        <div class="skill-meter-bg"><div class="skill-meter-fill bg-blue-600" style="--percent: 90%"></div></div>
-                    </div>
-                    <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal" style="transition-delay: 300ms;">
-                        <div class="flex items-center justify-between mb-6">
-                            <div class="w-12 h-12 bg-orange-50 dark:bg-orange-950/40 rounded-2xl flex items-center justify-center text-orange-600 dark:text-orange-400 group-hover:scale-110 transition-transform duration-300"><i data-lucide="layout" class="animate-float-subtle"></i></div>
-                            <span class="text-xs font-black text-slate-400 uppercase tracking-widest"><span class="counter" data-target="92">0</span>%</span>
-                        </div>
-                        <h4 class="text-lg font-bold mb-2 text-[#2D1F27] dark:text-slate-200">Power BI & Tableau</h4>
-                        <div class="skill-meter-bg"><div class="skill-meter-fill bg-orange-500" style="--percent: 92%"></div></div>
-                    </div>
-                    <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal" style="transition-delay: 350ms;">
-                        <div class="flex items-center justify-between mb-6">
-                            <div class="w-12 h-12 bg-rose-50 dark:bg-rose-950/40 rounded-2xl flex items-center justify-center text-rose-600 dark:text-rose-400 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300"><i data-lucide="activity" class="animate-pulse-soft"></i></div>
-                            <span class="text-xs font-black text-slate-400 uppercase tracking-widest"><span class="counter" data-target="87">0</span>%</span>
-                        </div>
-                        <h4 class="text-lg font-bold mb-2 text-[#2D1F27] dark:text-slate-200">Predictive Analytics</h4>
-                        <div class="skill-meter-bg"><div class="skill-meter-fill bg-rose-500" style="--percent: 87%"></div></div>
-                    </div>
-                    <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal" style="transition-delay: 400ms;">
-                        <div class="flex items-center justify-between mb-6">
-                            <div class="w-12 h-12 bg-cyan-50 dark:bg-cyan-950/40 rounded-2xl flex items-center justify-center text-cyan-600 dark:text-cyan-400 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300"><i data-lucide="git-merge" class="animate-float-subtle"></i></div>
-                            <span class="text-xs font-black text-slate-400 uppercase tracking-widest"><span class="counter" data-target="84">0</span>%</span>
-                        </div>
-                        <h4 class="text-lg font-bold mb-2 text-[#2D1F27] dark:text-slate-200">ETL & Data Warehousing</h4>
-                        <div class="skill-meter-bg"><div class="skill-meter-fill bg-cyan-500" style="--percent: 84%"></div></div>
-                    </div>
                 </div>
             </div>
 
@@ -883,30 +879,6 @@
                         <h4 class="text-lg font-bold mb-2 text-[#2D1F27] dark:text-slate-200">Data Storytelling</h4>
                         <div class="skill-meter-bg"><div class="skill-meter-fill bg-green-500" style="--percent: 90%"></div></div>
                     </div>
-                    <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal" style="transition-delay: 150ms;">
-                        <div class="flex items-center justify-between mb-6">
-                            <div class="w-12 h-12 bg-amber-50 dark:bg-amber-950/40 rounded-2xl flex items-center justify-center text-amber-600 dark:text-amber-400 group-hover:scale-125 group-hover:-rotate-12 transition-transform duration-300"><i data-lucide="briefcase" class="animate-pulse-soft"></i></div>
-                            <span class="text-xs font-black text-slate-400 uppercase tracking-widest"><span class="counter" data-target="94">0</span>%</span>
-                        </div>
-                        <h4 class="text-lg font-bold mb-2 text-[#2D1F27] dark:text-slate-200">Stakeholder Management</h4>
-                        <div class="skill-meter-bg"><div class="skill-meter-fill bg-amber-500" style="--percent: 94%"></div></div>
-                    </div>
-                    <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal" style="transition-delay: 200ms;">
-                        <div class="flex items-center justify-between mb-6">
-                            <div class="w-12 h-12 bg-teal-50 dark:bg-teal-950/40 rounded-2xl flex items-center justify-center text-teal-600 dark:text-teal-400 group-hover:scale-125 group-hover:-translate-y-2 transition-transform duration-300"><i data-lucide="layers" class="animate-float-subtle"></i></div>
-                            <span class="text-xs font-black text-slate-400 uppercase tracking-widest"><span class="counter" data-target="91">0</span>%</span>
-                        </div>
-                        <h4 class="text-lg font-bold mb-2 text-[#2D1F27] dark:text-slate-200">Agile Methodologies</h4>
-                        <div class="skill-meter-bg"><div class="skill-meter-fill bg-teal-500" style="--percent: 91%"></div></div>
-                    </div>
-                    <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal" style="transition-delay: 250ms;">
-                        <div class="flex items-center justify-between mb-6">
-                            <div class="w-12 h-12 bg-pink-50 dark:bg-pink-950/40 rounded-2xl flex items-center justify-center text-pink-600 dark:text-pink-400 group-hover:scale-125 group-hover:rotate-180 transition-all duration-700"><i data-lucide="shield-check" class="animate-spin-slow"></i></div>
-                            <span class="text-xs font-black text-slate-400 uppercase tracking-widest"><span class="counter" data-target="89">0</span>%</span>
-                        </div>
-                        <h4 class="text-lg font-bold mb-2 text-[#2D1F27] dark:text-slate-200">Risk Mitigation & Audit</h4>
-                        <div class="skill-meter-bg"><div class="skill-meter-fill bg-pink-500" style="--percent: 89%"></div></div>
-                    </div>
                 </div>
             </div>
 
@@ -921,7 +893,6 @@
                     <h2 class="text-5xl font-bold tracking-tighter mb-2 gradient-text-animate">Professional Certificates</h2>
                     <p class="text-slate-500 dark:text-slate-400 text-lg">Detailed accreditation of industrial competencies.</p>
                 </div>
-                <!-- Filter Buttons Suite -->
                 <div class="flex flex-wrap gap-2">
                     <button onclick="filterCerts('all')" id="filter-btn-all" class="px-5 py-2 bg-slate-900 dark:bg-white text-white dark:text-slate-950 text-xs font-bold rounded-full transition-all tracking-wider uppercase">All</button>
                     <button onclick="filterCerts('ds')" id="filter-btn-ds" class="px-5 py-2 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-bold rounded-full border border-slate-100 dark:border-slate-700 hover:border-blue-500 dark:hover:border-blue-500 transition-all tracking-wider uppercase">Data/AI</button>
@@ -938,7 +909,6 @@
         <div class="max-w-6xl mx-auto">
             <h2 class="text-5xl font-bold tracking-tighter mb-20 reveal gradient-text-animate">Beyond Academic</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <!-- Volunteer Card -->
                 <div class="bento-card reveal group">
                     <div class="bento-inner p-12 rounded-[4rem] relative min-h-[400px]">
                         <div class="absolute inset-0 opacity-[0.03] overflow-hidden pointer-events-none group-hover:opacity-[0.08] transition-opacity">
@@ -956,7 +926,6 @@ print("Financial literacy metrics...")
                         </div>
                     </div>
                 </div>
-                <!-- Case Competition Card -->
                 <div class="bento-card reveal group">
                     <div class="bento-inner p-12 rounded-[4rem] relative min-h-[400px]">
                         <div class="relative z-10">
@@ -1049,7 +1018,7 @@ print("Financial literacy metrics...")
                 <i data-lucide="github" class="w-4 h-4 group-hover:animate-float-subtle"></i> GitHub
             </a>
         </div>
-        <p class="text-slate-300 dark:text-slate-700 text-[10px] font-black uppercase tracking-[0.5em] reveal">Business Analytics & Corporate Finance Portfolio • <span class="counter" data-target="2026">0</span></p>
+        <p class="text-slate-300 dark:text-slate-700 text-[10px] font-black uppercase tracking-[0.5em] reveal font-mono">Portfolio • <span class="counter" data-target="2026">0</span></p>
     </footer>
 
     <!-- Certification Modal -->
@@ -1382,123 +1351,183 @@ print("Financial literacy metrics...")
             }, 50);
         }
 
-        // Live Mock Music Inventory matching Screenshot references
+        // Real Playable Audio streams (SoundHelix public domain MP3 links)
         const trackDataset = [
-            { title: "Sanson Ki Mala Pey", artist: "Nusrat Fateh Ali Khan", acousticness: 0.85, energy: 0.15, duration: "2:43", gradient: "from-orange-500 to-rose-600" },
-            { title: "Midnight Highway", artist: "ElectroWave Mix", acousticness: 0.12, energy: 0.88, duration: "3:12", gradient: "from-indigo-500 to-purple-800" },
-            { title: "Acoustic Sunsets", artist: "Folk Whisper Duo", acousticness: 0.95, energy: 0.25, duration: "2:18", gradient: "from-red-500 to-orange-600" },
-            { title: "Neon Club Beats", artist: "Synth Lord", acousticness: 0.05, energy: 0.95, duration: "4:01", gradient: "from-teal-500 to-emerald-700" }
+            { 
+                title: "Sanson Ki Mala Pey", 
+                artist: "Ritesh Yadav (Acoustic Mix)", 
+                acousticness: 0.85, 
+                energy: 0.15, 
+                duration: "6:12", 
+                gradient: "from-orange-500 to-rose-600",
+                streamUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+            },
+            { 
+                title: "Midnight Highway", 
+                artist: "ElectroWave Mix", 
+                acousticness: 0.12, 
+                energy: 0.88, 
+                duration: "7:05", 
+                gradient: "from-indigo-500 to-purple-800",
+                streamUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+            },
+            { 
+                title: "Acoustic Sunsets", 
+                artist: "Folk Whisper Duo", 
+                acousticness: 0.95, 
+                energy: 0.25, 
+                duration: "5:44", 
+                gradient: "from-red-500 to-orange-600",
+                streamUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
+            },
+            { 
+                title: "Neon Club Beats", 
+                artist: "Synth Lord", 
+                acousticness: 0.05, 
+                energy: 0.95, 
+                duration: "5:02", 
+                gradient: "from-teal-500 to-emerald-700",
+                streamUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"
+            }
         ];
 
         let activeTrackIndex = 0;
         let isPlaybackRunning = false;
-        let playbackTimer = null;
-        let currentProgressSeconds = 10;
+        let nativePlayer = null;
 
-        function selectSandboxSection(sectionName) {
-            const homeBtn = document.getElementById('nav-btn-home');
-            const knnBtn = document.getElementById('nav-btn-knn');
-            const dbBtn = document.getElementById('nav-btn-db');
-
-            const homeView = document.getElementById('sandbox-view-home');
-            const knnView = document.getElementById('sandbox-view-knn');
-            const dbView = document.getElementById('sandbox-view-db');
-
-            // Reset navigation classes
-            [homeBtn, knnBtn, dbBtn].forEach(btn => {
-                btn.className = "w-full flex items-center gap-3 px-3 py-2 text-sm font-semibold rounded-lg text-slate-400 hover:text-white hover:bg-slate-900/50 transition-all";
-            });
-
-            // Hide views
-            homeView.classList.replace('block', 'hidden');
-            knnView.classList.replace('block', 'hidden');
-            dbView.classList.replace('block', 'hidden');
-
-            if (sectionName === 'home') {
-                homeBtn.className = "w-full flex items-center gap-3 px-3 py-2 text-sm font-semibold rounded-lg text-blue-400 bg-slate-900 transition-all";
-                homeView.classList.replace('hidden', 'block');
-            } else if (sectionName === 'knn') {
-                knnBtn.className = "w-full flex items-center gap-3 px-3 py-2 text-sm font-semibold rounded-lg text-blue-400 bg-slate-900 transition-all";
-                knnView.classList.replace('hidden', 'block');
-                setTimeout(runKnnSimulation, 10);
-            } else if (sectionName === 'db') {
-                dbBtn.className = "w-full flex items-center gap-3 px-3 py-2 text-sm font-semibold rounded-lg text-blue-400 bg-slate-900 transition-all";
-                dbView.classList.replace('hidden', 'block');
-                runLibraryQuery(1);
-            }
-        }
-
-        // Dynamic playback and metadata state logic
         function selectMixTrack(index) {
             activeTrackIndex = index;
             const track = trackDataset[activeTrackIndex];
 
-            // Update bottom bar metadata
+            // Load audio source
+            if (!nativePlayer) {
+                nativePlayer = document.getElementById('sandbox-native-player');
+            }
+            
+            nativePlayer.src = track.streamUrl;
+            nativePlayer.load();
+
+            // Update UI strings
             document.getElementById('playing-track-name').innerText = track.title;
-            document.getElementById('playing-artist').innerText = `${track.artist} - Love & Devotion`;
+            document.getElementById('playing-artist').innerText = track.artist;
             document.getElementById('player-time-total').innerText = track.duration;
 
-            // Update art badge
+            document.getElementById('artwork-title').innerText = track.title;
+            document.getElementById('artwork-artist').innerText = track.artist;
+
             const artBlock = document.getElementById('playing-artwork');
             artBlock.className = `w-12 h-12 rounded bg-gradient-to-tr ${track.gradient} flex items-center justify-center text-white shrink-0 shadow-lg border border-white/10`;
 
-            // Update widgets
-            document.getElementById('artist-title-widget').innerText = track.title;
-            document.getElementById('artist-sub-widget').innerText = `${track.artist} Mix`;
+            const mainArtBlock = document.getElementById('main-art-block');
+            mainArtBlock.className = `w-full h-full bg-gradient-to-tr ${track.gradient} flex flex-col justify-between p-6 transition-all duration-500`;
 
-            // Update telemetry numbers
+            document.getElementById('artist-title-widget').innerText = track.title;
+            document.getElementById('artist-sub-widget').innerText = track.artist;
+
             document.getElementById('telemetry-acoustics').innerText = track.acousticness.toFixed(2);
             document.getElementById('telemetry-energy').innerText = track.energy.toFixed(2);
 
-            // Trigger slider controls
+            document.getElementById('telemetry-box-acoustic').innerText = track.acousticness.toFixed(2);
+            document.getElementById('telemetry-box-energy').innerText = track.energy.toFixed(2);
+
             document.getElementById('slider-acoustic').value = track.acousticness;
             document.getElementById('slider-energy').value = track.energy;
 
-            // Reset progress timer
-            currentProgressSeconds = 0;
-            updatePlaybackProgressUI();
+            if (isPlaybackRunning) {
+                nativePlayer.play().catch(e => {
+                    console.log("Browser blocked auto-play. User interaction required.");
+                    isPlaybackRunning = false;
+                    document.getElementById('global-play-btn').innerHTML = `<i data-lucide="play" class="w-5 h-5 fill-black text-black"></i>`;
+                    safeCreateIcons();
+                });
+            }
 
-            // Rerun KNN coordinates analysis
             runKnnSimulation();
         }
 
         function toggleGlobalPlayback() {
+            if (!nativePlayer) {
+                nativePlayer = document.getElementById('sandbox-native-player');
+            }
+
+            // Ensure source is loaded initially
+            if (!nativePlayer.src) {
+                nativePlayer.src = trackDataset[activeTrackIndex].streamUrl;
+                nativePlayer.load();
+            }
+
             const btn = document.getElementById('global-play-btn');
+            const visualWave = document.getElementById('art-visual-wave');
+
             if (isPlaybackRunning) {
                 isPlaybackRunning = false;
-                btn.innerHTML = `<i data-lucide="play" class="w-5 h-5 fill-slate-950 text-slate-950"></i>`;
-                clearInterval(playbackTimer);
+                nativePlayer.pause();
+                btn.innerHTML = `<i data-lucide="play" class="w-5 h-5 fill-black text-black"></i>`;
+                if(visualWave) visualWave.style.opacity = '0';
             } else {
                 isPlaybackRunning = true;
-                btn.innerHTML = `<i data-lucide="pause" class="w-5 h-5 fill-slate-950 text-slate-950"></i>`;
-                
-                playbackTimer = setInterval(() => {
-                    currentProgressSeconds++;
-                    const track = trackDataset[activeTrackIndex];
-                    const totalParts = track.duration.split(":");
-                    const totalSecs = (parseInt(totalParts[0]) * 60) + parseInt(totalParts[1]);
-
-                    if (currentProgressSeconds >= totalSecs) {
-                        currentProgressSeconds = 0;
-                        skipNext();
-                    }
-                    updatePlaybackProgressUI();
-                }, 1000);
+                nativePlayer.play().then(() => {
+                    btn.innerHTML = `<i data-lucide="pause" class="w-5 h-5 fill-black text-black"></i>`;
+                    if(visualWave) visualWave.style.opacity = '1';
+                }).catch(e => {
+                    console.log("Playback failed. Re-initiating player stream context.");
+                    isPlaybackRunning = false;
+                });
             }
             safeCreateIcons();
         }
 
-        function updatePlaybackProgressUI() {
-            const track = trackDataset[activeTrackIndex];
-            const totalParts = track.duration.split(":");
-            const totalSecs = (parseInt(totalParts[0]) * 60) + parseInt(totalParts[1]);
+        // Bind native player updates to the visual progress slider
+        window.addEventListener('load', () => {
+            const player = document.getElementById('sandbox-native-player');
+            if (player) {
+                player.addEventListener('timeupdate', () => {
+                    const current = player.currentTime;
+                    const duration = player.duration || 1;
+                    const pct = (current / duration) * 100;
 
-            const percentage = (currentProgressSeconds / totalSecs) * 100;
-            document.getElementById('player-time-progress').style.width = `${percentage}%`;
+                    document.getElementById('player-time-progress').style.width = `${pct}%`;
 
-            const mins = Math.floor(currentProgressSeconds / 60);
-            const secs = currentProgressSeconds % 60;
-            document.getElementById('player-time-current').innerText = `${mins}:${secs.toString().padStart(2, '0')}`;
+                    const mins = Math.floor(current / 60);
+                    const secs = Math.floor(current % 60);
+                    document.getElementById('player-time-current').innerText = `${mins}:${secs.toString().padStart(2, '0')}`;
+                });
+
+                player.addEventListener('loadedmetadata', () => {
+                    const duration = player.duration;
+                    const mins = Math.floor(duration / 60);
+                    const secs = Math.floor(duration % 60);
+                    document.getElementById('player-time-total').innerText = `${mins}:${secs.toString().padStart(2, '0')}`;
+                });
+
+                player.addEventListener('ended', () => {
+                    skipNext();
+                });
+            }
+        });
+
+        function handleTrackSeek(event) {
+            if (!nativePlayer) return;
+            const bar = event.currentTarget;
+            const rect = bar.getBoundingClientRect();
+            const clickPositionX = event.clientX - rect.left;
+            const percentage = clickPositionX / rect.width;
+            
+            const duration = nativePlayer.duration || 0;
+            if (duration > 0) {
+                nativePlayer.currentTime = percentage * duration;
+            }
+        }
+
+        function handleVolumeSeek(event) {
+            if (!nativePlayer) return;
+            const bar = event.currentTarget;
+            const rect = bar.getBoundingClientRect();
+            const clickPositionX = event.clientX - rect.left;
+            const percentage = Math.max(0, Math.min(1, clickPositionX / rect.width));
+
+            nativePlayer.volume = percentage;
+            document.getElementById('volume-indicator').style.width = `${percentage * 100}%`;
         }
 
         function skipNext() {
@@ -1547,24 +1576,22 @@ print("Financial literacy metrics...")
             const resultsContainer = document.getElementById('knn-results-container');
             if (resultsContainer) {
                 resultsContainer.innerHTML = kMatches.map((track, i) => `
-                    <div class="p-2.5 rounded-lg bg-slate-900 border border-white/5 flex justify-between items-center transition-all hover:bg-slate-800">
+                    <div class="p-2 rounded bg-neutral-900 border border-neutral-800 flex justify-between items-center transition-all hover:bg-neutral-800">
                         <div class="flex items-center gap-2">
-                            <span class="w-5 h-5 flex items-center justify-center bg-emerald-500/10 text-emerald-400 font-bold font-mono text-[9px] rounded-full">#${i+1}</span>
+                            <span class="w-4 h-4 flex items-center justify-center bg-spotify/10 text-spotify font-bold font-mono text-[8px] rounded-full">#${i+1}</span>
                             <div class="truncate max-w-[100px]">
-                                <p class="font-bold text-white text-[10px] truncate leading-none">${track.title}</p>
-                                <p class="text-[8px] text-slate-400 truncate mt-0.5">${track.artist}</p>
+                                <p class="font-bold text-white text-[9px] truncate leading-none">${track.title}</p>
+                                <p class="text-[7px] text-neutral-400 truncate mt-0.5">${track.artist}</p>
                             </div>
                         </div>
-                        <p class="text-[9px] font-mono text-emerald-400 font-bold">L2: ${track.distance.toFixed(2)}</p>
+                        <p class="text-[8px] font-mono text-spotify font-bold">L2: ${track.distance.toFixed(2)}</p>
                     </div>
                 `).join('');
             }
 
-            // Draw coordinate plane
             drawKnnCanvas(queryX, queryY, kMatches);
         }
 
-        // Draw coordinate plane
         function drawKnnCanvas(qx, qy, matches) {
             const canvas = document.getElementById('knn-canvas');
             if (!canvas) return;
@@ -1577,11 +1604,11 @@ print("Financial literacy metrics...")
             const w = canvas.width;
             const h = canvas.height;
 
-            ctx.fillStyle = '#030610';
+            ctx.fillStyle = '#050505';
             ctx.fillRect(0,0,w,h);
 
             // Draw axis lines
-            ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+            ctx.strokeStyle = 'rgba(255,255,255,0.05)';
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(w / 2, 0); ctx.lineTo(w / 2, h);
@@ -1595,13 +1622,13 @@ print("Financial literacy metrics...")
 
                 const isMatch = matches.some(m => m.title === track.title);
 
-                ctx.fillStyle = isMatch ? '#10b981' : '#475569';
+                ctx.fillStyle = isMatch ? '#1db954' : '#404040';
                 ctx.beginPath();
                 ctx.arc(px, py, isMatch ? 6 : 4, 0, Math.PI * 2);
                 ctx.fill();
 
                 if (isMatch) {
-                    ctx.strokeStyle = 'rgba(16, 185, 129, 0.3)';
+                    ctx.strokeStyle = 'rgba(29, 185, 84, 0.3)';
                     ctx.lineWidth = 1;
                     ctx.setLineDash([3, 3]);
                     ctx.beginPath();
@@ -1615,12 +1642,12 @@ print("Financial literacy metrics...")
             // Plot Query Coordinates
             const qpx = qx * w;
             const qpy = (1 - qy) * h;
-            ctx.fillStyle = '#f43f5e';
+            ctx.fillStyle = '#1db954';
             ctx.beginPath();
             ctx.arc(qpx, qpy, 6, 0, Math.PI * 2);
             ctx.fill();
 
-            ctx.strokeStyle = '#f43f5e';
+            ctx.strokeStyle = '#1db954';
             ctx.lineWidth = 1.5;
             ctx.beginPath();
             ctx.arc(qpx, qpy, 12, 0, Math.PI * 2);
@@ -1637,82 +1664,60 @@ print("Financial literacy metrics...")
             });
         }
 
-        // PL/SQL Database Console simulation updates
-        const activeDatabaseMock = {
-            overhead: [
-                { id: 101, department: "Commercial Ops", budget: 5000000, actual: 4500000, variance: -500000 },
-                { id: 102, department: "Marketing Admin", budget: 3000000, actual: 2700000, variance: -300000 },
-                { id: 103, department: "Development", budget: 8500000, actual: 8900000, variance: 400000 }
-            ],
-            pipelines: [
-                { id: 301, channel: "Direct Acquisition", value: 7500000, margin: "High", status: "Closed" },
-                { id: 302, channel: "Enterprise Inbound", value: 5000000, margin: "Med-High", status: "Active" }
-            ]
-        };
+        // Reias India Real Estate Portfolio Mock Data
+        const reiasProperties = [
+            { name: "M3M Cosmopolitan", sector: "Sector 66", type: "Commercial", avgPrice: 12500000, color: "from-amber-600 to-reias-500" },
+            { name: "Trump Towers Gurgaon", sector: "Sector 69", type: "Luxury Residential", avgPrice: 95000000, color: "from-yellow-600 to-black" },
+            { name: "M3M Golfestate", sector: "Golf Course Ext Rd", type: "Residential", avgPrice: 42000000, color: "from-emerald-600 to-reias-800" },
+            { name: "Whiteland Westin Residences", sector: "Sector 103", type: "Ultra Luxury", avgPrice: 68000000, color: "from-indigo-600 to-reias-500" }
+        ];
 
-        function runLibraryQuery(queryId) {
-            const body = document.getElementById('sql-terminal-body');
-            const latency = document.getElementById('terminal-latency');
-            const start = performance.now();
+        let selectedReiasPropIndex = 0;
 
-            body.innerHTML = `
-                <div class="text-slate-500 animate-pulse">// Compiling schema on Reias Oracle cluster...</div>
-            `;
+        function loadReiasProperties() {
+            const container = document.getElementById('reias-properties-list');
+            if (!container) return;
+            container.innerHTML = reiasProperties.map((prop, index) => `
+                <div onclick="selectReiasProperty(${index})" class="cursor-pointer p-3 rounded-xl border transition-all flex items-center justify-between ${index === selectedReiasPropIndex ? 'bg-reias-800 border-reias-500' : 'bg-neutral-950 border-neutral-900 hover:border-neutral-800'}">
+                    <div>
+                        <p class="text-xs font-black text-white leading-none">${prop.name}</p>
+                        <p class="text-[9px] text-neutral-400 mt-1">${prop.sector} • ${prop.type}</p>
+                    </div>
+                    <span class="text-[9px] font-mono text-reias-500 font-bold">₹ ${(prop.avgPrice/100000).toFixed(0)}L+</span>
+                </div>
+            `).join('');
+            
+            calculateReiasYield();
+        }
 
-            setTimeout(() => {
-                const diff = (performance.now() - start).toFixed(1);
-                latency.innerText = `${diff}ms script processing latency`;
+        function selectReiasProperty(index) {
+            selectedReiasPropIndex = index;
+            loadReiasProperties();
+            
+            // Add a mock transaction log entry
+            addReiasLedgerLog(`Selected portfolio node ${reiasProperties[index].name}. Loading local cost model indicators...`);
+        }
 
-                if (queryId === 1) {
-                    body.innerHTML = `
-                        <div class="text-slate-400 font-bold mb-2">SQL&gt; SELECT * FROM overhead_variance;</div>
-                        <table class="w-full text-left border-collapse">
-                            <thead>
-                                <tr class="border-b border-white/10 text-slate-400 text-[10px]">
-                                    <th class="py-1">DEPT_ID</th>
-                                    <th class="py-1">DEPT_NAME</th>
-                                    <th class="py-1">BUDGET</th>
-                                    <th class="py-1 text-right">VARIANCE</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                ${activeDatabaseMock.overhead.map(m => `
-                                    <tr class="border-b border-white/5 text-[10px] hover:bg-white/5">
-                                        <td class="py-1 font-mono">${m.id}</td>
-                                        <td class="py-1 font-bold">${m.department}</td>
-                                        <td class="py-1 font-mono">₹${m.budget.toLocaleString()}</td>
-                                        <td class="py-1 text-right font-mono ${m.variance < 0 ? 'text-emerald-400' : 'text-rose-400'}">₹${m.variance.toLocaleString()}</td>
-                                    </tr>
-                                `).join('')}
-                            </tbody>
-                        </table>
-                    `;
-                } else if (queryId === 2) {
-                    body.innerHTML = `
-                        <div class="text-slate-400 font-bold mb-2">SQL&gt; SELECT * FROM business_pipelines;</div>
-                        <table class="w-full text-left border-collapse">
-                            <thead>
-                                <tr class="border-b border-white/10 text-slate-400 text-[10px]">
-                                    <th class="py-1">PIP_ID</th>
-                                    <th class="py-1">CHANNEL</th>
-                                    <th class="py-1">VALUE</th>
-                                    <th class="py-1 text-right">STATUS</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                ${activeDatabaseMock.pipelines.map(b => `
-                                    <tr class="border-b border-white/5 text-[10px] hover:bg-white/5">
-                                        <td class="py-1 font-mono">${b.id}</td>
-                                        <td class="py-1 font-bold text-slate-200 truncate max-w-[100px]">${b.channel}</td>
-                                        <td class="py-1 font-mono">₹${b.value.toLocaleString()}</td>
-                                        <td class="py-1 text-right"><span class="px-1 py-0.5 rounded text-[8px] ${b.status === 'Closed' ? 'bg-emerald-500/10 text-emerald-400' : 'bg-blue-500/10 text-blue-400'}">${b.status}</span></td>
-                                    </tr>
-                                `).join('')}
-                            </tbody>
-                        </table>
-                    `;
-                }
-            }, 350);
+        function calculateReiasYield() {
+            const size = parseFloat(document.getElementById('reias-calc-size').value) || 0;
+            const rate = parseFloat(document.getElementById('reias-calc-rate').value) || 1.0;
+            const overheadPercent = parseFloat(document.getElementById('reias-calc-overhead').value) || 12;
+
+            const basePricePerSqFt = selectedReiasPropIndex === 1 ? 25000 : selectedReiasPropIndex === 3 ? 18000 : 12000;
+            const estimatedValue = size * basePricePerSqFt;
+            const brokerageMargin = estimatedValue * (rate / 100);
+            const overheadAmount = brokerageMargin * (overheadPercent / 100);
+
+            document.getElementById('reias-out-deal-value').innerText = `₹ ${estimatedValue.toLocaleString()}`;
+            document.getElementById('reias-out-brokerage').innerText = `₹ ${brokerageMargin.toLocaleString()}`;
+            document.getElementById('reias-out-overhead').innerText = `₹ ${overheadAmount.toLocaleString()}`;
+        }
+
+        function addReiasLedgerLog(message) {
+            const ledger = document.getElementById('reias-logs-ledg');
+            if (!ledger) return;
+            const time = new Date().toLocaleTimeString();
+            ledger.innerHTML = `<div><span class="text-reias-500 font-bold">[${time}]</span> ${message}</div>` + ledger.innerHTML;
         }
 
         const certs = [
@@ -1898,7 +1903,19 @@ print("Financial literacy metrics...")
             updateTimelines();
             renderCerts();
             initStackRotator();
-            runKnnSimulation();
+            
+            // Set up volume level initially
+            const initialVolume = 0.7;
+            document.getElementById('volume-indicator').style.width = `${initialVolume * 100}%`;
+
+            // Prepare native audio element source configuration
+            selectMixTrack(0);
+
+            loadReiasProperties();
+
+            // Populate Reias simulation with baseline transaction log
+            addReiasLedgerLog("Reias India real estate portfolio system online.");
+            addReiasLedgerLog("RERA verification triggers ready for Sector 66.");
 
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
