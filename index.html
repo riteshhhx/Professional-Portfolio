@@ -184,6 +184,53 @@
         }
         .animate-float-subtle { animation: float-subtle 3s ease-in-out infinite; }
         
+        /* --- COUNTER HOVER & PULSING ANIMATIONS --- */
+        @keyframes auto-glow-blue {
+            0%, 100% { color: #94a3b8; }
+            50% { color: #3b82f6; }
+        }
+        @keyframes auto-glow-amber {
+            0%, 100% { color: #94a3b8; }
+            50% { color: #f59e0b; }
+        }
+        @keyframes auto-glow-purple {
+            0%, 100% { color: #94a3b8; }
+            50% { color: #a855f7; }
+        }
+        @keyframes auto-glow-emerald {
+            0%, 100% { color: #94a3b8; }
+            50% { color: #10b981; }
+        }
+
+        .animate-pulse-blue { animation: auto-glow-blue 4s ease-in-out infinite; }
+        .animate-pulse-amber { animation: auto-glow-amber 4s ease-in-out infinite 1s; }
+        .animate-pulse-purple { animation: auto-glow-purple 4s ease-in-out infinite 2s; }
+        .animate-pulse-emerald { animation: auto-glow-emerald 4s ease-in-out infinite 3s; }
+
+        /* Stable state on hover */
+        .group:hover .animate-pulse-blue {
+            animation-play-state: paused;
+            color: #2563eb !important;
+        }
+        .group:hover .animate-pulse-amber {
+            animation-play-state: paused;
+            color: #d97706 !important;
+        }
+        .group:hover .animate-pulse-purple {
+            animation-play-state: paused;
+            color: #9333ea !important;
+        }
+        .group:hover .animate-pulse-emerald {
+            animation-play-state: paused;
+            color: #059669 !important;
+        }
+
+        /* Dark mode overrides for stable hover state */
+        .dark .group:hover .animate-pulse-blue { color: #60a5fa !important; }
+        .dark .group:hover .animate-pulse-amber { color: #fbbf24 !important; }
+        .dark .group:hover .animate-pulse-purple { color: #c084fc !important; }
+        .dark .group:hover .animate-pulse-emerald { color: #34d399 !important; }
+
         @keyframes spin-slow {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
@@ -216,6 +263,18 @@
         .code-scroller { animation: scroll-code 20s linear infinite; font-family: 'Fira Code', monospace; font-size: 10px; white-space: pre; pointer-events: none; }
         .visualizer-bar { width: 4px; background: #ec4899; border-radius: 2px; animation: bounce 1s ease-in-out infinite alternate; }
         @keyframes bounce { from { height: 4px; } to { height: 24px; } }
+
+        /* --- MUSIC PLAYER SIMULATION SCROLLING --- */
+        .custom-slider-thumb::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ffffff;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
     </style>
 </head>
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 selection:bg-blue-600 selection:text-white overflow-x-hidden">
@@ -317,27 +376,27 @@
     <!-- Academic Counters Strip -->
     <section class="py-20 px-6 border-y border-slate-100 dark:border-slate-900 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm">
         <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
-            <div class="reveal group">
-                <div class="text-5xl font-black tracking-tighter mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"><span class="counter" data-target="7.15">0</span></div>
-                <div class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest flex items-center justify-center gap-1">
+            <div class="reveal group cursor-pointer">
+                <div class="text-5xl font-black tracking-tighter mb-2 animate-pulse-blue transition-colors duration-300"><span class="counter" data-target="7.15">0</span></div>
+                <div class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest flex items-center justify-center gap-1 transition-colors duration-300 group-hover:text-blue-500 dark:group-hover:text-blue-400">
                     <i data-lucide="award" class="w-3 h-3 animate-float-subtle"></i> MBA CGPA
                 </div>
             </div>
-            <div class="reveal group" style="transition-delay: 100ms;">
-                <div class="text-5xl font-black tracking-tighter mb-2 group-hover:text-amber-500 transition-colors"><span class="counter" data-target="15">0</span>+</div>
-                <div class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest flex items-center justify-center gap-1">
+            <div class="reveal group cursor-pointer" style="transition-delay: 100ms;">
+                <div class="text-5xl font-black tracking-tighter mb-2 animate-pulse-amber transition-colors duration-300"><span class="counter" data-target="15">0</span>+</div>
+                <div class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest flex items-center justify-center gap-1 transition-colors duration-300 group-hover:text-amber-500">
                     <i data-lucide="trending-up" class="w-3 h-3 animate-pulse-soft"></i> Corporate Models
                 </div>
             </div>
-            <div class="reveal group" style="transition-delay: 200ms;">
-                <div class="text-5xl font-black tracking-tighter mb-2 group-hover:text-purple-500 transition-colors"><span class="counter" data-target="10">0</span>%</div>
-                <div class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest flex items-center justify-center gap-1">
+            <div class="reveal group cursor-pointer" style="transition-delay: 200ms;">
+                <div class="text-5xl font-black tracking-tighter mb-2 animate-pulse-purple transition-colors duration-300"><span class="counter" data-target="10">0</span>%</div>
+                <div class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest flex items-center justify-center gap-1 transition-colors duration-300 group-hover:text-purple-500 dark:group-hover:text-purple-400">
                     <i data-lucide="percent" class="w-3 h-3 animate-float-subtle"></i> Overhead Cost Reduction
                 </div>
             </div>
-            <div class="reveal group" style="transition-delay: 300ms;">
-                <div class="text-5xl font-black tracking-tighter mb-2 group-hover:text-emerald-500 transition-colors"><span class="counter" id="project-counter" data-target="4">0</span></div>
-                <div class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest flex items-center justify-center gap-1">
+            <div class="reveal group cursor-pointer" style="transition-delay: 300ms;">
+                <div class="text-5xl font-black tracking-tighter mb-2 animate-pulse-emerald transition-colors duration-300"><span class="counter" id="project-counter" data-target="4">0</span></div>
+                <div class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest flex items-center justify-center gap-1 transition-colors duration-300 group-hover:text-emerald-500">
                     <i data-lucide="folder-git-2" class="w-3 h-3 animate-pulse-soft"></i> Core Engagements
                 </div>
             </div>
@@ -372,145 +431,337 @@
         </div>
     </section>
 
-    <!-- INTERACTIVE DATA SCIENCE SANDBOX -->
-    <section id="sandbox" class="py-32 px-6 bg-slate-900 text-white rounded-[3.5rem] mx-6 my-10 overflow-hidden relative shadow-2xl">
-        <div class="absolute top-0 right-0 p-12 opacity-5 pointer-events-none">
-            <i data-lucide="terminal" class="w-[400px] h-[400px] text-blue-400"></i>
-        </div>
-
-        <div class="max-w-6xl mx-auto relative z-10">
-            <div class="text-center md:text-left mb-16">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 rounded-full text-[10px] font-black uppercase tracking-[0.2em] text-blue-300 mb-6">
-                    <i data-lucide="play" class="w-3 h-3 text-blue-400 animate-pulse"></i> SIMULATED DATA & PL/SQL PLAYGROUND
+    <!-- INTERACTIVE MUSIC & PL/SQL PLAYGROUND (Referencing Screenshot 2026-07-08 at 2.18.50 PM.jpg and Screenshot 2026-07-08 at 2.39.56 PM.jpg verbatim) -->
+    <section id="sandbox" class="py-24 px-4 lg:px-8 bg-[#090d16] text-white rounded-[3rem] mx-2 lg:mx-6 my-10 overflow-hidden relative shadow-2xl border border-slate-800">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="mb-10 text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-500/10 rounded-full text-[10px] font-black uppercase tracking-[0.2em] text-blue-400 border border-blue-500/20 mb-4">
+                    <i data-lucide="play" class="w-3 h-3 text-blue-400 animate-pulse"></i> LIVE SIMULATION SANDBOX
                 </div>
-                <h2 class="text-5xl font-black tracking-tight mb-4">Interactive Business Sandbox</h2>
-                <p class="text-slate-400 text-lg max-w-xl">Interact directly with my business implementations. Test Spotify's behavioral mood matcher or inspect Reias India costing and allocation scripts.</p>
+                <h2 class="text-4xl font-black tracking-tight mb-2">Interactive Analytics Sandbox</h2>
+                <p class="text-slate-400 text-sm max-w-xl">Fully modeled interface referencing custom design layouts of <strong>Screenshot 2026-07-08 at 2.18.50 PM.jpg</strong> and <strong>Screenshot 2026-07-08 at 2.39.56 PM.jpg</strong>. Swap sidebar parameters to interact with both the Spotify KNN spatial search and Reias India DB structures.</p>
             </div>
 
-            <div class="flex flex-wrap gap-4 border-b border-white/10 pb-6 mb-12">
-                <button onclick="switchSandboxTab('knn')" id="tab-btn-knn" class="px-6 py-3 bg-white text-slate-900 rounded-full font-bold text-sm transition-all shadow-md">
-                    1. Spotify Stream Mood Matcher
-                </button>
-                <button onclick="switchSandboxTab('sql')" id="tab-btn-sql" class="px-6 py-3 bg-white/5 hover:bg-white/10 text-white rounded-full font-bold text-sm transition-all">
-                    2. Reias India Overhead Cost Engine
-                </button>
-            </div>
+            <!-- Dashboard Frame wrapper -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 bg-[#020617] rounded-3xl overflow-hidden border border-slate-800 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)]">
+                
+                <!-- Left Sidebar Navigation Panel (Adapted from Screenshot 2026-07-08 at 2.18.50 PM.jpg) -->
+                <div class="lg:col-span-2 bg-[#0b0f19] border-r border-slate-950 p-6 flex flex-col justify-between">
+                    <div class="space-y-8">
+                        <div>
+                            <p class="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-4">Discover</p>
+                            <nav class="space-y-1.5">
+                                <button onclick="selectSandboxSection('home')" id="nav-btn-home" class="w-full flex items-center gap-3 px-3 py-2 text-sm font-semibold rounded-lg text-blue-400 bg-slate-900 transition-all">
+                                    <i data-lucide="home" class="w-4 h-4"></i> Home
+                                </button>
+                                <button onclick="selectSandboxSection('knn')" id="nav-btn-knn" class="w-full flex items-center gap-3 px-3 py-2 text-sm font-semibold rounded-lg text-slate-400 hover:text-white hover:bg-slate-900/50 transition-all">
+                                    <i data-lucide="radar" class="w-4 h-4"></i> KNN Analyzer
+                                </button>
+                                <button onclick="selectSandboxSection('db')" id="nav-btn-db" class="w-full flex items-center gap-3 px-3 py-2 text-sm font-semibold rounded-lg text-slate-400 hover:text-white hover:bg-slate-900/50 transition-all">
+                                    <i data-lucide="database" class="w-4 h-4"></i> PL/SQL Terminal
+                                </button>
+                            </nav>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-4">Analytics Mixes</p>
+                            <div class="space-y-3">
+                                <div onclick="selectMixTrack(0)" class="cursor-pointer group flex items-center justify-between text-xs text-slate-400 hover:text-emerald-400 transition-colors">
+                                    <span class="truncate font-semibold"><i data-lucide="music" class="inline w-3 h-3 mr-1.5"></i> Acoustic Mix</span>
+                                    <span class="text-[8px] bg-slate-800 px-1.5 py-0.5 rounded text-slate-500">Active</span>
+                                </div>
+                                <div onclick="selectMixTrack(1)" class="cursor-pointer group flex items-center justify-between text-xs text-slate-400 hover:text-blue-400 transition-colors">
+                                    <span class="truncate font-semibold"><i data-lucide="music" class="inline w-3 h-3 mr-1.5"></i> High Energy Mix</span>
+                                    <span class="text-[8px] bg-slate-800 px-1.5 py-0.5 rounded text-slate-500">Active</span>
+                                </div>
+                                <div onclick="selectMixTrack(2)" class="cursor-pointer group flex items-center justify-between text-xs text-slate-400 hover:text-amber-400 transition-colors">
+                                    <span class="truncate font-semibold"><i data-lucide="music" class="inline w-3 h-3 mr-1.5"></i> Variance Mix</span>
+                                    <span class="text-[8px] bg-slate-800 px-1.5 py-0.5 rounded text-slate-500">Active</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-            <!-- KNN Tab Content -->
-            <div id="sandbox-tab-knn" class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                <div class="lg:col-span-5 space-y-8">
+                    <div class="pt-6 border-t border-slate-900/50 flex items-center gap-2.5">
+                        <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-xs font-black text-slate-400 border border-slate-700">RY</div>
+                        <div>
+                            <p class="text-[10px] font-black text-slate-300 tracking-tight truncate max-w-[80px]">Ritesh Yadav</p>
+                            <p class="text-[8px] font-black uppercase text-blue-500 tracking-widest">Admin Mode</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Content Panel -->
+                <div class="lg:col-span-7 bg-[#05070e] p-6 lg:p-8 flex flex-col justify-between overflow-y-auto max-h-[600px] scrollbar-hide">
+                    
+                    <!-- Sandbox Home View Container -->
+                    <div id="sandbox-view-home" class="space-y-8 block">
+                        <!-- Custom styled promo header card (Adapted from Screenshot 2026-07-08 at 2.39.56 PM.jpg) -->
+                        <div class="bg-gradient-to-r from-blue-900/40 via-indigo-950/40 to-[#0c0f24] rounded-2xl p-6 lg:p-8 border border-indigo-900/20 relative overflow-hidden group">
+                            <div class="absolute inset-0 bg-cover bg-center opacity-10 bg-[url('https://placehold.co/800x400/020617/3b82f6?text=Data+Science')]"></div>
+                            <div class="relative z-10 flex flex-col md:flex-row items-center gap-6 justify-between">
+                                <div class="space-y-3 text-center md:text-left">
+                                    <span class="px-2 py-0.5 bg-blue-500/20 text-blue-400 text-[9px] font-black uppercase tracking-widest rounded-full border border-blue-500/30">FEATURED MODEL</span>
+                                    <h3 class="text-3xl font-black tracking-tight text-white leading-none">Ritesh's Stream Mood Dynamics</h3>
+                                    <p class="text-xs text-slate-400 max-w-md">Live implementation tracking Acousticness, Valence, Energy, and NLP sentiment to predict streaming success indices.</p>
+                                    <button onclick="toggleGlobalPlayback()" class="px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white rounded-full text-xs font-black uppercase tracking-wider transition-all inline-flex items-center gap-1.5 shadow-lg shadow-blue-900/30">
+                                        <i data-lucide="play" class="w-3.5 h-3.5 fill-white"></i> Listen & Analyze
+                                    </button>
+                                </div>
+                                <div class="w-24 h-24 bg-gradient-to-tr from-slate-800 to-indigo-950 rounded-xl border border-slate-700 flex items-center justify-center text-blue-400 shadow-2xl relative overflow-hidden group-hover:scale-105 transition-transform duration-500">
+                                    <i data-lucide="music-4" class="w-12 h-12 text-blue-400 animate-float-subtle"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- "Playlists Made for You" Section (Direct visual match to Screenshot 2026-07-08 at 2.18.50 PM.jpg) -->
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <p class="text-xs font-black uppercase tracking-wider text-slate-400">Playlists Made for You</p>
+                                <span class="text-[10px] text-slate-500 hover:text-white cursor-pointer font-black tracking-wider uppercase">Show All</span>
+                            </div>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                <!-- Card 1 -->
+                                <div onclick="selectMixTrack(0)" class="cursor-pointer group flex flex-col justify-between p-5 rounded-2xl h-56 transition-all duration-300 relative overflow-hidden shadow-lg hover:-translate-y-1 hover:shadow-2xl border border-white/5 bg-gradient-to-br from-orange-500 to-rose-600">
+                                    <div class="absolute top-4 right-4 bg-white/10 backdrop-blur-md p-1.5 rounded-full"><i data-lucide="music-2" class="w-3.5 h-3.5 text-white"></i></div>
+                                    <div class="space-y-1 z-10">
+                                        <p class="text-2xl font-black tracking-tight leading-none text-white drop-shadow-md">Heavy Rotation</p>
+                                        <p class="text-[8px] text-white/75 font-semibold truncate leading-tight">Navjot Ahuja, Young Stunners, King, Raftaar, Eminem and more</p>
+                                    </div>
+                                </div>
+                                <!-- Card 2 -->
+                                <div onclick="selectMixTrack(1)" class="cursor-pointer group flex flex-col justify-between p-5 rounded-2xl h-56 transition-all duration-300 relative overflow-hidden shadow-lg hover:-translate-y-1 hover:shadow-2xl border border-white/5 bg-gradient-to-br from-indigo-500 to-purple-800">
+                                    <div class="absolute top-4 right-4 bg-white/10 backdrop-blur-md p-1.5 rounded-full"><i data-lucide="music-2" class="w-3.5 h-3.5 text-white"></i></div>
+                                    <div class="space-y-1 z-10">
+                                        <p class="text-2xl font-black tracking-tight leading-none text-white drop-shadow-md">Your Essentials</p>
+                                        <p class="text-[8px] text-white/75 font-semibold truncate leading-tight">Taimour Baig, Young Stunners, Dino James, Rap Demon, Bali and more</p>
+                                    </div>
+                                </div>
+                                <!-- Card 3 -->
+                                <div onclick="selectMixTrack(2)" class="cursor-pointer group flex flex-col justify-between p-5 rounded-2xl h-56 transition-all duration-300 relative overflow-hidden shadow-lg hover:-translate-y-1 hover:shadow-2xl border border-white/5 bg-gradient-to-br from-red-500 to-orange-600">
+                                    <div class="absolute top-4 right-4 bg-white/10 backdrop-blur-md p-1.5 rounded-full"><i data-lucide="music-2" class="w-3.5 h-3.5 text-white"></i></div>
+                                    <div class="space-y-1 z-10">
+                                        <p class="text-2xl font-black tracking-tight leading-none text-white drop-shadow-md">Get Up!</p>
+                                        <p class="text-[8px] text-white/75 font-semibold truncate leading-tight">Karan Aujla, Bohemia, Aditya Rikhari, som., Seedhe Maut and more</p>
+                                    </div>
+                                </div>
+                                <!-- Card 4 -->
+                                <div onclick="selectMixTrack(3)" class="cursor-pointer group flex flex-col justify-between p-5 rounded-2xl h-56 transition-all duration-300 relative overflow-hidden shadow-lg hover:-translate-y-1 hover:shadow-2xl border border-white/5 bg-gradient-to-br from-teal-500 to-emerald-700">
+                                    <div class="absolute top-4 right-4 bg-white/10 backdrop-blur-md p-1.5 rounded-full"><i data-lucide="music-2" class="w-3.5 h-3.5 text-white"></i></div>
+                                    <div class="space-y-1 z-10">
+                                        <p class="text-2xl font-black tracking-tight leading-none text-white drop-shadow-md">Chill</p>
+                                        <p class="text-[8px] text-white/75 font-semibold truncate leading-tight">Tanzeel Khan, ccx, AHSAN, Dream Note, Tanay Chaturvedi, Umair and more</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- "Your Top Mixes" Grid Layout (Direct visual match to Screenshot 2026-07-08 at 2.39.56 PM.jpg) -->
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <p class="text-xs font-black uppercase tracking-wider text-slate-400">Your Top Mixes</p>
+                                <span class="text-[10px] text-slate-500 hover:text-white cursor-pointer font-black tracking-wider uppercase">Show All</span>
+                            </div>
+                            <div class="grid grid-cols-2 sm:grid-cols-5 gap-4">
+                                <!-- Mix Card 1 -->
+                                <div onclick="selectMixTrack(0)" class="cursor-pointer bg-slate-900/40 hover:bg-slate-900/80 p-3.5 rounded-xl border border-white/5 hover:border-white/10 transition-all flex flex-col justify-between h-52 group">
+                                    <div class="w-full aspect-square bg-[#101524] rounded-lg mb-3 relative overflow-hidden flex flex-col items-center justify-center border border-white/5">
+                                        <i data-lucide="music" class="w-8 h-8 text-emerald-400 opacity-60 group-hover:scale-110 transition-transform"></i>
+                                        <div class="absolute bottom-0 left-0 right-0 h-1.5 bg-emerald-500"></div>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs font-bold text-white leading-tight truncate">Acoustic Mix</p>
+                                        <p class="text-[8px] text-slate-400 truncate mt-0.5">Navjot Ahuja, Young Stunners...</p>
+                                    </div>
+                                </div>
+                                <!-- Mix Card 2 -->
+                                <div onclick="selectMixTrack(1)" class="cursor-pointer bg-slate-900/40 hover:bg-slate-900/80 p-3.5 rounded-xl border border-white/5 hover:border-white/10 transition-all flex flex-col justify-between h-52 group">
+                                    <div class="w-full aspect-square bg-[#101524] rounded-lg mb-3 relative overflow-hidden flex flex-col items-center justify-center border border-white/5">
+                                        <i data-lucide="music" class="w-8 h-8 text-blue-400 opacity-60 group-hover:scale-110 transition-transform"></i>
+                                        <div class="absolute bottom-0 left-0 right-0 h-1.5 bg-blue-500"></div>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs font-bold text-white leading-tight truncate">High Energy Mix</p>
+                                        <p class="text-[8px] text-slate-400 truncate mt-0.5">Karan Aujla, Bohemia, Aditya...</p>
+                                    </div>
+                                </div>
+                                <!-- Mix Card 3 -->
+                                <div onclick="selectMixTrack(2)" class="cursor-pointer bg-slate-900/40 hover:bg-slate-900/80 p-3.5 rounded-xl border border-white/5 hover:border-white/10 transition-all flex flex-col justify-between h-52 group">
+                                    <div class="w-full aspect-square bg-[#101524] rounded-lg mb-3 relative overflow-hidden flex flex-col items-center justify-center border border-white/5">
+                                        <i data-lucide="music" class="w-8 h-8 text-amber-400 opacity-60 group-hover:scale-110 transition-transform"></i>
+                                        <div class="absolute bottom-0 left-0 right-0 h-1.5 bg-amber-500"></div>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs font-bold text-white leading-tight truncate">Variance Mix</p>
+                                        <p class="text-[8px] text-slate-400 truncate mt-0.5">Taimour Baig, Dino James...</p>
+                                    </div>
+                                </div>
+                                <!-- Mix Card 4 -->
+                                <div onclick="selectMixTrack(3)" class="cursor-pointer bg-slate-900/40 hover:bg-slate-900/80 p-3.5 rounded-xl border border-white/5 hover:border-white/10 transition-all flex flex-col justify-between h-52 group">
+                                    <div class="w-full aspect-square bg-[#101524] rounded-lg mb-3 relative overflow-hidden flex flex-col items-center justify-center border border-white/5">
+                                        <i data-lucide="music" class="w-8 h-8 text-rose-400 opacity-60 group-hover:scale-110 transition-transform"></i>
+                                        <div class="absolute bottom-0 left-0 right-0 h-1.5 bg-rose-500"></div>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs font-bold text-white leading-tight truncate">NLP Mood Mix</p>
+                                        <p class="text-[8px] text-slate-400 truncate mt-0.5">Himesh Reshammiya, Neha...</p>
+                                    </div>
+                                </div>
+                                <!-- Mix Card 5 -->
+                                <div onclick="selectMixTrack(1)" class="cursor-pointer bg-slate-900/40 hover:bg-slate-900/80 p-3.5 rounded-xl border border-white/5 hover:border-white/10 transition-all flex flex-col justify-between h-52 group">
+                                    <div class="w-full aspect-square bg-[#101524] rounded-lg mb-3 relative overflow-hidden flex flex-col items-center justify-center border border-white/5">
+                                        <i data-lucide="music" class="w-8 h-8 text-indigo-400 opacity-60 group-hover:scale-110 transition-transform"></i>
+                                        <div class="absolute bottom-0 left-0 right-0 h-1.5 bg-indigo-500"></div>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs font-bold text-white leading-tight truncate">Eminem Mix</p>
+                                        <p class="text-[8px] text-slate-400 truncate mt-0.5">Eminem & Similar Artists...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sandbox Spotify KNN Radar Map View -->
+                    <div id="sandbox-view-knn" class="space-y-6 hidden">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white flex items-center gap-2"><i data-lucide="radar" class="text-emerald-400"></i> Acoustic Spatial Visualizer</h3>
+                            <p class="text-xs text-slate-400">Run a live client-side K-Nearest Neighbors prediction model across your music inventory. Adjust parameters below to calculate real-time vector projections.</p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-slate-950 p-6 rounded-2xl border border-white/5">
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="flex justify-between text-xs mb-1">
+                                        <span class="text-slate-400 font-bold uppercase tracking-widest text-[9px]">Acousticness (X)</span>
+                                        <span id="val-acoustic" class="text-emerald-400 font-black font-mono">0.50</span>
+                                    </div>
+                                    <input id="slider-acoustic" type="range" min="0" max="1" step="0.01" value="0.5" class="w-full h-1 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-400" oninput="runKnnSimulation()">
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-xs mb-1">
+                                        <span class="text-slate-400 font-bold uppercase tracking-widest text-[9px]">Energy (Y)</span>
+                                        <span id="val-energy" class="text-emerald-400 font-black font-mono">0.60</span>
+                                    </div>
+                                    <input id="slider-energy" type="range" min="0" max="1" step="0.01" value="0.6" class="w-full h-1 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-400" oninput="runKnnSimulation()">
+                                </div>
+                                <div class="bg-slate-900 p-4 rounded-xl space-y-2">
+                                    <p class="text-[10px] font-black uppercase text-slate-500 tracking-widest">Active Core Stack Target</p>
+                                    <p class="text-xs text-slate-300">Models acoustic plane vector metrics dynamically using standard L2 norms inside the user's browser.</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col justify-between">
+                                <p class="text-[9px] font-black uppercase text-slate-400 tracking-widest text-center mb-2">Calculated Matches (k=3)</p>
+                                <div id="knn-results-container" class="space-y-2"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sandbox PL/SQL Live Logs Console View -->
+                    <div id="sandbox-view-db" class="space-y-6 hidden">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white flex items-center gap-2"><i data-lucide="database" class="text-amber-400"></i> Corporate Cost & Allocation System</h3>
+                            <p class="text-xs text-slate-400">Verifying live overhead allocation triggers, variance matrices, and auditing transactions mapped directly to Reias India operations.</p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <button onclick="runLibraryQuery(1)" class="text-left p-4 rounded-xl border border-slate-800 bg-slate-950 hover:bg-slate-900 transition-all flex justify-between items-center group">
+                                <div>
+                                    <p class="text-[10px] font-mono text-amber-400 font-black">SELECT * FROM overhead_variance;</p>
+                                    <p class="text-[9px] text-slate-400 mt-0.5">Audits spending limits and variance thresholds.</p>
+                                </div>
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:translate-x-1 transition-all"></i>
+                            </button>
+                            <button onclick="runLibraryQuery(2)" class="text-left p-4 rounded-xl border border-slate-800 bg-slate-950 hover:bg-slate-900 transition-all flex justify-between items-center group">
+                                <div>
+                                    <p class="text-[10px] font-mono text-amber-400 font-black">SELECT * FROM business_pipelines;</p>
+                                    <p class="text-[9px] text-slate-400 mt-0.5">Outputs core channel margins & closed pipelines.</p>
+                                </div>
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:translate-x-1 transition-all"></i>
+                            </button>
+                        </div>
+                        <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 flex flex-col justify-between min-h-[160px]">
+                            <div class="font-mono text-xs text-slate-300 space-y-2" id="sql-terminal-body">
+                                <span class="text-slate-500">// Oracle DB ready. Click queries above to load live transaction tables.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right-hand Sidebar Panel (Adapted from Screenshot 2026-07-08 at 2.39.56 PM.jpg) -->
+                <div class="lg:col-span-3 bg-[#080c14] border-l border-slate-950 p-6 flex flex-col gap-6">
                     <div>
-                        <h3 class="text-2xl font-bold mb-2 flex items-center gap-2"><i data-lucide="music-4" class="text-emerald-400"></i> Spotify Stream Dynamics</h3>
-                        <p class="text-slate-400 text-sm">Mapping how behavioral and valence characteristics predict stream trajectory. Move coordinates below to isolate the 3 nearest songs in active acoustic space.</p>
-                    </div>
-
-                    <div class="space-y-6 bg-white/5 p-6 rounded-2xl border border-white/10">
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <label class="text-xs font-black tracking-widest uppercase text-slate-400">Acousticness (X)</label>
-                                <span id="val-acoustic" class="text-sm font-mono text-emerald-400 font-bold">0.50</span>
-                            </div>
-                            <input id="slider-acoustic" type="range" min="0" max="1" step="0.01" value="0.5" class="w-full h-1 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-400" oninput="runKnnSimulation()">
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <label class="text-xs font-black tracking-widest uppercase text-slate-400">Energy (Y)</label>
-                                <span id="val-energy" class="text-sm font-mono text-emerald-400 font-bold">0.60</span>
-                            </div>
-                            <input id="slider-energy" type="range" min="0" max="1" step="0.01" value="0.6" class="w-full h-1 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-400" oninput="runKnnSimulation()">
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="flex-1 bg-white/5 p-3 rounded-xl border border-white/5 text-center">
-                                <p class="text-[10px] text-slate-400 uppercase font-black tracking-widest">Dimension</p>
-                                <p class="text-sm font-bold mt-1 text-slate-200">Acoustic Plane</p>
-                            </div>
-                            <div class="flex-1 bg-white/5 p-3 rounded-xl border border-white/5 text-center">
-                                <p class="text-[10px] text-slate-400 uppercase font-black tracking-widest">Methodology</p>
-                                <p class="text-sm font-bold mt-1 text-slate-200">KNN L2 Norm</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Math Visualization Chart Map -->
-                    <div class="bg-slate-950 p-6 rounded-3xl border border-white/10 flex flex-col justify-between">
-                        <p class="text-xs font-black uppercase text-slate-400 mb-4 tracking-widest text-center">L2 Neighbor Coordinate Plane</p>
-                        <div class="relative w-full aspect-square bg-slate-900 rounded-2xl overflow-hidden border border-white/5">
+                        <p class="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-4">Acoustic Radar Projection</p>
+                        <div class="relative w-full aspect-square bg-[#030610] rounded-xl overflow-hidden border border-slate-800">
                             <canvas id="knn-canvas" class="absolute inset-0 w-full h-full cursor-crosshair"></canvas>
                         </div>
-                        <p class="text-[10px] text-slate-500 mt-3 text-center">Click inside coordinates to place query point manually</p>
+                        <p class="text-[8px] text-slate-500 text-center mt-2">Interactive 2D vector space tracking Acousticness vs Energy</p>
                     </div>
 
-                    <!-- Recommended List Result Panel -->
-                    <div class="flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center justify-between mb-6">
-                                <p class="text-xs font-black uppercase text-slate-400 tracking-widest">Calculated Matches (k=3)</p>
-                                <span class="px-2.5 py-0.5 bg-emerald-500/10 text-emerald-400 rounded-full text-[10px] font-black uppercase tracking-widest border border-emerald-500/20">Active KNN</span>
+                    <div class="border-t border-slate-900/50 pt-4">
+                        <p class="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-3">About the Track</p>
+                        <div class="bg-slate-950 p-3 rounded-lg border border-slate-900 flex gap-3">
+                            <div class="w-10 h-10 bg-gradient-to-tr from-[#1db954] to-[#0d0d0d] rounded flex items-center justify-center text-white"><i data-lucide="music" class="w-5 h-5"></i></div>
+                            <div class="truncate">
+                                <p id="artist-title-widget" class="text-xs font-bold text-white truncate">Sanson Ki Mala Pey</p>
+                                <p id="artist-sub-widget" class="text-[9px] text-slate-400 truncate">Nusrat Fateh Ali Khan Mix</p>
                             </div>
-                            <div id="knn-results-container" class="space-y-4"></div>
                         </div>
-                        <div class="pt-6 border-t border-white/10 mt-6">
-                            <p class="text-xs text-slate-400 italic">Matches the streaming dynamics study looking at engagement and Explicit vs. Non-Explicit dynamics.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Integrated Bottom Playback Control Bar (Direct visual match to Screenshot 2026-07-08 at 2.39.56 PM.jpg and Screenshot 2026-07-08 at 2.18.50 PM.jpg) -->
+            <div class="bg-[#0b0f19] border-t border-slate-800 p-4 lg:p-6 flex flex-col md:flex-row items-center justify-between gap-4 mt-1 rounded-b-3xl">
+                <!-- Track Left section -->
+                <div class="flex items-center gap-4 w-full md:w-1/3">
+                    <div id="playing-artwork" class="w-12 h-12 rounded bg-gradient-to-tr from-orange-500 to-rose-600 flex items-center justify-center text-white shrink-0 shadow-lg border border-white/10">
+                        <i data-lucide="music" class="w-6 h-6"></i>
+                    </div>
+                    <div class="truncate">
+                        <p id="playing-track-name" class="text-sm font-bold text-white truncate">Sanson Ki Mala Pey</p>
+                        <p id="playing-artist" class="text-xs text-slate-400 truncate">Nusrat Fateh Ali Khan - Love and Devotion</p>
+                    </div>
+                </div>
+
+                <!-- Track Center Player controls -->
+                <div class="flex flex-col items-center gap-2 w-full md:w-1/3">
+                    <div class="flex items-center gap-6">
+                        <button onclick="shuffleTrack()" class="text-slate-400 hover:text-white transition-colors" aria-label="Shuffle"><i data-lucide="shuffle" class="w-4 h-4"></i></button>
+                        <button onclick="skipPrev()" class="text-slate-400 hover:text-white transition-colors" aria-label="Previous"><i data-lucide="skip-back" class="w-4 h-4"></i></button>
+                        <button onclick="toggleGlobalPlayback()" id="global-play-btn" class="w-9 h-9 bg-white text-slate-950 rounded-full flex items-center justify-center hover:scale-105 active:scale-95 transition-all shadow-md" aria-label="Play">
+                            <i data-lucide="play" class="w-5 h-5 fill-slate-950 text-slate-950"></i>
+                        </button>
+                        <button onclick="skipNext()" class="text-slate-400 hover:text-white transition-colors" aria-label="Next"><i data-lucide="skip-forward" class="w-4 h-4"></i></button>
+                        <button class="text-slate-400 hover:text-white transition-colors" aria-label="Repeat"><i data-lucide="repeat" class="w-4 h-4"></i></button>
+                    </div>
+                    <div class="flex items-center gap-3 w-full">
+                        <span id="player-time-current" class="text-[10px] font-mono text-slate-400">0:10</span>
+                        <div class="flex-1 h-1 bg-slate-800 rounded-full relative overflow-hidden group cursor-pointer">
+                            <div id="player-time-progress" class="absolute top-0 left-0 h-full bg-emerald-400" style="width: 15%"></div>
+                        </div>
+                        <span id="player-time-total" class="text-[10px] font-mono text-slate-400">2:43</span>
+                    </div>
+                </div>
+
+                <!-- Track Right Telemetry readout -->
+                <div class="hidden md:flex items-center justify-end gap-6 w-full md:w-1/3">
+                    <div class="text-right">
+                        <div class="flex items-center gap-2 text-xs font-semibold text-emerald-400 font-mono">
+                            <span>A: <strong id="telemetry-acoustics">0.85</strong></span>
+                            <span>E: <strong id="telemetry-energy">0.15</strong></span>
+                        </div>
+                        <p class="text-[8px] text-slate-500 font-black uppercase tracking-widest mt-0.5">Live Vector Feeds</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="volume-2" class="w-4 h-4 text-slate-400"></i>
+                        <div class="w-16 h-1 bg-slate-800 rounded-full">
+                            <div class="h-full bg-slate-400 rounded-full" style="width: 70%"></div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- SQL Tab Content -->
-            <div id="sandbox-tab-sql" class="hidden grid grid-cols-1 lg:grid-cols-12 gap-12">
-                <div class="lg:col-span-5 space-y-6">
-                    <div>
-                        <h3 class="text-2xl font-bold mb-2 flex items-center gap-2"><i data-lucide="database" class="text-amber-400"></i> Overhead Allocation & Variance Database</h3>
-                        <p class="text-slate-400 text-sm">Simulating transaction tracking, variance reporting, and overhead allocation logic deployed during the Reias India BA tenure.</p>
-                    </div>
-
-                    <div class="space-y-3">
-                        <button onclick="runLibraryQuery(1)" class="w-full text-left p-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors flex justify-between items-center group">
-                            <div>
-                                <p class="text-xs font-mono text-amber-400 mb-1">SELECT * FROM overhead_variance;</p>
-                                <p class="text-xs text-slate-400 font-medium">Query budget variance vs actual spend limits.</p>
-                            </div>
-                            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:translate-x-1 transition-transform"></i>
-                        </button>
-                        <button onclick="runLibraryQuery(2)" class="w-full text-left p-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors flex justify-between items-center group">
-                            <div>
-                                <p class="text-xs font-mono text-amber-400 mb-1">SELECT * FROM business_pipelines;</p>
-                                <p class="text-xs text-slate-400 font-medium">Verify structural performance across our core pipelines.</p>
-                            </div>
-                            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:translate-x-1 transition-transform"></i>
-                        </button>
-                        <button onclick="runLibraryQuery(3)" class="w-full text-left p-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors flex justify-between items-center group">
-                            <div>
-                                <p class="text-xs font-mono text-blue-400 mb-1">EXECUTE optimize_overhead(101, 0.10);</p>
-                                <p class="text-xs text-slate-400 font-medium">Simulate PL/SQL cost-reduction allocation optimization trigger.</p>
-                            </div>
-                            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:translate-x-1 transition-transform"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-7 flex flex-col justify-between bg-slate-950 rounded-3xl border border-white/10 overflow-hidden min-h-[400px]">
-                    <!-- Terminal Console UI -->
-                    <div class="p-6 bg-slate-900 border-b border-white/5 flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="w-3 h-3 rounded-full bg-rose-500"></span>
-                            <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
-                            <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
-                            <span class="text-xs text-slate-400 font-mono ml-2">sqlplus_cost_control@reias-india</span>
-                        </div>
-                        <span class="text-[10px] font-black uppercase tracking-widest text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded-full border border-emerald-400/20">DB Online</span>
-                    </div>
-
-                    <div class="p-6 font-mono text-sm overflow-x-auto flex-1 flex flex-col justify-start space-y-4" id="sql-terminal-body"></div>
-
-                    <div class="p-4 bg-slate-900 border-t border-white/5 flex justify-between items-center text-xs text-slate-500">
-                        <span>Schema Triggers Active: <strong>Variance_Threshold_TRG, Cost_Minimization_Audit</strong></span>
-                        <span id="terminal-latency">0.0ms execution latency</span>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -575,7 +826,6 @@
                         <h4 class="text-lg font-bold mb-2 text-[#2D1F27] dark:text-slate-200">Financial Modeling</h4>
                         <div class="skill-meter-bg"><div class="skill-meter-fill bg-blue-600" style="--percent: 90%"></div></div>
                     </div>
-                    <!-- NEW SKILLS IN SECTION 1 -->
                     <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal" style="transition-delay: 300ms;">
                         <div class="flex items-center justify-between mb-6">
                             <div class="w-12 h-12 bg-orange-50 dark:bg-orange-950/40 rounded-2xl flex items-center justify-center text-orange-600 dark:text-orange-400 group-hover:scale-110 transition-transform duration-300"><i data-lucide="layout" class="animate-float-subtle"></i></div>
@@ -633,7 +883,6 @@
                         <h4 class="text-lg font-bold mb-2 text-[#2D1F27] dark:text-slate-200">Data Storytelling</h4>
                         <div class="skill-meter-bg"><div class="skill-meter-fill bg-green-500" style="--percent: 90%"></div></div>
                     </div>
-                    <!-- NEW SKILLS IN SECTION 2 -->
                     <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal" style="transition-delay: 150ms;">
                         <div class="flex items-center justify-between mb-6">
                             <div class="w-12 h-12 bg-amber-50 dark:bg-amber-950/40 rounded-2xl flex items-center justify-center text-amber-600 dark:text-amber-400 group-hover:scale-125 group-hover:-rotate-12 transition-transform duration-300"><i data-lucide="briefcase" class="animate-pulse-soft"></i></div>
@@ -839,7 +1088,7 @@ print("Financial literacy metrics...")
         </div>
     </div>
 
-    <!-- MAIN JAVASCRIPT LOGIC -->
+    <!-- JAVASCRIPT LOGIC -->
     <script>
         const safeCreateIcons = () => { if (typeof lucide !== 'undefined') lucide.createIcons(); };
 
@@ -864,7 +1113,6 @@ print("Financial literacy metrics...")
             }
         });
 
-        // Initialize Theme Mode
         setupTheme();
 
         const projectData = [
@@ -926,7 +1174,6 @@ print("Financial literacy metrics...")
             }
         ];
 
-        // Track array of active projects
         let activeProjectIds = [];
 
         function buildSlicerHtml(projectsArray, containerEl) {
@@ -1135,42 +1382,141 @@ print("Financial literacy metrics...")
             }, 50);
         }
 
-        // Live Mock Database Arrays for KNN Recommender
+        // Live Mock Music Inventory matching Screenshot references
         const trackDataset = [
-            { title: "Chill Vibes Only", artist: "LoFi Node", acousticness: 0.85, energy: 0.15, danceability: 0.3, valence: 0.4 },
-            { title: "Midnight Highway", artist: "ElectroWave", acousticness: 0.12, energy: 0.88, danceability: 0.7, valence: 0.65 },
-            { title: "Acoustic Sunsets", artist: "Folk Whisper", acousticness: 0.95, energy: 0.25, danceability: 0.45, valence: 0.5 },
-            { title: "Neon Club Beats", artist: "Synth Lord", acousticness: 0.05, energy: 0.95, danceability: 0.85, valence: 0.8 },
-            { title: "Rainy Afternoon", artist: "Piano Solos", acousticness: 0.98, energy: 0.08, danceability: 0.2, valence: 0.15 },
-            { title: "Summer Anthems", artist: "Pop Pulse", acousticness: 0.25, energy: 0.75, danceability: 0.78, valence: 0.9 },
-            { title: "Study Focus session", artist: "Ambient Sound", acousticness: 0.9, energy: 0.18, danceability: 0.25, valence: 0.2 },
-            { title: "Deep Techno", artist: "Sub Bass", acousticness: 0.02, energy: 0.82, danceability: 0.68, valence: 0.45 },
-            { title: "Morning Rise", artist: "Acoustic Duo", acousticness: 0.72, energy: 0.42, danceability: 0.55, valence: 0.7 }
+            { title: "Sanson Ki Mala Pey", artist: "Nusrat Fateh Ali Khan", acousticness: 0.85, energy: 0.15, duration: "2:43", gradient: "from-orange-500 to-rose-600" },
+            { title: "Midnight Highway", artist: "ElectroWave Mix", acousticness: 0.12, energy: 0.88, duration: "3:12", gradient: "from-indigo-500 to-purple-800" },
+            { title: "Acoustic Sunsets", artist: "Folk Whisper Duo", acousticness: 0.95, energy: 0.25, duration: "2:18", gradient: "from-red-500 to-orange-600" },
+            { title: "Neon Club Beats", artist: "Synth Lord", acousticness: 0.05, energy: 0.95, duration: "4:01", gradient: "from-teal-500 to-emerald-700" }
         ];
 
-        function switchSandboxTab(tabName) {
-            const knnBtn = document.getElementById('tab-btn-knn');
-            const sqlBtn = document.getElementById('tab-btn-sql');
-            const knnTab = document.getElementById('sandbox-tab-knn');
-            const sqlTab = document.getElementById('sandbox-tab-sql');
+        let activeTrackIndex = 0;
+        let isPlaybackRunning = false;
+        let playbackTimer = null;
+        let currentProgressSeconds = 10;
 
-            if (tabName === 'knn') {
-                knnTab.classList.remove('hidden');
-                sqlTab.classList.add('hidden');
-                knnBtn.className = "px-6 py-3 bg-white text-slate-900 rounded-full font-bold text-sm transition-all shadow-md";
-                sqlBtn.className = "px-6 py-3 bg-white/5 hover:bg-white/10 text-white rounded-full font-bold text-sm transition-all";
+        function selectSandboxSection(sectionName) {
+            const homeBtn = document.getElementById('nav-btn-home');
+            const knnBtn = document.getElementById('nav-btn-knn');
+            const dbBtn = document.getElementById('nav-btn-db');
+
+            const homeView = document.getElementById('sandbox-view-home');
+            const knnView = document.getElementById('sandbox-view-knn');
+            const dbView = document.getElementById('sandbox-view-db');
+
+            // Reset navigation classes
+            [homeBtn, knnBtn, dbBtn].forEach(btn => {
+                btn.className = "w-full flex items-center gap-3 px-3 py-2 text-sm font-semibold rounded-lg text-slate-400 hover:text-white hover:bg-slate-900/50 transition-all";
+            });
+
+            // Hide views
+            homeView.classList.replace('block', 'hidden');
+            knnView.classList.replace('block', 'hidden');
+            dbView.classList.replace('block', 'hidden');
+
+            if (sectionName === 'home') {
+                homeBtn.className = "w-full flex items-center gap-3 px-3 py-2 text-sm font-semibold rounded-lg text-blue-400 bg-slate-900 transition-all";
+                homeView.classList.replace('hidden', 'block');
+            } else if (sectionName === 'knn') {
+                knnBtn.className = "w-full flex items-center gap-3 px-3 py-2 text-sm font-semibold rounded-lg text-blue-400 bg-slate-900 transition-all";
+                knnView.classList.replace('hidden', 'block');
                 setTimeout(runKnnSimulation, 10);
-            } else {
-                sqlTab.classList.remove('hidden');
-                knnTab.classList.add('hidden');
-                sqlBtn.className = "px-6 py-3 bg-white text-slate-900 rounded-full font-bold text-sm transition-all shadow-md";
-                knnBtn.className = "px-6 py-3 bg-white/5 hover:bg-white/10 text-white rounded-full font-bold text-sm transition-all";
+            } else if (sectionName === 'db') {
+                dbBtn.className = "w-full flex items-center gap-3 px-3 py-2 text-sm font-semibold rounded-lg text-blue-400 bg-slate-900 transition-all";
+                dbView.classList.replace('hidden', 'block');
                 runLibraryQuery(1);
             }
         }
 
-        // Live KNN Engine execution
-        let knnCanvasInit = false;
+        // Dynamic playback and metadata state logic
+        function selectMixTrack(index) {
+            activeTrackIndex = index;
+            const track = trackDataset[activeTrackIndex];
+
+            // Update bottom bar metadata
+            document.getElementById('playing-track-name').innerText = track.title;
+            document.getElementById('playing-artist').innerText = `${track.artist} - Love & Devotion`;
+            document.getElementById('player-time-total').innerText = track.duration;
+
+            // Update art badge
+            const artBlock = document.getElementById('playing-artwork');
+            artBlock.className = `w-12 h-12 rounded bg-gradient-to-tr ${track.gradient} flex items-center justify-center text-white shrink-0 shadow-lg border border-white/10`;
+
+            // Update widgets
+            document.getElementById('artist-title-widget').innerText = track.title;
+            document.getElementById('artist-sub-widget').innerText = `${track.artist} Mix`;
+
+            // Update telemetry numbers
+            document.getElementById('telemetry-acoustics').innerText = track.acousticness.toFixed(2);
+            document.getElementById('telemetry-energy').innerText = track.energy.toFixed(2);
+
+            // Trigger slider controls
+            document.getElementById('slider-acoustic').value = track.acousticness;
+            document.getElementById('slider-energy').value = track.energy;
+
+            // Reset progress timer
+            currentProgressSeconds = 0;
+            updatePlaybackProgressUI();
+
+            // Rerun KNN coordinates analysis
+            runKnnSimulation();
+        }
+
+        function toggleGlobalPlayback() {
+            const btn = document.getElementById('global-play-btn');
+            if (isPlaybackRunning) {
+                isPlaybackRunning = false;
+                btn.innerHTML = `<i data-lucide="play" class="w-5 h-5 fill-slate-950 text-slate-950"></i>`;
+                clearInterval(playbackTimer);
+            } else {
+                isPlaybackRunning = true;
+                btn.innerHTML = `<i data-lucide="pause" class="w-5 h-5 fill-slate-950 text-slate-950"></i>`;
+                
+                playbackTimer = setInterval(() => {
+                    currentProgressSeconds++;
+                    const track = trackDataset[activeTrackIndex];
+                    const totalParts = track.duration.split(":");
+                    const totalSecs = (parseInt(totalParts[0]) * 60) + parseInt(totalParts[1]);
+
+                    if (currentProgressSeconds >= totalSecs) {
+                        currentProgressSeconds = 0;
+                        skipNext();
+                    }
+                    updatePlaybackProgressUI();
+                }, 1000);
+            }
+            safeCreateIcons();
+        }
+
+        function updatePlaybackProgressUI() {
+            const track = trackDataset[activeTrackIndex];
+            const totalParts = track.duration.split(":");
+            const totalSecs = (parseInt(totalParts[0]) * 60) + parseInt(totalParts[1]);
+
+            const percentage = (currentProgressSeconds / totalSecs) * 100;
+            document.getElementById('player-time-progress').style.width = `${percentage}%`;
+
+            const mins = Math.floor(currentProgressSeconds / 60);
+            const secs = currentProgressSeconds % 60;
+            document.getElementById('player-time-current').innerText = `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function skipNext() {
+            let nextIdx = (activeTrackIndex + 1) % trackDataset.length;
+            selectMixTrack(nextIdx);
+        }
+
+        function skipPrev() {
+            let prevIdx = (activeTrackIndex - 1 + trackDataset.length) % trackDataset.length;
+            selectMixTrack(prevIdx);
+        }
+
+        function shuffleTrack() {
+            let randIdx = Math.floor(Math.random() * trackDataset.length);
+            selectMixTrack(randIdx);
+        }
+
+        // Live KNN Engine calculation coordinates
         function runKnnSimulation(customCoords = null) {
             const sliderAcoustic = document.getElementById('slider-acoustic');
             const sliderEnergy = document.getElementById('slider-energy');
@@ -1197,22 +1543,19 @@ print("Financial literacy metrics...")
             // Fetch Top k=3
             const kMatches = neighbors.slice(0, 3);
 
-            // Render recommendations list
+            // Render recommendations list inside the dashboard
             const resultsContainer = document.getElementById('knn-results-container');
-            if(resultsContainer) {
+            if (resultsContainer) {
                 resultsContainer.innerHTML = kMatches.map((track, i) => `
-                    <div class="p-4 rounded-xl bg-white/5 border border-white/10 flex justify-between items-center transition-all hover:bg-white/10">
-                        <div class="flex items-center gap-3">
-                            <span class="w-7 h-7 flex items-center justify-center bg-emerald-500/10 text-emerald-400 font-bold font-mono text-xs rounded-full">#${i+1}</span>
-                            <div>
-                                <p class="font-bold text-white text-sm">${track.title}</p>
-                                <p class="text-xs text-slate-400">${track.artist}</p>
+                    <div class="p-2.5 rounded-lg bg-slate-900 border border-white/5 flex justify-between items-center transition-all hover:bg-slate-800">
+                        <div class="flex items-center gap-2">
+                            <span class="w-5 h-5 flex items-center justify-center bg-emerald-500/10 text-emerald-400 font-bold font-mono text-[9px] rounded-full">#${i+1}</span>
+                            <div class="truncate max-w-[100px]">
+                                <p class="font-bold text-white text-[10px] truncate leading-none">${track.title}</p>
+                                <p class="text-[8px] text-slate-400 truncate mt-0.5">${track.artist}</p>
                             </div>
                         </div>
-                        <div class="text-right">
-                            <p class="text-xs font-mono text-emerald-400 font-bold">L2: ${track.distance.toFixed(3)}</p>
-                            <p class="text-[9px] text-slate-500 uppercase tracking-widest">Distance</p>
-                        </div>
+                        <p class="text-[9px] font-mono text-emerald-400 font-bold">L2: ${track.distance.toFixed(2)}</p>
                     </div>
                 `).join('');
             }
@@ -1221,12 +1564,12 @@ print("Financial literacy metrics...")
             drawKnnCanvas(queryX, queryY, kMatches);
         }
 
+        // Draw coordinate plane
         function drawKnnCanvas(qx, qy, matches) {
             const canvas = document.getElementById('knn-canvas');
             if (!canvas) return;
             const ctx = canvas.getContext('2d');
             
-            // Adjust canvas properties for retina display
             const rect = canvas.getBoundingClientRect();
             canvas.width = rect.width;
             canvas.height = rect.height;
@@ -1234,44 +1577,33 @@ print("Financial literacy metrics...")
             const w = canvas.width;
             const h = canvas.height;
 
-            // Paint background
-            ctx.fillStyle = '#020617';
+            ctx.fillStyle = '#030610';
             ctx.fillRect(0,0,w,h);
 
             // Draw axis lines
-            ctx.strokeStyle = 'rgba(255,255,255,0.1)';
+            ctx.strokeStyle = 'rgba(255,255,255,0.06)';
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(w / 2, 0); ctx.lineTo(w / 2, h);
             ctx.moveTo(0, h / 2); ctx.lineTo(w, h / 2);
             ctx.stroke();
 
-            // Label axis guides
-            ctx.fillStyle = 'rgba(255,255,255,0.4)';
-            ctx.font = '10px monospace';
-            ctx.fillText("High Energy", w / 2 + 6, 15);
-            ctx.fillText("Low Energy", w / 2 + 6, h - 8);
-            ctx.fillText("High Acousticness", w - 105, h / 2 - 6);
-            ctx.fillText("Low Acousticness", 8, h / 2 - 6);
-
-            // Plot datasets
+            // Plot coordinates
             trackDataset.forEach(track => {
                 const px = track.acousticness * w;
-                const py = (1 - track.energy) * h; // flip y-axis
+                const py = (1 - track.energy) * h;
 
-                // Verify if it is part of Top matches
                 const isMatch = matches.some(m => m.title === track.title);
 
                 ctx.fillStyle = isMatch ? '#10b981' : '#475569';
                 ctx.beginPath();
-                ctx.arc(px, py, isMatch ? 8 : 5, 0, Math.PI * 2);
+                ctx.arc(px, py, isMatch ? 6 : 4, 0, Math.PI * 2);
                 ctx.fill();
 
                 if (isMatch) {
-                    // Connect nearest neighbors to the query point
-                    ctx.strokeStyle = 'rgba(16, 185, 129, 0.4)';
-                    ctx.lineWidth = 1.5;
-                    ctx.setLineDash([4, 4]);
+                    ctx.strokeStyle = 'rgba(16, 185, 129, 0.3)';
+                    ctx.lineWidth = 1;
+                    ctx.setLineDash([3, 3]);
                     ctx.beginPath();
                     ctx.moveTo(qx * w, (1 - qy) * h);
                     ctx.lineTo(px, py);
@@ -1280,19 +1612,18 @@ print("Financial literacy metrics...")
                 }
             });
 
-            // Plot active Query Point
+            // Plot Query Coordinates
             const qpx = qx * w;
             const qpy = (1 - qy) * h;
             ctx.fillStyle = '#f43f5e';
             ctx.beginPath();
-            ctx.arc(qpx, qpy, 8, 0, Math.PI * 2);
+            ctx.arc(qpx, qpy, 6, 0, Math.PI * 2);
             ctx.fill();
 
-            // Draw outer tracking ring
             ctx.strokeStyle = '#f43f5e';
-            ctx.lineWidth = 2;
+            ctx.lineWidth = 1.5;
             ctx.beginPath();
-            ctx.arc(qpx, qpy, 15, 0, Math.PI * 2);
+            ctx.arc(qpx, qpy, 12, 0, Math.PI * 2);
             ctx.stroke();
         }
 
@@ -1306,7 +1637,7 @@ print("Financial literacy metrics...")
             });
         }
 
-        // PL/SQL Interactive Corporate Cost Simulator (De-specified from 1.25 Cr)
+        // PL/SQL Database Console simulation updates
         const activeDatabaseMock = {
             overhead: [
                 { id: 101, department: "Commercial Ops", budget: 5000000, actual: 4500000, variance: -500000 },
@@ -1325,7 +1656,7 @@ print("Financial literacy metrics...")
             const start = performance.now();
 
             body.innerHTML = `
-                <div class="text-slate-500 animate-pulse">Querying database schema on Oracle cluster...</div>
+                <div class="text-slate-500 animate-pulse">// Compiling schema on Reias Oracle cluster...</div>
             `;
 
             setTimeout(() => {
@@ -1334,75 +1665,51 @@ print("Financial literacy metrics...")
 
                 if (queryId === 1) {
                     body.innerHTML = `
-                        <div class="text-slate-400 font-bold mb-2">SQL&gt; SELECT dept_id, department, budget_limit, actual_spend, variance FROM overhead_variance;</div>
-                        <table class="w-full text-xs text-left border-collapse mt-2">
+                        <div class="text-slate-400 font-bold mb-2">SQL&gt; SELECT * FROM overhead_variance;</div>
+                        <table class="w-full text-left border-collapse">
                             <thead>
-                                <tr class="border-b border-white/20 text-slate-400">
+                                <tr class="border-b border-white/10 text-slate-400 text-[10px]">
                                     <th class="py-1">DEPT_ID</th>
-                                    <th class="py-1">DEPARTMENT</th>
+                                    <th class="py-1">DEPT_NAME</th>
                                     <th class="py-1">BUDGET</th>
-                                    <th class="py-1">ACTUAL</th>
                                     <th class="py-1 text-right">VARIANCE</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 ${activeDatabaseMock.overhead.map(m => `
-                                    <tr class="border-b border-white/5 hover:bg-white/5">
-                                        <td class="py-1.5 font-mono">${m.id}</td>
-                                        <td class="py-1.5 font-bold">${m.department}</td>
-                                        <td class="py-1.5 font-mono">₹${m.budget.toLocaleString()}</td>
-                                        <td class="py-1.5 font-mono">₹${m.actual.toLocaleString()}</td>
-                                        <td class="py-1.5 text-right font-mono ${m.variance < 0 ? 'text-emerald-400' : 'text-rose-400'}">₹${m.variance.toLocaleString()}</td>
+                                    <tr class="border-b border-white/5 text-[10px] hover:bg-white/5">
+                                        <td class="py-1 font-mono">${m.id}</td>
+                                        <td class="py-1 font-bold">${m.department}</td>
+                                        <td class="py-1 font-mono">₹${m.budget.toLocaleString()}</td>
+                                        <td class="py-1 text-right font-mono ${m.variance < 0 ? 'text-emerald-400' : 'text-rose-400'}">₹${m.variance.toLocaleString()}</td>
                                     </tr>
                                 `).join('')}
                             </tbody>
                         </table>
-                        <div class="text-[10px] text-slate-500 mt-4">${activeDatabaseMock.overhead.length} rows compiled successfully.</div>
                     `;
                 } else if (queryId === 2) {
                     body.innerHTML = `
-                        <div class="text-slate-400 font-bold mb-2">SQL&gt; SELECT pipeline_id, channel, contract_value, margins, status FROM business_pipelines;</div>
-                        <table class="w-full text-xs text-left border-collapse mt-2">
+                        <div class="text-slate-400 font-bold mb-2">SQL&gt; SELECT * FROM business_pipelines;</div>
+                        <table class="w-full text-left border-collapse">
                             <thead>
-                                <tr class="border-b border-white/20 text-slate-400">
+                                <tr class="border-b border-white/10 text-slate-400 text-[10px]">
                                     <th class="py-1">PIP_ID</th>
                                     <th class="py-1">CHANNEL</th>
                                     <th class="py-1">VALUE</th>
-                                    <th class="py-1">MARGINS</th>
                                     <th class="py-1 text-right">STATUS</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 ${activeDatabaseMock.pipelines.map(b => `
-                                    <tr class="border-b border-white/5 hover:bg-white/5">
-                                        <td class="py-1.5 font-mono">${b.id}</td>
-                                        <td class="py-1.5 font-bold text-slate-200 truncate max-w-[200px]">${b.channel}</td>
-                                        <td class="py-1.5 font-mono">₹${b.value.toLocaleString()}</td>
-                                        <td class="py-1.5">${b.margin}</td>
-                                        <td class="py-1.5 text-right"><span class="px-1.5 py-0.5 rounded text-[10px] ${b.status === 'Closed' ? 'bg-emerald-500/10 text-emerald-400' : 'bg-blue-500/10 text-blue-400'}">${b.status}</span></td>
+                                    <tr class="border-b border-white/5 text-[10px] hover:bg-white/5">
+                                        <td class="py-1 font-mono">${b.id}</td>
+                                        <td class="py-1 font-bold text-slate-200 truncate max-w-[100px]">${b.channel}</td>
+                                        <td class="py-1 font-mono">₹${b.value.toLocaleString()}</td>
+                                        <td class="py-1 text-right"><span class="px-1 py-0.5 rounded text-[8px] ${b.status === 'Closed' ? 'bg-emerald-500/10 text-emerald-400' : 'bg-blue-500/10 text-blue-400'}">${b.status}</span></td>
                                     </tr>
                                 `).join('')}
                             </tbody>
                         </table>
-                        <div class="text-[10px] text-slate-500 mt-4">${activeDatabaseMock.pipelines.length} rows compiled successfully. Total pipeline value: Active.</div>
-                    `;
-                } else if (queryId === 3) {
-                    const costDept = activeDatabaseMock.overhead.find(d => d.id === 101);
-                    costDept.actual = 4050000;
-                    costDept.variance = -950000;
-
-                    body.innerHTML = `
-                        <div class="text-slate-400 font-bold mb-1">SQL&gt; EXECUTE optimize_overhead(dept_id => 101, target_reduction => 0.10);</div>
-                        <div class="text-emerald-400 font-bold mb-1">&gt; PL/SQL dynamic cost compilation successfully completed.</div>
-                        <div class="text-slate-300 font-mono bg-slate-900 p-4 rounded-xl border border-white/5 space-y-1">
-                            <p class="text-amber-400">[TRIGGER TRIGGERED] Cost_Minimization_Audit:</p>
-                            <p>&nbsp;&nbsp;Audit ID: COST-OPT-${Math.floor(Math.random() * 90000) + 10000}</p>
-                            <p>&nbsp;&nbsp;Verification Log: Overhead reduction trigger verified successfully.</p>
-                            <p class="text-blue-400 mt-2">[PROCEDURE LOG] Stored Procedure execution block:</p>
-                            <p>&nbsp;&nbsp;Adjusting Department budget actuals: 101 (Commercial Ops) -&gt; ₹4,050,000</p>
-                            <p>&nbsp;&nbsp;Updated Cost Variance: Actual spend minimized by ₹450,000 (10% Reduction)</p>
-                            <p class="text-emerald-400">&nbsp;&nbsp;SUCCESS: Transaction variance updates committed to master schema.</p>
-                        </div>
                     `;
                 }
             }, 350);
@@ -1488,7 +1795,6 @@ print("Financial literacy metrics...")
             }, 300);
         }
 
-        // Custom modal helper for CV triggers (replacing alerts)
         function openCVModal() {
             document.getElementById('cv-modal').classList.remove('hidden');
             setTimeout(() => document.getElementById('cv-modal-content').classList.remove('scale-95', 'opacity-0'), 10);
