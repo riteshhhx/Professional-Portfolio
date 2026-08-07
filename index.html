@@ -355,11 +355,7 @@
             <div class="flex-1 relative animate-hero" style="animation-delay: 200ms">
                 <div class="relative w-72 h-72 lg:w-[420px] lg:h-[420px] mx-auto group">
                     <div class="w-full h-full rounded-full overflow-hidden hero-frame bg-slate-50 border-[12px] border-white dark:border-slate-800 relative z-10 hover:border-blue-100 dark:hover:border-blue-900 transition-colors duration-500">
-                        <div class="w-full h-full bg-gradient-to-tr from-slate-900 to-blue-950 flex flex-col items-center justify-center p-8 text-center text-white">
-                            <i data-lucide="user-round" class="w-24 h-24 text-blue-400 mb-4 animate-float-subtle"></i>
-                            <h3 class="text-2xl font-black tracking-tight">Ritesh Yadav</h3>
-                            <p class="text-xs text-slate-400 max-w-[200px] mt-2">Business Analytics & Corporate Finance</p>
-                        </div>
+                        <img src="ritesh.jpg" alt="Ritesh Yadav - Business Analytics & Finance" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'w-full h-full bg-gradient-to-tr from-slate-900 to-blue-950 flex flex-col items-center justify-center p-8 text-center text-white\'><i data-lucide=\'user-round\' class=\'w-24 h-24 text-blue-400 mb-4 animate-float-subtle\'></i><h3 class=\'text-2xl font-black tracking-tight\'>Ritesh Yadav</h3><p class=\'text-xs text-slate-400 max-w-[200px] mt-2\'>Business Analytics & Corporate Finance</p></div>'; safeCreateIcons();">
                     </div>
                     
                     <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 z-20 bg-slate-900 dark:bg-slate-800 text-white px-6 lg:px-8 py-3 lg:py-4 rounded-[2rem] flex items-center gap-4 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] border border-slate-700 hover:-translate-y-2 transition-transform duration-300">
@@ -447,7 +443,7 @@
                         <i data-lucide="disc" class="w-3 h-3 text-spotify animate-spin-slow"></i> STREAMING AUDIO & LEXICON ENGINE
                     </div>
                     <h2 class="text-4xl font-black tracking-tight mb-2">Spotify Stream Dynamics Portal</h2>
-                    <p class="text-neutral-400 text-xs max-w-xl">Interactive environment modeled directly on <strong>Screenshot 2026-07-08 at 2.57.50 PM.jpg</strong> and <strong>Screenshot 2026-07-08 at 2.57.54 PM.jpg</strong>. Maps Python VADER NLP sentiment scores to k-Nearest Neighbors audio telemetry.</p>
+                    <p class="text-neutral-400 text-xs max-w-xl">Interactive environment modeling KNN vector projections and VADER sentiment scores. Adjust audio sliders or click radar points to recalculate acoustic matches.</p>
                 </div>
                 <div class="flex items-center gap-3">
                     <div class="px-3.5 py-1.5 rounded-full bg-neutral-900 text-xs font-mono font-bold text-spotify tracking-widest border border-neutral-800 flex items-center gap-2 animate-pulse-soft">
@@ -459,7 +455,7 @@
             <!-- Dashboard Frame wrapper -->
             <div class="grid grid-cols-1 lg:grid-cols-12 bg-black rounded-3xl overflow-hidden border border-neutral-900 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.8)]">
                 
-                <!-- Left Sidebar Navigation Panel (As in Screenshot 2.57.50 PM) -->
+                <!-- Left Sidebar Navigation Panel -->
                 <div class="lg:col-span-3 bg-[#121212] p-5 flex flex-col justify-between border-r border-neutral-900">
                     <div class="space-y-6">
                         <div class="space-y-2">
@@ -498,21 +494,20 @@
                     <div class="pt-6 border-t border-neutral-900 flex items-center gap-3">
                         <div class="w-10 h-10 rounded-full bg-neutral-800 flex items-center justify-center text-xs font-black text-spotify border border-neutral-700">RY</div>
                         <div class="truncate">
-                            <p class="text-xs font-black text-neutral-300 truncate">Riteshh Yadav</p>
+                            <p class="text-xs font-black text-neutral-300 truncate">Ritesh Yadav</p>
                             <p class="text-[9px] font-black uppercase text-neutral-500 tracking-wider">LPU Student Account</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Main Content Panel (Spotify Centered View from screenshot 2.57.50 PM) -->
+                <!-- Main Content Panel -->
                 <div class="lg:col-span-6 bg-[#0c0c0c] p-6 lg:p-8 overflow-y-auto max-h-[600px] scrollbar-hide">
                     
-                    <!-- Centered Large Art block verbatim from Screenshot 2.57.50 PM -->
+                    <!-- Centered Large Art block -->
                     <div class="flex flex-col items-center justify-center py-6">
                         <p class="text-xs font-black text-neutral-400 uppercase tracking-widest mb-4">Acoustic-Sentiment Model</p>
                         
                         <div class="relative w-72 h-72 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-neutral-800 group mb-6">
-                            <!-- Visual placeholder representing the actual playing cover style -->
                             <div id="main-art-block" class="w-full h-full bg-gradient-to-tr from-emerald-500 to-teal-800 flex flex-col justify-between p-6 transition-all duration-500">
                                 <div class="flex justify-between items-start">
                                     <span class="text-[9px] font-black uppercase bg-white/20 px-2 py-0.5 rounded backdrop-blur-md">VADER NLP ENGINE</span>
@@ -523,7 +518,6 @@
                                     <p id="artwork-artist" class="text-xs text-white/80 font-bold">VADER Lexicon Score: 0.82</p>
                                 </div>
                             </div>
-                            <!-- Subtle overlay indicator when playing -->
                             <div id="art-visual-wave" class="absolute bottom-4 right-4 flex items-end gap-0.5 opacity-0 transition-opacity">
                                 <span class="w-1 h-3 bg-spotify animate-bounce" style="animation-delay: 0.1s"></span>
                                 <span class="w-1 h-5 bg-spotify animate-bounce" style="animation-delay: 0.3s"></span>
@@ -544,11 +538,10 @@
                         </div>
                     </div>
 
-                    <!-- Scroll Down Details: About the Artist & Credits verbatim from Screenshot 2.57.54 PM -->
+                    <!-- Details & Credits -->
                     <div class="pt-8 border-t border-neutral-900 space-y-8 mt-6">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             
-                            <!-- "About the artist" visual container -->
                             <div class="relative bg-neutral-900 rounded-2xl overflow-hidden border border-neutral-800/80 min-h-[260px] flex flex-col justify-end p-5 group">
                                 <div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:scale-105 transition-transform duration-700" style="background-image: url('https://placehold.co/400x300/151515/333333?text=Ritesh+Yadav+Analytics')"></div>
                                 <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/40 to-transparent"></div>
@@ -562,7 +555,6 @@
                                 </div>
                             </div>
 
-                            <!-- "Credits" panel matching screenshot 2.57.54 PM -->
                             <div class="bg-neutral-900 rounded-2xl p-5 border border-neutral-800/80 flex flex-col justify-between">
                                 <div>
                                     <div class="flex justify-between items-center mb-4">
@@ -600,7 +592,7 @@
 
                         </div>
 
-                        <!-- Manual Acousticness & Energy Vectors Setup (The actual KNN calculator interface) -->
+                        <!-- Manual Vectors Setup -->
                         <div class="p-6 bg-neutral-950 rounded-2xl border border-neutral-900">
                             <p class="text-xs font-black uppercase text-spotify tracking-widest mb-3">Live KNN Vector Adjustment</p>
                             <p class="text-[10px] text-neutral-400 mb-4 leading-relaxed">Adjust these vectors to dynamically update matching playlists and track recommendation coordinates.</p>
@@ -655,7 +647,7 @@
 
             </div>
 
-            <!-- Spotify Themed Integrated Bottom Playback Control Bar -->
+            <!-- Spotify Playback Control Bar -->
             <div class="bg-neutral-900 border-t border-neutral-800 p-4 lg:p-6 flex flex-col md:flex-row items-center justify-between gap-4 mt-1 rounded-b-3xl">
                 <div class="flex items-center gap-4 w-full md:w-1/3">
                     <div id="playing-artwork" class="w-12 h-12 rounded bg-gradient-to-tr from-emerald-500 to-teal-800 flex items-center justify-center text-white shrink-0 shadow-lg border border-white/10">
@@ -706,7 +698,7 @@
         </div>
     </section>
 
-    <!-- REIAS INDIA WORKPLACE ANALYTICS PORTAL (Styled around reiasindia.com Verbatim) -->
+    <!-- REIAS INDIA WORKPLACE ANALYTICS PORTAL -->
     <section id="reias-sandbox" class="py-24 px-4 lg:px-8 bg-neutral-900 text-white rounded-[3rem] mx-2 lg:mx-6 my-10 overflow-hidden relative shadow-2xl border border-neutral-800">
         <div class="max-w-7xl mx-auto">
             
@@ -730,9 +722,7 @@
                 <div class="lg:col-span-4 bg-[#111] p-6 border-r border-neutral-900 flex flex-col justify-between">
                     <div>
                         <p class="text-[10px] font-black uppercase text-neutral-500 tracking-wider mb-4">Gurgaon Premium Portfolios</p>
-                        <div id="reias-properties-list" class="space-y-3">
-                            <!-- Injected by JavaScript dynamically -->
-                        </div>
+                        <div id="reias-properties-list" class="space-y-3"></div>
                     </div>
                     <div class="bg-neutral-950 p-4 rounded-xl border border-neutral-900 mt-6">
                         <p class="text-[10px] font-black uppercase text-reias-500 tracking-widest mb-1.5">Internship Insight</p>
@@ -798,9 +788,7 @@
                     <!-- Live transaction timeline logs simulation -->
                     <div class="mt-8 border-t border-neutral-900 pt-6">
                         <p class="text-[10px] font-black uppercase text-neutral-500 tracking-wider mb-3">Reias Gurugram Transaction Ledger logs</p>
-                        <div class="bg-neutral-950 p-4 rounded-xl border border-neutral-900 font-mono text-[10px] text-neutral-400 space-y-1.5" id="reias-logs-ledg">
-                            <!-- Injected by JavaScript -->
-                        </div>
+                        <div class="bg-neutral-950 p-4 rounded-xl border border-neutral-900 font-mono text-[10px] text-neutral-400 space-y-1.5" id="reias-logs-ledg"></div>
                     </div>
                 </div>
 
@@ -814,69 +802,169 @@
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-20 reveal">
                 <h2 class="text-5xl font-bold tracking-tighter mb-6 gradient-text-animate">Technical & Strategic Stack</h2>
+                <p class="text-slate-500 dark:text-slate-400 text-lg max-w-2xl mx-auto font-medium">Core analytical competencies, data mining methodology, and industrial software applications essential for enterprise business intelligence.</p>
             </div>
 
             <!-- DATA ANALYSIS & ENGINEERING SECTION -->
             <div class="mb-20">
-                <h3 class="text-2xl font-black mb-8 text-[#2D1F27] dark:text-slate-200 reveal flex items-center gap-3">
+                <h3 class="text-2xl font-black mb-8 text-slate-800 dark:text-slate-200 reveal flex items-center gap-3">
                     <i data-lucide="database" class="w-6 h-6 text-blue-600 animate-pulse-soft"></i> Business Analytics & Data Mining
                 </h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal">
                         <div class="flex items-center justify-between mb-6">
-                            <div class="w-12 h-12 bg-emerald-50 dark:bg-emerald-950/40 rounded-2xl flex items-center justify-center text-emerald-600 dark:text-emerald-400 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300"><i data-lucide="file-spreadsheet" class="animate-float-subtle"></i></div>
+                            <div class="w-12 h-12 bg-emerald-50 dark:bg-emerald-950/40 rounded-2xl flex items-center justify-center text-emerald-600 dark:text-emerald-400 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300"><i data-lucide="file-spreadsheet" class="w-6 h-6 animate-float-subtle"></i></div>
                             <span class="text-xs font-black text-slate-400 uppercase tracking-widest"><span class="counter" data-target="95">0</span>%</span>
                         </div>
-                        <h4 class="text-lg font-bold mb-2 text-[#2D1F27] dark:text-slate-200">MS Excel & Modeling</h4>
+                        <h4 class="text-lg font-bold mb-2 text-slate-800 dark:text-slate-200">MS Excel & Advanced Modeling</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium leading-relaxed mb-3">Pivot Tables, Power Query, VBA Macros, Financial & Sensitivity Modeling.</p>
                         <div class="skill-meter-bg"><div class="skill-meter-fill bg-emerald-500" style="--percent: 95%"></div></div>
                     </div>
+
                     <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal" style="transition-delay: 50ms;">
                         <div class="flex items-center justify-between mb-6">
-                            <div class="w-12 h-12 bg-teal-50 dark:bg-teal-950/40 rounded-2xl flex items-center justify-center text-teal-600 dark:text-teal-400 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300"><i data-lucide="database-zap" class="animate-pulse-soft"></i></div>
+                            <div class="w-12 h-12 bg-teal-50 dark:bg-teal-950/40 rounded-2xl flex items-center justify-center text-teal-600 dark:text-teal-400 group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300"><i data-lucide="database-zap" class="w-6 h-6 animate-pulse-soft"></i></div>
                             <span class="text-xs font-black text-slate-400 uppercase tracking-widest"><span class="counter" data-target="90">0</span>%</span>
                         </div>
-                        <h4 class="text-lg font-bold mb-2 text-[#2D1F27] dark:text-slate-200">Data Mining & SQL</h4>
+                        <h4 class="text-lg font-bold mb-2 text-slate-800 dark:text-slate-200">Data Mining & SQL</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium leading-relaxed mb-3">Relational Queries, Window Functions, Aggregate Mining, Schema Design.</p>
                         <div class="skill-meter-bg"><div class="skill-meter-fill bg-teal-500" style="--percent: 90%"></div></div>
                     </div>
+
                     <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal" style="transition-delay: 100ms;">
                         <div class="flex items-center justify-between mb-6">
-                            <div cl ass="w-12 h-12 bg-indigo-50 dark:bg-indigo-950/40 rounded-2xl flex items-center justify-center text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform duration-300"><i data-lucide="line-chart" class="animate-float-subtle"></i></div>
+                            <div class="w-12 h-12 bg-indigo-50 dark:bg-indigo-950/40 rounded-2xl flex items-center justify-center text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform duration-300"><i data-lucide="trending-up" class="w-6 h-6 animate-float-subtle"></i></div>
                             <span class="text-xs font-black text-slate-400 uppercase tracking-widest"><span class="counter" data-target="88">0</span>%</span>
                         </div>
-                        <h4 class="text-lg font-bold mb-2 text-[#2D1F27] dark:text-slate-200">Looker & Google Analytics</h4>
+                        <h4 class="text-lg font-bold mb-2 text-slate-800 dark:text-slate-200">Predictive Analytics & Forecasting</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium leading-relaxed mb-3">Regression Analysis, Time Series, Linear Programming & Monte Carlo.</p>
                         <div class="skill-meter-bg"><div class="skill-meter-fill bg-indigo-500" style="--percent: 88%"></div></div>
                     </div>
+
+                    <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal" style="transition-delay: 150ms;">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-12 h-12 bg-cyan-50 dark:bg-cyan-950/40 rounded-2xl flex items-center justify-center text-cyan-600 dark:text-cyan-400 group-hover:scale-110 transition-transform duration-300"><i data-lucide="binary" class="w-6 h-6 animate-pulse-soft"></i></div>
+                            <span class="text-xs font-black text-slate-400 uppercase tracking-widest"><span class="counter" data-target="85">0</span>%</span>
+                        </div>
+                        <h4 class="text-lg font-bold mb-2 text-slate-800 dark:text-slate-200">Statistical Analysis & Testing</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium leading-relaxed mb-3">Hypothesis Testing, ANOVA, Chi-Square, A/B Experimentation.</p>
+                        <div class="skill-meter-bg"><div class="skill-meter-fill bg-cyan-500" style="--percent: 85%"></div></div>
+                    </div>
+
+                    <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal" style="transition-delay: 200ms;">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-12 h-12 bg-purple-50 dark:bg-purple-950/40 rounded-2xl flex items-center justify-center text-purple-600 dark:text-purple-400 group-hover:scale-110 transition-transform duration-300"><i data-lucide="cpu" class="w-6 h-6 animate-float-subtle"></i></div>
+                            <span class="text-xs font-black text-slate-400 uppercase tracking-widest"><span class="counter" data-target="82">0</span>%</span>
+                        </div>
+                        <h4 class="text-lg font-bold mb-2 text-slate-800 dark:text-slate-200">Machine Learning Fundamentals</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium leading-relaxed mb-3">k-NN Clustering, Decision Trees, Classification, NLP VADER Sentiment.</p>
+                        <div class="skill-meter-bg"><div class="skill-meter-fill bg-purple-500" style="--percent: 82%"></div></div>
+                    </div>
+
+                    <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal" style="transition-delay: 250ms;">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-12 h-12 bg-amber-50 dark:bg-amber-950/40 rounded-2xl flex items-center justify-center text-amber-600 dark:text-amber-400 group-hover:scale-110 transition-transform duration-300"><i data-lucide="network" class="w-6 h-6 animate-pulse-soft"></i></div>
+                            <span class="text-xs font-black text-slate-400 uppercase tracking-widest"><span class="counter" data-target="86">0</span>%</span>
+                        </div>
+                        <h4 class="text-lg font-bold mb-2 text-slate-800 dark:text-slate-200">ETL & Data Warehousing</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium leading-relaxed mb-3">Data Wrangling, Pipeline Structuring, Cleansing & Dimensional Schemas.</p>
+                        <div class="skill-meter-bg"><div class="skill-meter-fill bg-amber-500" style="--percent: 86%"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESSENTIAL BUSINESS ANALYTICS APPS & SOFTWARE SUITE -->
+            <div class="mb-20">
+                <h3 class="text-2xl font-black mb-8 text-slate-800 dark:text-slate-200 reveal flex items-center gap-3">
+                    <i data-lucide="layout-grid" class="w-6 h-6 text-purple-600 animate-pulse-soft"></i> Essential Applications Suite for Business Analytics
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-amber-500/10 rounded-2xl flex items-center justify-center text-amber-500 group-hover:scale-110 transition-transform"><i data-lucide="pie-chart" class="w-6 h-6"></i></div>
+                            <span class="text-[10px] font-mono font-bold px-3 py-1 bg-amber-500/10 text-amber-600 dark:text-amber-400 rounded-full">BI & Visuals</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-slate-800 dark:text-slate-200 mb-1">Power BI & Tableau</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium leading-relaxed">DAX expression modeling, interactive KPI dashboards, automated report publishing.</p>
+                    </div>
+
+                    <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal" style="transition-delay: 50ms;">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-500 group-hover:scale-110 transition-transform"><i data-lucide="code" class="w-6 h-6"></i></div>
+                            <span class="text-[10px] font-mono font-bold px-3 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-full">Languages</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-slate-800 dark:text-slate-200 mb-1">Python & R Studio</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium leading-relaxed">Pandas, NumPy, Scikit-Learn, ggplot2, Tidyverse for automated data analytics pipelines.</p>
+                    </div>
+
+                    <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal" style="transition-delay: 100ms;">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-emerald-500/10 rounded-2xl flex items-center justify-center text-emerald-500 group-hover:scale-110 transition-transform"><i data-lucide="database" class="w-6 h-6"></i></div>
+                            <span class="text-[10px] font-mono font-bold px-3 py-1 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 rounded-full">Databases</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-slate-800 dark:text-slate-200 mb-1">PostgreSQL & MySQL</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium leading-relaxed">Enterprise relational DBMS, complex queries, indexing, and transactional logging.</p>
+                    </div>
+
+                    <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal" style="transition-delay: 150ms;">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-indigo-500/10 rounded-2xl flex items-center justify-center text-indigo-500 group-hover:scale-110 transition-transform"><i data-lucide="line-chart" class="w-6 h-6"></i></div>
+                            <span class="text-[10px] font-mono font-bold px-3 py-1 bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 rounded-full">Web Intelligence</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-slate-800 dark:text-slate-200 mb-1">Looker Studio & GA4</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium leading-relaxed">Google Analytics 4 event tracking, Looker semantic layers, and real-time conversion metrics.</p>
+                    </div>
+
+                    <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal" style="transition-delay: 200ms;">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-rose-500/10 rounded-2xl flex items-center justify-center text-rose-500 group-hover:scale-110 transition-transform"><i data-lucide="calculator" class="w-6 h-6"></i></div>
+                            <span class="text-[10px] font-mono font-bold px-3 py-1 bg-rose-500/10 text-rose-600 dark:text-rose-400 rounded-full">Stat Software</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-slate-800 dark:text-slate-200 mb-1">IBM SPSS & SAS</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium leading-relaxed">Multivariate statistical modeling, factor analysis, and econometric forecasting packages.</p>
+                    </div>
+
+                    <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal" style="transition-delay: 250ms;">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-teal-500/10 rounded-2xl flex items-center justify-center text-teal-500 group-hover:scale-110 transition-transform"><i data-lucide="workflow" class="w-6 h-6"></i></div>
+                            <span class="text-[10px] font-mono font-bold px-3 py-1 bg-teal-500/10 text-teal-600 dark:text-teal-400 rounded-full">ETL & Management</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-slate-800 dark:text-slate-200 mb-1">Alteryx & JIRA / Git</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium leading-relaxed">No-code ETL workflow designer, Agile project sprint tracking, and GitHub version control.</p>
+                    </div>
+
                 </div>
             </div>
 
             <!-- SOFT SKILLS SECTION -->
             <div>
-                <h3 class="text-2xl font-black mb-8 text-[#2D1F27] dark:text-slate-200 reveal flex items-center gap-3">
+                <h3 class="text-2xl font-black mb-8 text-slate-800 dark:text-slate-200 reveal flex items-center gap-3">
                     <i data-lucide="heart-handshake" class="w-6 h-6 text-pink-500 animate-float-subtle"></i> Professional Strategy
                 </h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal">
                         <div class="flex items-center justify-between mb-6">
-                            <div class="w-12 h-12 bg-yellow-50 dark:bg-yellow-950/40 rounded-2xl flex items-center justify-center text-yellow-600 dark:text-yellow-400 group-hover:scale-125 group-hover:-rotate-12 transition-transform duration-300"><i data-lucide="lightbulb" class="animate-pulse-soft"></i></div>
+                            <div class="w-12 h-12 bg-yellow-50 dark:bg-yellow-950/40 rounded-2xl flex items-center justify-center text-yellow-600 dark:text-yellow-400 group-hover:scale-125 group-hover:-rotate-12 transition-transform duration-300"><i data-lucide="lightbulb" class="w-6 h-6 animate-pulse-soft"></i></div>
                             <span class="text-xs font-black text-slate-400 uppercase tracking-widest"><span class="counter" data-target="95">0</span>%</span>
                         </div>
-                        <h4 class="text-lg font-bold mb-2 text-[#2D1F27] dark:text-slate-200">Problem-Solving</h4>
+                        <h4 class="text-lg font-bold mb-2 text-slate-800 dark:text-slate-200">Problem-Solving</h4>
                         <div class="skill-meter-bg"><div class="skill-meter-fill bg-yellow-500" style="--percent: 95%"></div></div>
                     </div>
                     <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal" style="transition-delay: 50ms;">
                         <div class="flex items-center justify-between mb-6">
-                            <div class="w-12 h-12 bg-blue-50 dark:bg-blue-950/40 rounded-2xl flex items-center justify-center text-blue-600 dark:text-blue-400 group-hover:scale-125 group-hover:-translate-y-2 transition-transform duration-300"><i data-lucide="users" class="animate-float-subtle"></i></div>
+                            <div class="w-12 h-12 bg-blue-50 dark:bg-blue-950/40 rounded-2xl flex items-center justify-center text-blue-600 dark:text-blue-400 group-hover:scale-125 group-hover:-translate-y-2 transition-transform duration-300"><i data-lucide="users" class="w-6 h-6 animate-float-subtle"></i></div>
                             <span class="text-xs font-black text-slate-400 uppercase tracking-widest"><span class="counter" data-target="98">0</span>%</span>
                         </div>
-                        <h4 class="text-lg font-bold mb-2 text-[#2D1F27] dark:text-slate-200">Team Leadership</h4>
+                        <h4 class="text-lg font-bold mb-2 text-slate-800 dark:text-slate-200">Team Leadership</h4>
                         <div class="skill-meter-bg"><div class="skill-meter-fill bg-blue-500" style="--percent: 98%"></div></div>
                     </div>
                     <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal" style="transition-delay: 100ms;">
                         <div class="flex items-center justify-between mb-6">
-                            <div class="w-12 h-12 bg-green-50 dark:bg-green-950/40 rounded-2xl flex items-center justify-center text-green-600 dark:text-green-400 group-hover:scale-125 group-hover:rotate-180 transition-all duration-700"><i data-lucide="book-open" class="animate-spin-slow"></i></div>
+                            <div class="w-12 h-12 bg-green-50 dark:bg-green-950/40 rounded-2xl flex items-center justify-center text-green-600 dark:text-green-400 group-hover:scale-125 group-hover:rotate-180 transition-all duration-700"><i data-lucide="book-open" class="w-6 h-6 animate-spin-slow"></i></div>
                             <span class="text-xs font-black text-slate-400 uppercase tracking-widest"><span class="counter" data-target="90">0</span>%</span>
                         </div>
-                        <h4 class="text-lg font-bold mb-2 text-[#2D1F27] dark:text-slate-200">Data Storytelling</h4>
+                        <h4 class="text-lg font-bold mb-2 text-slate-800 dark:text-slate-200">Data Storytelling</h4>
                         <div class="skill-meter-bg"><div class="skill-meter-fill bg-green-500" style="--percent: 90%"></div></div>
                     </div>
                 </div>
@@ -921,7 +1009,7 @@ print("Financial literacy metrics...")
                         <div class="relative z-10">
                             <div class="w-16 h-16 bg-blue-500/10 rounded-3xl flex items-center justify-center text-blue-600 mb-8 transition-transform group-hover:scale-110 duration-300"><i data-lucide="book-open" class="w-8 h-8 animate-pulse-soft"></i></div>
                             <span class="text-[10px] font-black uppercase tracking-widest opacity-40 block mb-4">Ongoing</span>
-                            <h4 class="text-3xl font-bold mb-4 text-[#2D1F27] dark:text-slate-200">Financial Literacy Advocate</h4>
+                            <h4 class="text-3xl font-bold mb-4 text-slate-800 dark:text-slate-200">Financial Literacy Advocate</h4>
                             <p class="text-slate-500 dark:text-slate-400 leading-relaxed">Conducting localized volunteer sessions focused on basic budgeting, financial tools, and value allocations within micro-community groups.</p>
                         </div>
                     </div>
@@ -939,7 +1027,7 @@ print("Financial literacy metrics...")
                                 </div>
                             </div>
                             <span class="text-[10px] font-black uppercase tracking-widest opacity-40 block mb-4">Competitions</span>
-                            <h4 class="text-3xl font-bold mb-4 text-[#2D1F27] dark:text-slate-200">Analytics Case Challenge</h4>
+                            <h4 class="text-3xl font-bold mb-4 text-slate-800 dark:text-slate-200">Analytics Case Challenge</h4>
                             <p class="text-slate-500 dark:text-slate-400 leading-relaxed">Recognized for delivering structured variance models and predictive pipeline dashboards, demonstrating strong performance under pressure.</p>
                         </div>
                     </div>
@@ -961,13 +1049,13 @@ print("Financial literacy metrics...")
                     <div class="edu-node group-hover:scale-150 group-hover:bg-blue-600 transition-all duration-300"></div>
                     <div class="md:w-[45%] md:text-right">
                         <span class="text-[10px] font-black text-blue-600 uppercase tracking-widest block mb-2">Aug 2025 – May 2027</span>
-                        <h3 class="text-3xl font-black text-[#2D1F27] dark:text-slate-200 leading-tight">Lovely Professional University</h3>
+                        <h3 class="text-3xl font-black text-slate-800 dark:text-slate-200 leading-tight">Lovely Professional University</h3>
                         <p class="text-slate-500 dark:text-slate-400 mt-2 font-medium italic flex items-center md:justify-end gap-2">
                             <i data-lucide="graduation-cap" class="w-4 h-4 animate-float-subtle"></i> MBA in Business Analytics & Finance
                         </p>
                     </div>
                     <div class="md:w-[45%] mt-8 md:mt-0 p-8 bg-slate-50 dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 text-center shadow-sm group-hover:border-blue-200 transition-colors">
-                        <div class="text-5xl font-black tracking-tighter text-[#2D1F27] dark:text-white"><span class="counter" data-target="7.15">0</span> <span class="text-lg font-bold text-slate-400">CGPA</span></div>
+                        <div class="text-5xl font-black tracking-tighter text-slate-800 dark:text-white"><span class="counter" data-target="7.15">0</span> <span class="text-lg font-bold text-slate-400">CGPA</span></div>
                     </div>
                 </div>
 
@@ -975,7 +1063,7 @@ print("Financial literacy metrics...")
                     <div class="edu-node group-hover:scale-150 group-hover:bg-yellow-500 transition-all duration-300"></div>
                     <div class="md:w-[45%]">
                         <span class="text-[10px] font-black text-yellow-600 uppercase tracking-widest block mb-2">2021 – 2025</span>
-                        <h3 class="text-3xl font-black text-[#2D1F27] dark:text-slate-200 leading-tight">Undergraduate Studies</h3>
+                        <h3 class="text-3xl font-black text-slate-800 dark:text-slate-200 leading-tight">Undergraduate Studies</h3>
                         <p class="text-slate-500 dark:text-slate-400 mt-2 font-medium italic flex items-center gap-2">
                             <i data-lucide="book" class="w-4 h-4 animate-pulse-soft"></i> B.Com in Finance & Analytics
                         </p>
@@ -989,7 +1077,7 @@ print("Financial literacy metrics...")
                     <div class="edu-node group-hover:scale-150 group-hover:bg-purple-600 transition-all duration-300"></div>
                     <div class="md:w-[45%] md:text-right">
                         <span class="text-[10px] font-black text-purple-600 uppercase tracking-widest block mb-2">2020 – 2021</span>
-                        <h3 class="text-3xl font-black text-[#2D1F27] dark:text-slate-200 leading-tight">Secondary Education</h3>
+                        <h3 class="text-3xl font-black text-slate-800 dark:text-slate-200 leading-tight">Secondary Education</h3>
                         <p class="text-slate-500 dark:text-slate-400 mt-2 font-medium italic flex items-center md:justify-end gap-2">
                             <i data-lucide="check-circle" class="w-4 h-4 animate-float-subtle"></i> High School Matriculation
                         </p>
@@ -1057,7 +1145,6 @@ print("Financial literacy metrics...")
         </div>
     </div>
 
-    <!-- JAVASCRIPT LOGIC -->
     <script>
         const safeCreateIcons = () => { if (typeof lucide !== 'undefined') lucide.createIcons(); };
 
@@ -1351,7 +1438,6 @@ print("Financial literacy metrics...")
             }, 50);
         }
 
-        // Real Playable Audio streams (SoundHelix public domain MP3 links) matching actual Spotify Dynamics model
         const trackDataset = [
             { 
                 title: "Positive Sentiment Cluster", 
@@ -1360,7 +1446,7 @@ print("Financial literacy metrics...")
                 energy: 0.65, 
                 duration: "6:12", 
                 gradient: "from-emerald-500 to-teal-800",
-                streamUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+                freq: 329.63 // E4 tone synth
             },
             { 
                 title: "Melancholic Stream Cluster", 
@@ -1369,7 +1455,7 @@ print("Financial literacy metrics...")
                 energy: 0.22, 
                 duration: "7:05", 
                 gradient: "from-indigo-950 to-blue-900",
-                streamUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+                freq: 220.00 // A3 tone synth
             },
             { 
                 title: "Acoustic Chill Study", 
@@ -1378,7 +1464,7 @@ print("Financial literacy metrics...")
                 energy: 0.18, 
                 duration: "5:44", 
                 gradient: "from-amber-600 to-orange-950",
-                streamUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
+                freq: 261.63 // C4 tone synth
             },
             { 
                 title: "Explicit Dynamic Stream", 
@@ -1387,25 +1473,62 @@ print("Financial literacy metrics...")
                 energy: 0.92, 
                 duration: "5:02", 
                 gradient: "from-rose-600 to-purple-950",
-                streamUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"
+                freq: 440.00 // A4 tone synth
             }
         ];
 
         let activeTrackIndex = 0;
         let isPlaybackRunning = false;
-        let nativePlayer = null;
+        let audioCtx = null;
+        let synthOsc = null;
+        let synthGain = null;
+        let playbackTimer = null;
+        let currentProgressSec = 0;
+
+        // Web Audio API Ambient Synthesizer for guaranteed sound playback
+        function startSynthAudio(frequency) {
+            try {
+                if (!audioCtx) {
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                }
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+                if (synthOsc) {
+                    synthOsc.stop();
+                    synthOsc.disconnect();
+                }
+                synthOsc = audioCtx.createOscillator();
+                synthGain = audioCtx.createGain();
+
+                synthOsc.type = 'sine';
+                synthOsc.frequency.setValueAtTime(frequency, audioCtx.currentTime);
+                
+                // Low pleasant volume
+                synthGain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+
+                synthOsc.connect(synthGain);
+                synthGain.connect(audioCtx.destination);
+                synthOsc.start();
+            } catch (e) {
+                console.log("Audio Context synthesis initialized fallback.");
+            }
+        }
+
+        function stopSynthAudio() {
+            if (synthOsc) {
+                try {
+                    synthOsc.stop();
+                    synthOsc.disconnect();
+                } catch(e){}
+                synthOsc = null;
+            }
+        }
 
         function selectMixTrack(index) {
             activeTrackIndex = index;
             const track = trackDataset[activeTrackIndex];
-
-            // Load audio source
-            if (!nativePlayer) {
-                nativePlayer = document.getElementById('sandbox-native-player');
-            }
-            
-            nativePlayer.src = track.streamUrl;
-            nativePlayer.load();
+            currentProgressSec = 0;
 
             // Update UI strings
             document.getElementById('playing-track-name').innerText = track.title;
@@ -1434,99 +1557,72 @@ print("Financial literacy metrics...")
             document.getElementById('slider-energy').value = track.energy;
 
             if (isPlaybackRunning) {
-                nativePlayer.play().catch(e => {
-                    console.log("Browser blocked auto-play. User interaction required.");
-                    isPlaybackRunning = false;
-                    document.getElementById('global-play-btn').innerHTML = `<i data-lucide="play" class="w-5 h-5 fill-black text-black"></i>`;
-                    safeCreateIcons();
-                });
+                startSynthAudio(track.freq);
             }
 
             runKnnSimulation();
         }
 
         function toggleGlobalPlayback() {
-            if (!nativePlayer) {
-                nativePlayer = document.getElementById('sandbox-native-player');
-            }
-
-            // Ensure source is loaded initially
-            if (!nativePlayer.src) {
-                nativePlayer.src = trackDataset[activeTrackIndex].streamUrl;
-                nativePlayer.load();
-            }
-
             const btn = document.getElementById('global-play-btn');
             const visualWave = document.getElementById('art-visual-wave');
+            const track = trackDataset[activeTrackIndex];
 
             if (isPlaybackRunning) {
                 isPlaybackRunning = false;
-                nativePlayer.pause();
+                stopSynthAudio();
+                clearInterval(playbackTimer);
                 btn.innerHTML = `<i data-lucide="play" class="w-5 h-5 fill-black text-black"></i>`;
                 if(visualWave) visualWave.style.opacity = '0';
             } else {
                 isPlaybackRunning = true;
-                nativePlayer.play().then(() => {
-                    btn.innerHTML = `<i data-lucide="pause" class="w-5 h-5 fill-black text-black"></i>`;
-                    if(visualWave) visualWave.style.opacity = '1';
-                }).catch(e => {
-                    console.log("Playback failed. Re-initiating player stream context.");
-                    isPlaybackRunning = false;
-                });
+                startSynthAudio(track.freq);
+                btn.innerHTML = `<i data-lucide="pause" class="w-5 h-5 fill-black text-black"></i>`;
+                if(visualWave) visualWave.style.opacity = '1';
+
+                clearInterval(playbackTimer);
+                playbackTimer = setInterval(() => {
+                    currentProgressSec += 1;
+                    const totalSec = 372; // ~6:12
+                    const pct = Math.min(100, (currentProgressSec / totalSec) * 100);
+                    document.getElementById('player-time-progress').style.width = `${pct}%`;
+
+                    const mins = Math.floor(currentProgressSec / 60);
+                    const secs = currentProgressSec % 60;
+                    document.getElementById('player-time-current').innerText = `${mins}:${secs.toString().padStart(2, '0')}`;
+
+                    if (currentProgressSec >= totalSec) {
+                        skipNext();
+                    }
+                }, 1000);
             }
             safeCreateIcons();
         }
 
-        // Bind native player updates to the visual progress slider
-        window.addEventListener('load', () => {
-            const player = document.getElementById('sandbox-native-player');
-            if (player) {
-                player.addEventListener('timeupdate', () => {
-                    const current = player.currentTime;
-                    const duration = player.duration || 1;
-                    const pct = (current / duration) * 100;
-
-                    document.getElementById('player-time-progress').style.width = `${pct}%`;
-
-                    const mins = Math.floor(current / 60);
-                    const secs = Math.floor(current % 60);
-                    document.getElementById('player-time-current').innerText = `${mins}:${secs.toString().padStart(2, '0')}`;
-                });
-
-                player.addEventListener('loadedmetadata', () => {
-                    const duration = player.duration;
-                    const mins = Math.floor(duration / 60);
-                    const secs = Math.floor(duration % 60);
-                    document.getElementById('player-time-total').innerText = `${mins}:${secs.toString().padStart(2, '0')}`;
-                });
-
-                player.addEventListener('ended', () => {
-                    skipNext();
-                });
-            }
-        });
-
         function handleTrackSeek(event) {
-            if (!nativePlayer) return;
             const bar = event.currentTarget;
             const rect = bar.getBoundingClientRect();
             const clickPositionX = event.clientX - rect.left;
             const percentage = clickPositionX / rect.width;
             
-            const duration = nativePlayer.duration || 0;
-            if (duration > 0) {
-                nativePlayer.currentTime = percentage * duration;
-            }
+            const totalSec = 372;
+            currentProgressSec = Math.floor(percentage * totalSec);
+            document.getElementById('player-time-progress').style.width = `${percentage * 100}%`;
+            
+            const mins = Math.floor(currentProgressSec / 60);
+            const secs = currentProgressSec % 60;
+            document.getElementById('player-time-current').innerText = `${mins}:${secs.toString().padStart(2, '0')}`;
         }
 
         function handleVolumeSeek(event) {
-            if (!nativePlayer) return;
             const bar = event.currentTarget;
             const rect = bar.getBoundingClientRect();
             const clickPositionX = event.clientX - rect.left;
             const percentage = Math.max(0, Math.min(1, clickPositionX / rect.width));
 
-            nativePlayer.volume = percentage;
+            if (synthGain && audioCtx) {
+                synthGain.gain.setValueAtTime(percentage * 0.15, audioCtx.currentTime);
+            }
             document.getElementById('volume-indicator').style.width = `${percentage * 100}%`;
         }
 
@@ -1545,7 +1641,6 @@ print("Financial literacy metrics...")
             selectMixTrack(randIdx);
         }
 
-        // Live KNN Engine calculation coordinates
         function runKnnSimulation(customCoords = null) {
             const sliderAcoustic = document.getElementById('slider-acoustic');
             const sliderEnergy = document.getElementById('slider-energy');
@@ -1569,10 +1664,8 @@ print("Financial literacy metrics...")
                 return { ...track, distance: dist };
             }).sort((a, b) => a.distance - b.distance);
 
-            // Fetch Top k=3
             const kMatches = neighbors.slice(0, 3);
 
-            // Render recommendations list inside the dashboard
             const resultsContainer = document.getElementById('knn-results-container');
             if (resultsContainer) {
                 resultsContainer.innerHTML = kMatches.map((track, i) => `
@@ -1607,7 +1700,7 @@ print("Financial literacy metrics...")
             ctx.fillStyle = '#050505';
             ctx.fillRect(0,0,w,h);
 
-            // Draw axis lines
+            // Draw grid axis lines
             ctx.strokeStyle = 'rgba(255,255,255,0.05)';
             ctx.lineWidth = 1;
             ctx.beginPath();
@@ -1664,12 +1757,11 @@ print("Financial literacy metrics...")
             });
         }
 
-        // Reias India Real Estate Portfolio Mock Data
         const reiasProperties = [
-            { name: "M3M Cosmopolitan", sector: "Sector 66", type: "Commercial", avgPrice: 12500000, color: "from-amber-600 to-reias-500" },
-            { name: "Trump Towers Gurgaon", sector: "Sector 69", type: "Luxury Residential", avgPrice: 95000000, color: "from-yellow-600 to-black" },
-            { name: "M3M Golfestate", sector: "Golf Course Ext Rd", type: "Residential", avgPrice: 42000000, color: "from-emerald-600 to-reias-800" },
-            { name: "Whiteland Westin Residences", sector: "Sector 103", type: "Ultra Luxury", avgPrice: 68000000, color: "from-indigo-600 to-reias-500" }
+            { name: "M3M Cosmopolitan", sector: "Sector 66", type: "Commercial", avgPrice: 12500000 },
+            { name: "Trump Towers Gurgaon", sector: "Sector 69", type: "Luxury Residential", avgPrice: 95000000 },
+            { name: "M3M Golfestate", sector: "Golf Course Ext Rd", type: "Residential", avgPrice: 42000000 },
+            { name: "Whiteland Westin Residences", sector: "Sector 103", type: "Ultra Luxury", avgPrice: 68000000 }
         ];
 
         let selectedReiasPropIndex = 0;
@@ -1693,8 +1785,6 @@ print("Financial literacy metrics...")
         function selectReiasProperty(index) {
             selectedReiasPropIndex = index;
             loadReiasProperties();
-            
-            // Add a mock transaction log entry
             addReiasLedgerLog(`Selected portfolio node ${reiasProperties[index].name}. Loading local cost model indicators...`);
         }
 
@@ -1904,16 +1994,12 @@ print("Financial literacy metrics...")
             renderCerts();
             initStackRotator();
             
-            // Set up volume level initially
             const initialVolume = 0.7;
             document.getElementById('volume-indicator').style.width = `${initialVolume * 100}%`;
 
-            // Prepare native audio element source configuration
             selectMixTrack(0);
-
             loadReiasProperties();
 
-            // Populate Reias simulation with baseline transaction log
             addReiasLedgerLog("Reias India real estate portfolio system online.");
             addReiasLedgerLog("RERA verification triggers ready for Sector 66.");
 
