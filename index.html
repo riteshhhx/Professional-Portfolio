@@ -416,70 +416,70 @@
                 </div>
             </div>
 
+            <!-- INTERACTIVE CAREER MILESTONE TRIGGER LINE -->
+            <div class="mb-12 p-6 lg:p-8 bg-white dark:bg-slate-900/90 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 shadow-xl reveal relative overflow-hidden group">
+                <div class="flex items-center justify-between mb-6 px-2">
+                    <span class="text-[10px] font-black uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 flex items-center gap-2">
+                        <i data-lucide="route" class="w-4 h-4 animate-bounce text-blue-500"></i> Career Milestone Stepper Line
+                    </span>
+                    <span class="text-[9px] font-mono text-slate-400 hidden sm:inline-block">Click any milestone node to trigger focus & scroll</span>
+                </div>
+                
+                <!-- Main Pipeline Line & Trigger Nodes -->
+                <div class="relative py-4 px-2 sm:px-6">
+                    <!-- Background Pipeline Track -->
+                    <div class="absolute top-1/2 left-8 right-8 h-1.5 -translate-y-1/2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                        <div id="journey-line-progress" class="h-full bg-gradient-to-r from-blue-600 via-amber-500 to-rose-500 rounded-full w-full transition-all duration-700"></div>
+                    </div>
+
+                    <!-- Nodes Grid -->
+                    <div class="relative z-10 grid grid-cols-3 gap-2 sm:gap-4">
+                        <!-- Node 1: Arizon -->
+                        <div onclick="scrollToExp('exp-arizon')" class="group/node cursor-pointer flex flex-col items-start text-left transition-all">
+                            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white dark:bg-slate-950 border-2 border-blue-500 flex items-center justify-center text-blue-600 dark:text-blue-400 shadow-lg group-hover/node:scale-125 group-hover/node:bg-blue-600 group-hover/node:text-white transition-all duration-300 relative">
+                                <i data-lucide="network" class="w-5 h-5 sm:w-6 sm:h-6 animate-pulse-soft"></i>
+                                <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-500 rounded-full border-2 border-white dark:border-slate-900 animate-ping"></span>
+                            </div>
+                            <div class="mt-3 group-hover/node:translate-x-1 transition-transform">
+                                <span class="text-[9px] font-black text-blue-600 dark:text-blue-400 uppercase tracking-wider block">Jun 2026 - Present</span>
+                                <h4 class="text-xs font-bold text-slate-900 dark:text-white group-hover/node:text-blue-600 dark:group-hover/node:text-blue-400 transition-colors">Arizon Network</h4>
+                                <p class="text-[10px] text-slate-500 dark:text-slate-400 font-medium truncate max-w-[130px] sm:max-w-none">Business Analyst</p>
+                            </div>
+                        </div>
+
+                        <!-- Node 2: Reias India -->
+                        <div onclick="scrollToExp('exp-reias')" class="group/node cursor-pointer flex flex-col items-center text-center transition-all">
+                            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white dark:bg-slate-950 border-2 border-amber-500 flex items-center justify-center text-amber-500 shadow-lg group-hover/node:scale-125 group-hover/node:bg-amber-500 group-hover/node:text-white transition-all duration-300">
+                                <i data-lucide="building-2" class="w-5 h-5 sm:w-6 sm:h-6 animate-float-subtle"></i>
+                            </div>
+                            <div class="mt-3 group-hover/node:translate-y-0.5 transition-transform">
+                                <span class="text-[9px] font-black text-amber-500 uppercase tracking-wider block">Aug 2024 - May 2025</span>
+                                <h4 class="text-xs font-bold text-slate-900 dark:text-white group-hover/node:text-amber-500 transition-colors">Reias India</h4>
+                                <p class="text-[10px] text-slate-500 dark:text-slate-400 font-medium truncate max-w-[130px] sm:max-w-none">Financial Analyst</p>
+                            </div>
+                        </div>
+
+                        <!-- Node 3: Times of India -->
+                        <div onclick="scrollToExp('exp-toi')" class="group/node cursor-pointer flex flex-col items-end text-right transition-all">
+                            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white dark:bg-slate-950 border-2 border-rose-500 flex items-center justify-center text-rose-500 shadow-lg group-hover/node:scale-125 group-hover/node:bg-rose-500 group-hover/node:text-white transition-all duration-300 relative">
+                                <i data-lucide="newspaper" class="w-5 h-5 sm:w-6 sm:h-6 animate-pulse-soft"></i>
+                                <span class="absolute -top-1 -left-1 text-[11px]">🏆</span>
+                            </div>
+                            <div class="mt-3 group-hover/node:-translate-x-1 transition-transform">
+                                <span class="text-[9px] font-black text-rose-500 uppercase tracking-wider block">Jun 2024 - Jul 2024</span>
+                                <h4 class="text-xs font-bold text-slate-900 dark:text-white group-hover/node:text-rose-500 transition-colors">Times of India</h4>
+                                <p class="text-[10px] text-slate-500 dark:text-slate-400 font-medium truncate max-w-[130px] sm:max-w-none">Sales & Marketing</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Experience Timeline Grid -->
             <div class="space-y-8" id="experience-container">
                 
                 <!-- Role 1: Arizon Network -->
-                <div class="exp-item internship p-8 lg:p-10 bg-white dark:bg-slate-900/80 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 shadow-xl transition-all duration-500 reveal group">
-                    <div class="flex flex-col lg:flex-row justify-between lg:items-center gap-6 mb-6">
-                        <div class="flex items-start gap-4">
-                            <div class="w-14 h-14 bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-2xl flex items-center justify-center shrink-0 border border-blue-500/20 group-hover:scale-110 transition-transform">
-                                <i data-lucide="network" class="w-7 h-7 animate-float-subtle"></i>
-                            </div>
-                            <div>
-                                <div class="flex items-center gap-2 flex-wrap mb-1">
-                                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Business Analyst</h3>
-                                    <span class="px-3 py-0.5 text-[10px] font-black uppercase tracking-widest bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 rounded-full border border-emerald-500/20 flex items-center gap-1">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span> Active Internship
-                                    </span>
-                                </div>
-                                <p class="text-sm font-bold text-slate-500 dark:text-slate-400">Arizon Network • Noida, UP</p>
-                            </div>
-                        </div>
-                        <div class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold text-slate-600 dark:text-slate-300 w-fit">
-                            June 2026 – Present
-                        </div>
-                    </div>
-
-                    <p class="text-sm text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">Cross-functional business analytics, marketing strategy execution, and process optimization.</p>
-
-                    <!-- Arizon Graphic Infographic -->
-                    <div class="mb-6 p-6 bg-slate-50 dark:bg-slate-950/60 rounded-3xl border border-slate-200/80 dark:border-slate-800 overflow-hidden relative">
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="text-[10px] font-black uppercase tracking-widest text-blue-600 dark:text-blue-400 flex items-center gap-1.5">
-                                <i data-lucide="bar-chart-2" class="w-3.5 h-3.5"></i> Outreach & Conversion Analytics Graphic
-                            </span>
-                            <span class="text-[9px] font-mono font-bold text-slate-400">Campaign Funnel v2.4</span>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
-                            <!-- SVG Funnel Graphic -->
-                            <div class="md:col-span-2 space-y-2">
-                                <div class="relative">
-                                    <div class="flex justify-between text-[10px] font-bold text-slate-500 mb-1">
-                                        <span>Target Outreach Pool</span>
-                                        <span class="font-mono text-slate-700 dark:text-slate-300">100% (Baseline)</span>
-                                    </div>
-                                    <div class="h-3 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
-                                        <div class="h-full bg-blue-500 rounded-full w-full"></div>
-                                    </div>
-                                </div>
-                                <div class="relative">
-                                    <div class="flex justify-between text-[10px] font-bold text-slate-500 mb-1">
-                                        <span>Engaged Leads (Campaign Optimization)</span>
-                                        <span class="font-mono text-blue-500 font-bold">68%</span>
-                                    </div>
-                                    <div class="h-3 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
-                                        <div class="h-full bg-blue-600 rounded-full w-[68%]"></div>
-                                    </div>
-                                </div>
-                                <div class="relative">
-                                    <div class="flex justify-between text-[10px] font-bold text-slate-500 mb-1">
-                                        <span>Sales Conversions (Post Fix)</span>
-                                        <span class="font-mono text-emerald-500 font-bold">+13% Lift Achieved</span>
-                                    </div>
-                                    <div class="h-3 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
-                                        <div class="h-full bg-emerald-500 rounded-full w-[42%]"></div>
-                                    </div>
+                <div id="exp-arizon" class="exp-item internship p-8 lg:p-10 bg-white dark:bg-slate-900/80 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 shadow-xl transition-all duration-500 reveal group">
                                 </div>
                             </div>
                             <!-- Circular Speedup Badge -->
@@ -515,7 +515,7 @@
                 </div>
 
                 <!-- Role 2: Reias India -->
-                <div class="exp-item corporate p-8 lg:p-10 bg-white dark:bg-slate-900/80 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 shadow-xl transition-all duration-500 reveal group">
+                <div id="exp-reias" class="exp-item corporate p-8 lg:p-10 bg-white dark:bg-slate-900/80 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 shadow-xl transition-all duration-500 reveal group">
                     <div class="flex flex-col lg:flex-row justify-between lg:items-center gap-6 mb-6">
                         <div class="flex items-start gap-4">
                             <div class="w-14 h-14 bg-amber-500/10 text-amber-600 dark:text-amber-400 rounded-2xl flex items-center justify-center shrink-0 border border-amber-500/20 group-hover:scale-110 transition-transform">
@@ -601,7 +601,7 @@
                 </div>
 
                 <!-- Role 3: Times of India -->
-                <div class="exp-item internship p-8 lg:p-10 bg-white dark:bg-slate-900/80 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 shadow-xl transition-all duration-500 reveal group">
+                <div id="exp-toi" class="exp-item internship p-8 lg:p-10 bg-white dark:bg-slate-900/80 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 shadow-xl transition-all duration-500 reveal group">
                     <div class="flex flex-col lg:flex-row justify-between lg:items-center gap-6 mb-6">
                         <div class="flex items-start gap-4">
                             <div class="w-14 h-14 bg-rose-500/10 text-rose-600 dark:text-rose-400 rounded-2xl flex items-center justify-center shrink-0 border border-rose-500/20 group-hover:scale-110 transition-transform">
@@ -1506,6 +1506,24 @@
                     item.style.display = 'none';
                 }
             });
+        }
+
+        function scrollToExp(id) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            
+            // Re-show card if hidden by filter
+            if (el.style.display === 'none') {
+                filterExperience('all');
+            }
+
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Trigger focus glow animation
+            el.classList.add('ring-4', 'ring-blue-500/50', 'scale-[1.02]');
+            setTimeout(() => {
+                el.classList.remove('ring-4', 'ring-blue-500/50', 'scale-[1.02]');
+            }, 2000);
         }
 
         const trackDataset = [
