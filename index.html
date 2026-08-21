@@ -86,8 +86,8 @@
             border-color: rgba(255,255,255,0.05);
         }
         .tech-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px -10px rgba(59, 130, 246, 0.15);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.22);
             border-color: #3b82f6;
         }
 
@@ -124,11 +124,14 @@
         }
 
         /* Chevron Slicer Paths */
-        .chevron-path {
-            clip-path: polygon(0% 0%, calc(100% - 22px) 0%, 100% 50%, calc(100% - 22px) 100%, 0% 100%, 22px 50%);
+        .chevron-path-first {
+            clip-path: polygon(0% 0%, calc(100% - 20px) 0%, 100% 50%, calc(100% - 20px) 100%, 0% 100%);
+        }
+        .chevron-path-mid {
+            clip-path: polygon(0% 0%, calc(100% - 20px) 0%, 100% 50%, calc(100% - 20px) 100%, 0% 100%, 20px 50%);
         }
         .chevron-end {
-            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 22px 50%);
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 20px 50%);
         }
         .scrollbar-hide::-webkit-scrollbar { display: none; }
 
@@ -148,14 +151,19 @@
             left: -50%;
             width: 60%;
             height: 200%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
-            animation: light-sweep 4s infinite ease-in-out;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: light-sweep 3.5s infinite ease-in-out;
             pointer-events: none;
         }
 
         .active-slice-glow {
-            box-shadow: 0 0 25px rgba(59, 130, 246, 0.6);
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.7);
             border: 2px solid #60a5fa;
+        }
+
+        .spotify-slice-glow {
+            box-shadow: 0 0 35px rgba(29, 185, 84, 0.85), 0 0 15px rgba(29, 185, 84, 0.5);
+            border: 2px solid #1db954;
         }
 
         /* Education Line */
@@ -189,31 +197,31 @@
         /* Icon Animation Classes */
         @keyframes float-subtle {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
+            50% { transform: translateY(-7px); }
         }
         .animate-float-subtle { animation: float-subtle 3s ease-in-out infinite; }
 
         @keyframes pulse-soft {
             0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.12); opacity: 0.85; }
+            50% { transform: scale(1.15); opacity: 0.8; }
         }
-        .animate-pulse-soft { animation: pulse-soft 2.5s infinite; }
+        .animate-pulse-soft { animation: pulse-soft 2.2s infinite; }
 
         @keyframes spin-slow {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
-        .animate-spin-slow { animation: spin-slow 12s linear infinite; }
+        .animate-spin-slow { animation: spin-slow 10s linear infinite; }
 
         @keyframes logo-bounce { 
-            from { height: 4px; } 
-            to { height: 20px; } 
+            0% { height: 4px; } 
+            100% { height: 22px; } 
         }
         .visualizer-bar { 
             width: 3.5px; 
             background: #10b981; 
             border-radius: 2px; 
-            animation: logo-bounce 0.8s ease-in-out infinite alternate; 
+            animation: logo-bounce 0.7s ease-in-out infinite alternate; 
         }
 
         .gradient-text-animate {
@@ -221,7 +229,7 @@
             background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: shine 6s linear infinite;
+            animation: shine 5s linear infinite;
         }
         .dark .gradient-text-animate {
             background: linear-gradient(to right, #ffffff, #60a5fa, #a855f7, #ffffff);
@@ -245,13 +253,10 @@
             border-color: rgba(255,255,255,0.05); 
         }
         .bento-card:hover .bento-inner { 
-            transform: translateY(-6px); 
-            box-shadow: 0 30px 60px -15px rgba(59, 130, 246, 0.15); 
+            transform: translateY(-8px); 
+            box-shadow: 0 30px 60px -15px rgba(59, 130, 246, 0.2); 
             border-color: #3b82f6; 
         }
-
-        @keyframes scroll-code { from { transform: translateY(0); } to { transform: translateY(-50%); } }
-        .code-scroller { animation: scroll-code 20s linear infinite; font-family: 'Fira Code', monospace; font-size: 10px; white-space: pre; pointer-events: none; }
     </style>
 </head>
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 selection:bg-blue-600 selection:text-white overflow-x-hidden">
@@ -393,10 +398,10 @@
             <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6 reveal">
                 <div>
                     <div class="inline-flex items-center gap-2 px-3.5 py-1 bg-blue-500/10 rounded-full text-[10px] font-black uppercase tracking-widest text-blue-600 dark:text-blue-400 mb-4 border border-blue-500/20">
-                        <i data-lucide="briefcase" class="w-3.5 h-3.5 animate-pulse-soft"></i> Career Milestones
+                        <i data-lucide="briefcase" class="w-3.5 h-3.5 animate-pulse-soft"></i> Point-to-Point Career Timeline
                     </div>
                     <h2 class="text-5xl font-bold tracking-tighter gradient-text-animate">Professional Journey</h2>
-                    <p class="text-slate-500 dark:text-slate-400 text-lg max-w-lg mt-2 font-medium">Categorized analysis of corporate positions and strategic domain internships with visual impact analytics.</p>
+                    <p class="text-slate-500 dark:text-slate-400 text-lg max-w-lg mt-2 font-medium">Categorized point-to-point analysis of corporate positions and domain internships with live metric analytics.</p>
                 </div>
                 
                 <!-- Category Filter Triggers -->
@@ -416,70 +421,156 @@
                 </div>
             </div>
 
-            <!-- INTERACTIVE CAREER MILESTONE TRIGGER LINE -->
-            <div class="mb-12 p-6 lg:p-8 bg-white dark:bg-slate-900/90 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 shadow-xl reveal relative overflow-hidden group">
-                <div class="flex items-center justify-between mb-6 px-2">
-                    <span class="text-[10px] font-black uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 flex items-center gap-2">
-                        <i data-lucide="route" class="w-4 h-4 animate-bounce text-blue-500"></i> Career Milestone Stepper Line
-                    </span>
-                    <span class="text-[9px] font-mono text-slate-400 hidden sm:inline-block">Click any milestone node to trigger focus & scroll</span>
+            <!-- POINT-TO-POINT TIMELINE NAVIGATOR TRACK -->
+            <div class="mb-14 p-6 lg:p-8 bg-white dark:bg-slate-900/90 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 shadow-xl reveal relative overflow-hidden group">
+                <div class="flex items-center justify-between mb-8 px-2">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-blue-500 animate-ping"></span>
+                        <span class="text-[10px] font-black uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 flex items-center gap-2">
+                            <i data-lucide="git-commit" class="w-4 h-4 text-blue-500"></i> Point-to-Point Chronological Roadmap
+                        </span>
+                    </div>
+                    <span class="text-[9px] font-mono text-slate-400 hidden sm:inline-block">Click any Point Node to focus on role parameters</span>
                 </div>
                 
-                <!-- Main Pipeline Line & Trigger Nodes -->
-                <div class="relative py-4 px-2 sm:px-6">
-                    <!-- Background Pipeline Track -->
-                    <div class="absolute top-1/2 left-8 right-8 h-1.5 -translate-y-1/2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
-                        <div id="journey-line-progress" class="h-full bg-gradient-to-r from-blue-600 via-amber-500 to-rose-500 rounded-full w-full transition-all duration-700"></div>
+                <!-- Main Point-to-Point Track -->
+                <div class="relative py-2 px-2 sm:px-4">
+                    <!-- Background Connecting Line Track -->
+                    <div class="absolute top-1/2 left-10 right-10 h-1 -translate-y-1/2 bg-slate-200 dark:bg-slate-800 rounded-full z-0">
+                        <div id="journey-line-progress" class="h-full bg-gradient-to-r from-rose-500 via-amber-500 to-blue-600 rounded-full w-full transition-all duration-700"></div>
                     </div>
 
-                    <!-- Nodes Grid -->
-                    <div class="relative z-10 grid grid-cols-3 gap-2 sm:gap-4">
-                        <!-- Node 1: Arizon -->
-                        <div onclick="scrollToExp('exp-arizon')" class="group/node cursor-pointer flex flex-col items-start text-left transition-all">
-                            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white dark:bg-slate-950 border-2 border-blue-500 flex items-center justify-center text-blue-600 dark:text-blue-400 shadow-lg group-hover/node:scale-125 group-hover/node:bg-blue-600 group-hover/node:text-white transition-all duration-300 relative">
-                                <i data-lucide="network" class="w-5 h-5 sm:w-6 sm:h-6 animate-pulse-soft"></i>
-                                <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-500 rounded-full border-2 border-white dark:border-slate-900 animate-ping"></span>
+                    <!-- Point-to-Point Nodes Layout -->
+                    <div class="relative z-10 grid grid-cols-3 gap-2 sm:gap-6 items-center">
+                        
+                        <!-- Point 01: Times of India -->
+                        <div onclick="scrollToExp('exp-toi')" class="group/node cursor-pointer flex flex-col items-start text-left">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="text-[9px] font-mono font-black px-2 py-0.5 bg-rose-500/10 text-rose-600 dark:text-rose-400 rounded-full border border-rose-500/20">POINT 01</span>
+                                <span class="text-[8px] font-mono text-slate-400 hidden lg:inline">Jun '24 - Jul '24</span>
+                            </div>
+                            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white dark:bg-slate-950 border-2 border-rose-500 flex items-center justify-center text-rose-500 shadow-xl group-hover/node:scale-125 group-hover/node:bg-rose-500 group-hover/node:text-white transition-all duration-300 relative">
+                                <i data-lucide="newspaper" class="w-5 h-5 sm:w-6 sm:h-6 animate-pulse-soft"></i>
+                                <span class="absolute -top-1 -right-1 text-[10px]">🏆</span>
                             </div>
                             <div class="mt-3 group-hover/node:translate-x-1 transition-transform">
-                                <span class="text-[9px] font-black text-blue-600 dark:text-blue-400 uppercase tracking-wider block">Jun 2026 - Present</span>
-                                <h4 class="text-xs font-bold text-slate-900 dark:text-white group-hover/node:text-blue-600 dark:group-hover/node:text-blue-400 transition-colors">Arizon Network</h4>
-                                <p class="text-[10px] text-slate-500 dark:text-slate-400 font-medium truncate max-w-[130px] sm:max-w-none">Business Analyst</p>
+                                <h4 class="text-xs font-bold text-slate-900 dark:text-white group-hover/node:text-rose-500 transition-colors">Times of India</h4>
+                                <p class="text-[10px] text-slate-500 dark:text-slate-400 font-medium truncate max-w-[120px] sm:max-w-none">Sales & Marketing Intern</p>
                             </div>
                         </div>
 
-                        <!-- Node 2: Reias India -->
-                        <div onclick="scrollToExp('exp-reias')" class="group/node cursor-pointer flex flex-col items-center text-center transition-all">
-                            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white dark:bg-slate-950 border-2 border-amber-500 flex items-center justify-center text-amber-500 shadow-lg group-hover/node:scale-125 group-hover/node:bg-amber-500 group-hover/node:text-white transition-all duration-300">
+                        <!-- Connector Arrow 1 -> 2 -->
+                        <div class="hidden sm:flex items-center justify-center -mt-8">
+                            <div class="px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-[8px] font-mono text-slate-400 border border-slate-200 dark:border-slate-700 flex items-center gap-1 shadow-sm">
+                                <span>Aug '24</span>
+                                <i data-lucide="arrow-right" class="w-3 h-3 text-amber-500 animate-pulse"></i>
+                            </div>
+                        </div>
+
+                        <!-- Point 02: Reias India -->
+                        <div onclick="scrollToExp('exp-reias')" class="group/node cursor-pointer flex flex-col items-center text-center">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="text-[9px] font-mono font-black px-2 py-0.5 bg-amber-500/10 text-amber-600 dark:text-amber-400 rounded-full border border-amber-500/20">POINT 02</span>
+                                <span class="text-[8px] font-mono text-slate-400 hidden lg:inline">Aug '24 - May '25</span>
+                            </div>
+                            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white dark:bg-slate-950 border-2 border-amber-500 flex items-center justify-center text-amber-500 shadow-xl group-hover/node:scale-125 group-hover/node:bg-amber-500 group-hover/node:text-white transition-all duration-300">
                                 <i data-lucide="building-2" class="w-5 h-5 sm:w-6 sm:h-6 animate-float-subtle"></i>
                             </div>
                             <div class="mt-3 group-hover/node:translate-y-0.5 transition-transform">
-                                <span class="text-[9px] font-black text-amber-500 uppercase tracking-wider block">Aug 2024 - May 2025</span>
                                 <h4 class="text-xs font-bold text-slate-900 dark:text-white group-hover/node:text-amber-500 transition-colors">Reias India</h4>
-                                <p class="text-[10px] text-slate-500 dark:text-slate-400 font-medium truncate max-w-[130px] sm:max-w-none">Financial Analyst</p>
+                                <p class="text-[10px] text-slate-500 dark:text-slate-400 font-medium truncate max-w-[120px] sm:max-w-none">Financial Analyst</p>
                             </div>
                         </div>
 
-                        <!-- Node 3: Times of India -->
-                        <div onclick="scrollToExp('exp-toi')" class="group/node cursor-pointer flex flex-col items-end text-right transition-all">
-                            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white dark:bg-slate-950 border-2 border-rose-500 flex items-center justify-center text-rose-500 shadow-lg group-hover/node:scale-125 group-hover/node:bg-rose-500 group-hover/node:text-white transition-all duration-300 relative">
-                                <i data-lucide="newspaper" class="w-5 h-5 sm:w-6 sm:h-6 animate-pulse-soft"></i>
-                                <span class="absolute -top-1 -left-1 text-[11px]">🏆</span>
-                            </div>
-                            <div class="mt-3 group-hover/node:-translate-x-1 transition-transform">
-                                <span class="text-[9px] font-black text-rose-500 uppercase tracking-wider block">Jun 2024 - Jul 2024</span>
-                                <h4 class="text-xs font-bold text-slate-900 dark:text-white group-hover/node:text-rose-500 transition-colors">Times of India</h4>
-                                <p class="text-[10px] text-slate-500 dark:text-slate-400 font-medium truncate max-w-[130px] sm:max-w-none">Sales & Marketing</p>
+                        <!-- Connector Arrow 2 -> 3 -->
+                        <div class="hidden sm:flex items-center justify-center -mt-8">
+                            <div class="px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-[8px] font-mono text-slate-400 border border-slate-200 dark:border-slate-700 flex items-center gap-1 shadow-sm">
+                                <span>Jun '26</span>
+                                <i data-lucide="arrow-right" class="w-3 h-3 text-blue-500 animate-pulse"></i>
                             </div>
                         </div>
+
+                        <!-- Point 03: Arizon Network -->
+                        <div onclick="scrollToExp('exp-arizon')" class="group/node cursor-pointer flex flex-col items-end text-right">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="text-[9px] font-mono font-black px-2 py-0.5 bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-full border border-blue-500/20">POINT 03</span>
+                                <span class="text-[8px] font-mono text-emerald-500 font-bold hidden lg:inline">Present</span>
+                            </div>
+                            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white dark:bg-slate-950 border-2 border-blue-500 flex items-center justify-center text-blue-600 dark:text-blue-400 shadow-xl group-hover/node:scale-125 group-hover/node:bg-blue-600 group-hover/node:text-white transition-all duration-300 relative">
+                                <i data-lucide="network" class="w-5 h-5 sm:w-6 sm:h-6 animate-pulse-soft"></i>
+                                <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-500 rounded-full border-2 border-white dark:border-slate-900 animate-ping"></span>
+                            </div>
+                            <div class="mt-3 group-hover/node:-translate-x-1 transition-transform">
+                                <h4 class="text-xs font-bold text-slate-900 dark:text-white group-hover/node:text-blue-600 dark:group-hover/node:text-blue-400 transition-colors">Arizon Network</h4>
+                                <p class="text-[10px] text-slate-500 dark:text-slate-400 font-medium truncate max-w-[120px] sm:max-w-none">Business Analyst</p>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
 
-            <!-- Experience Timeline Grid -->
-            <div class="space-y-8" id="experience-container">
+            <!-- Point-to-Point Timeline Cards Grid with Vertical Spine -->
+            <div class="relative space-y-12 pl-4 sm:pl-8 border-l-2 border-slate-200 dark:border-slate-800 ml-4 sm:ml-8" id="experience-container">
                 
-                <!-- Role 1: Arizon Network -->
-                <div id="exp-arizon" class="exp-item internship p-8 lg:p-10 bg-white dark:bg-slate-900/80 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 shadow-xl transition-all duration-500 reveal group">
+                <!-- Point 03 Card: Arizon Network -->
+                <div id="exp-arizon" class="exp-item internship p-8 lg:p-10 bg-white dark:bg-slate-900/80 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 shadow-xl transition-all duration-500 reveal group relative">
+                    <!-- Point Spine Node Marker -->
+                    <div class="absolute -left-[27px] sm:-left-[43px] top-10 w-6 h-6 rounded-full bg-white dark:bg-slate-950 border-4 border-blue-600 flex items-center justify-center shadow-lg group-hover:scale-125 transition-transform">
+                        <span class="w-2 h-2 rounded-full bg-blue-600 animate-ping"></span>
+                    </div>
+
+                    <div class="flex flex-col lg:flex-row justify-between lg:items-center gap-6 mb-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-14 h-14 bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-2xl flex items-center justify-center shrink-0 border border-blue-500/20 group-hover:scale-110 transition-transform">
+                                <i data-lucide="network" class="w-7 h-7 animate-pulse-soft"></i>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-2 flex-wrap mb-1">
+                                    <span class="text-[10px] font-mono font-black text-blue-600 dark:text-blue-400 uppercase tracking-widest bg-blue-500/10 px-2 py-0.5 rounded">POINT 03</span>
+                                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Business Analyst Intern</h3>
+                                    <span class="px-3 py-0.5 text-[10px] font-black uppercase tracking-widest bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 rounded-full border border-emerald-500/20 flex items-center gap-1.5">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span> Active Internship
+                                    </span>
+                                </div>
+                                <p class="text-sm font-bold text-slate-500 dark:text-slate-400">Arizon Network • Noida, UP</p>
+                            </div>
+                        </div>
+                        <div class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-bold text-slate-600 dark:text-slate-300 w-fit">
+                            June 2026 – Present
+                        </div>
+                    </div>
+
+                    <p class="text-sm text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">Cross-functional analysis across Finance, Marketing, and Business Analytics functions focusing on campaign outreach, lead funnel efficiency, and reporting pain points.</p>
+
+                    <!-- Arizon Graphic Infographic -->
+                    <div class="mb-6 p-6 bg-slate-50 dark:bg-slate-950/60 rounded-3xl border border-slate-200/80 dark:border-slate-800 overflow-hidden relative">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-[10px] font-black uppercase tracking-widest text-blue-600 dark:text-blue-400 flex items-center gap-1.5">
+                                <i data-lucide="line-chart" class="w-3.5 h-3.5"></i> Outreach & Conversion Funnel Dashboard
+                            </span>
+                            <span class="text-[9px] font-mono font-bold text-slate-400">Live Metric Analytics</span>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+                            <!-- Conversion Funnel Graphic -->
+                            <div class="md:col-span-2 space-y-3">
+                                <div>
+                                    <div class="flex justify-between text-[10px] font-bold text-slate-500 mb-1">
+                                        <span>Target Outreach & Engagement</span>
+                                        <span class="font-mono text-blue-600 dark:text-blue-400 font-bold">+13% Sales Lift</span>
+                                    </div>
+                                    <div class="h-2.5 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                                        <div class="h-full bg-blue-600 rounded-full w-[88%]"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-[10px] font-bold text-slate-500 mb-1">
+                                        <span>Customer Drop-off Process Optimization</span>
+                                        <span class="font-mono text-emerald-500 font-bold">+28% Improvement</span>
+                                    </div>
+                                    <div class="h-2.5 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                                        <div class="h-full bg-emerald-500 rounded-full w-[95%]"></div>
+                                    </div>
                                 </div>
                             </div>
                             <!-- Circular Speedup Badge -->
@@ -499,11 +590,11 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                         <div class="p-4 bg-slate-50 dark:bg-slate-950/50 rounded-2xl border border-slate-100 dark:border-slate-800/80 flex items-center gap-4">
                             <div class="text-2xl font-black text-blue-600 dark:text-blue-400 font-mono">+13%</div>
-                            <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">Sales & Conversion uplift through targeted outreach analysis.</div>
+                            <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">Sales & Conversion uplift through targeted campaign & outreach analysis.</div>
                         </div>
                         <div class="p-4 bg-slate-50 dark:bg-slate-950/50 rounded-2xl border border-slate-100 dark:border-slate-800/80 flex items-center gap-4">
                             <div class="text-2xl font-black text-emerald-500 font-mono">+28%</div>
-                            <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">Process improvement by solving customer reporting bottlenecks.</div>
+                            <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">Process efficiency improvement by resolving customer reporting bottlenecks.</div>
                         </div>
                     </div>
 
@@ -514,8 +605,13 @@
                     </div>
                 </div>
 
-                <!-- Role 2: Reias India -->
-                <div id="exp-reias" class="exp-item corporate p-8 lg:p-10 bg-white dark:bg-slate-900/80 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 shadow-xl transition-all duration-500 reveal group">
+                <!-- Point 02 Card: Reias India -->
+                <div id="exp-reias" class="exp-item corporate p-8 lg:p-10 bg-white dark:bg-slate-900/80 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 shadow-xl transition-all duration-500 reveal group relative">
+                    <!-- Point Spine Node Marker -->
+                    <div class="absolute -left-[27px] sm:-left-[43px] top-10 w-6 h-6 rounded-full bg-white dark:bg-slate-950 border-4 border-amber-500 flex items-center justify-center shadow-lg group-hover:scale-125 transition-transform">
+                        <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                    </div>
+
                     <div class="flex flex-col lg:flex-row justify-between lg:items-center gap-6 mb-6">
                         <div class="flex items-start gap-4">
                             <div class="w-14 h-14 bg-amber-500/10 text-amber-600 dark:text-amber-400 rounded-2xl flex items-center justify-center shrink-0 border border-amber-500/20 group-hover:scale-110 transition-transform">
@@ -523,6 +619,7 @@
                             </div>
                             <div>
                                 <div class="flex items-center gap-2 flex-wrap mb-1">
+                                    <span class="text-[10px] font-mono font-black text-amber-600 dark:text-amber-400 uppercase tracking-widest bg-amber-500/10 px-2 py-0.5 rounded">POINT 02</span>
                                     <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Financial Analyst</h3>
                                     <span class="px-3 py-0.5 text-[10px] font-black uppercase tracking-widest bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-full border border-blue-500/20">
                                         Corporate Role
@@ -600,8 +697,13 @@
                     </div>
                 </div>
 
-                <!-- Role 3: Times of India -->
-                <div id="exp-toi" class="exp-item internship p-8 lg:p-10 bg-white dark:bg-slate-900/80 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 shadow-xl transition-all duration-500 reveal group">
+                <!-- Point 01 Card: Times of India -->
+                <div id="exp-toi" class="exp-item internship p-8 lg:p-10 bg-white dark:bg-slate-900/80 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 shadow-xl transition-all duration-500 reveal group relative">
+                    <!-- Point Spine Node Marker -->
+                    <div class="absolute -left-[27px] sm:-left-[43px] top-10 w-6 h-6 rounded-full bg-white dark:bg-slate-950 border-4 border-rose-500 flex items-center justify-center shadow-lg group-hover:scale-125 transition-transform">
+                        <span class="w-2 h-2 rounded-full bg-rose-500"></span>
+                    </div>
+
                     <div class="flex flex-col lg:flex-row justify-between lg:items-center gap-6 mb-6">
                         <div class="flex items-start gap-4">
                             <div class="w-14 h-14 bg-rose-500/10 text-rose-600 dark:text-rose-400 rounded-2xl flex items-center justify-center shrink-0 border border-rose-500/20 group-hover:scale-110 transition-transform">
@@ -609,6 +711,7 @@
                             </div>
                             <div>
                                 <div class="flex items-center gap-2 flex-wrap mb-1">
+                                    <span class="text-[10px] font-mono font-black text-rose-600 dark:text-rose-400 uppercase tracking-widest bg-rose-500/10 px-2 py-0.5 rounded">POINT 01</span>
                                     <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Sales & Marketing Intern</h3>
                                     <span class="px-3 py-0.5 text-[10px] font-black uppercase tracking-widest bg-amber-500/10 text-amber-600 dark:text-amber-400 rounded-full border border-amber-500/20">
                                         Awarded Role
@@ -1173,6 +1276,114 @@
         </div>
     </section>
 
+    <!-- PROFESSIONAL CERTIFICATIONS -->
+    <section id="certifications" class="py-28 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6 reveal">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1 bg-purple-500/10 rounded-full text-[10px] font-black uppercase tracking-widest text-purple-600 dark:text-purple-400 mb-4 border border-purple-500/20">
+                        <i data-lucide="award" class="w-3.5 h-3.5 animate-pulse-soft"></i> Verified Accreditation
+                    </div>
+                    <h2 class="text-5xl font-bold tracking-tighter gradient-text-animate">Professional Certificates</h2>
+                    <p class="text-slate-500 dark:text-slate-400 text-lg max-w-lg mt-2 font-medium">Detailed accreditation of industrial competencies & verified credentials.</p>
+                </div>
+                
+                <!-- Category Filter Triggers -->
+                <div class="flex flex-wrap items-center gap-2 bg-slate-100 dark:bg-slate-900 p-1.5 rounded-full border border-slate-200 dark:border-slate-800">
+                    <button onclick="filterCerts('all')" id="filter-btn-all" class="px-5 py-2 bg-slate-900 dark:bg-white text-white dark:text-slate-950 text-xs font-bold rounded-full transition-all uppercase">
+                        All
+                    </button>
+                    <button onclick="filterCerts('ds')" id="filter-btn-ds" class="px-5 py-2 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-bold rounded-full border border-slate-200 dark:border-slate-700 uppercase">
+                        Data/AI
+                    </button>
+                    <button onclick="filterCerts('sql')" id="filter-btn-sql" class="px-5 py-2 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-bold rounded-full border border-slate-200 dark:border-slate-700 uppercase">
+                        SQL & BI
+                    </button>
+                    <button onclick="filterCerts('net')" id="filter-btn-net" class="px-5 py-2 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-bold rounded-full border border-slate-200 dark:border-slate-700 uppercase">
+                        Other
+                    </button>
+                </div>
+            </div>
+
+            <!-- Certifications Dynamic Grid -->
+            <div id="certifications-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+        </div>
+    </section>
+
+    <!-- BEYOND ACADEMIC SECTION -->
+    <section id="beyond-academics" class="py-28 px-6 border-t border-slate-100 dark:border-slate-900 bg-slate-50/50 dark:bg-slate-950/50">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-16 reveal">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 bg-purple-500/10 rounded-full text-[10px] font-black uppercase tracking-widest text-purple-600 dark:text-purple-400 mb-4 border border-purple-500/20">
+                    <i data-lucide="sparkles" class="w-3.5 h-3.5 animate-pulse-soft"></i> Extra-Curricular Leadership & Sports
+                </div>
+                <h2 class="text-5xl font-bold tracking-tighter gradient-text-animate">Beyond Academic</h2>
+                <p class="text-slate-500 dark:text-slate-400 text-lg max-w-lg mt-2 font-medium">Community development programs, competitive case challenges, national athletic achievements, and voluntary initiatives.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1: Financial Literacy -->
+                <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal relative overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-14 h-14 bg-blue-50 dark:bg-blue-950/40 rounded-2xl flex items-center justify-center text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform">
+                                <i data-lucide="book-open-check" class="w-7 h-7 animate-pulse-soft"></i>
+                            </div>
+                            <span class="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-400">ONGOING</span>
+                        </div>
+                        <h3 class="text-2xl font-black text-slate-900 dark:text-white mb-2">Financial Literacy Advocate</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-medium">Conducting localized volunteer sessions focused on basic budgeting, financial tools, and value allocations within micro-community groups.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2: Analytics Case Challenge -->
+                <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal relative overflow-hidden flex flex-col justify-between" style="transition-delay: 100ms;">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-14 h-14 bg-rose-50 dark:bg-rose-950/40 rounded-2xl flex items-center justify-center text-rose-500 group-hover:scale-110 transition-transform">
+                                <i data-lucide="trophy" class="w-7 h-7 animate-bounce"></i>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <div class="visualizer-bar" style="animation-delay: 0.1s;"></div>
+                                <div class="visualizer-bar" style="animation-delay: 0.3s;"></div>
+                                <div class="visualizer-bar" style="animation-delay: 0.2s;"></div>
+                            </div>
+                        </div>
+                        <span class="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-400 block mb-1">COMPETITIONS</span>
+                        <h3 class="text-2xl font-black text-slate-900 dark:text-white mb-2">Analytics Case Challenge</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-medium">Recognized for delivering structured variance models and predictive pipeline dashboards, demonstrating strong performance under pressure.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3: National & State Football Achievements -->
+                <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal relative overflow-hidden flex flex-col justify-between" style="transition-delay: 200ms;">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-14 h-14 bg-amber-50 dark:bg-amber-950/40 rounded-2xl flex items-center justify-center text-amber-500 group-hover:scale-110 transition-transform">
+                                <i data-lucide="award" class="w-7 h-7 animate-pulse-soft"></i>
+                            </div>
+                            <span class="text-[10px] font-mono font-bold uppercase tracking-widest text-amber-600 dark:text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-full border border-amber-500/20">NATIONAL SPORTS</span>
+                        </div>
+                        <span class="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-400 block mb-1">ATHLETIC HONORS</span>
+                        <h3 class="text-2xl font-black text-slate-900 dark:text-white mb-2">All India Football Championship</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-medium mb-4">Competed at the national level over a 9-year athletic career, winning 1x Gold and 1x Silver in the All India Football Championship.</p>
+                    </div>
+                    
+                    <div class="space-y-2 pt-4 border-t border-slate-100 dark:border-slate-800">
+                        <div class="p-2.5 bg-amber-500/10 rounded-xl text-xs font-bold text-amber-700 dark:text-amber-300 flex items-center gap-2 border border-amber-500/20">
+                            <i data-lucide="medal" class="w-4 h-4 text-amber-500 shrink-0 animate-bounce"></i>
+                            <span>🥇 Gold & 🥈 Silver Medalist (Aug 2010 – Sept 2019)</span>
+                        </div>
+                        <div class="p-2.5 bg-blue-500/10 rounded-xl text-xs font-bold text-blue-700 dark:text-blue-300 flex items-center gap-2 border border-blue-500/20">
+                            <i data-lucide="sparkles" class="w-4 h-4 text-blue-500 shrink-0 animate-pulse-soft"></i>
+                            <span>State Olympic "Emerging Player of the Tournament"</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- SCHOLASTIC PATHWAY -->
     <section id="education" class="py-28 px-6">
         <div class="max-w-6xl mx-auto">
@@ -1372,20 +1583,57 @@
             containerEl.innerHTML = '';
             projectsArray.forEach((proj, index) => {
                 const slice = document.createElement('div');
-                slice.className = "relative flex-1 group cursor-pointer transition-all duration-500 animate-hero animate-shimmer";
+                slice.className = "relative flex-1 min-w-[210px] group cursor-pointer transition-all duration-500 animate-hero animate-shimmer";
                 slice.style.animationDelay = `${index * 80}ms`;
                 slice.style.zIndex = 50 - index;
-                if (index !== 0) slice.style.marginLeft = "-22px";
+                if (index !== 0) slice.style.marginLeft = "-18px";
                 
                 slice.onclick = () => dropDownProject(proj.id);
                 
                 const isActive = activeProjectIds.includes(proj.id);
-                let heightClass = isActive ? "h-22 scale-[1.03] active-slice-glow z-[60]" : "h-16 group-hover:h-20 opacity-90 hover:opacity-100";
+                const isSpotify = proj.id === 1 || proj.title.toLowerCase().includes('spotify');
+                
+                const pathClass = index === 0 ? "chevron-path-first" : "chevron-path-mid";
+
+                let glowClass = "";
+                if (isActive) {
+                    glowClass = isSpotify ? "spotify-slice-glow z-[60] scale-[1.02]" : "active-slice-glow z-[60] scale-[1.02]";
+                }
+                
+                let heightClass = isActive ? `h-24 ${glowClass}` : "h-20 group-hover:h-22 opacity-90 group-hover:opacity-100 group-hover:-translate-y-1";
+
+                let sliceBg = proj.accentColor;
+                if (isSpotify) {
+                    sliceBg = "linear-gradient(135deg, #1db954 0%, #121212 100%)";
+                }
+
+                const equalizersHtml = isSpotify ? `
+                    <div class="flex items-end gap-0.5 h-3 my-0.5">
+                        <span class="w-1 bg-white rounded-full animate-bounce" style="height:100%; animation-duration: 0.6s"></span>
+                        <span class="w-1 bg-white rounded-full animate-bounce" style="height:60%; animation-duration: 0.8s"></span>
+                        <span class="w-1 bg-white rounded-full animate-bounce" style="height:80%; animation-duration: 0.4s"></span>
+                    </div>
+                ` : '';
+
+                const activeIndicator = isActive ? `
+                    <span class="inline-flex items-center gap-1 text-[8px] font-black uppercase tracking-wider text-emerald-300 bg-black/40 px-2.5 py-0.5 rounded-full mt-1 border border-emerald-500/30">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> Active Project
+                    </span>
+                ` : `
+                    <span class="text-[8px] font-bold text-white/70 group-hover:text-white uppercase tracking-tight mt-0.5">
+                        ${proj.subtitle}
+                    </span>
+                `;
 
                 slice.innerHTML = `
-                    <div class="${heightClass} w-full flex flex-col items-center justify-center chevron-path transition-all duration-500" style="background-color: ${proj.accentColor}">
-                        <i data-lucide="${proj.icon}" class="w-5 h-5 text-white animate-float-subtle"></i>
-                        <span class="text-[8px] font-black text-white uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity mt-1">${proj.title.split(' ')[0]}</span>
+                    <div class="${heightClass} ${pathClass} w-full flex flex-col items-center justify-center transition-all duration-500 shadow-xl relative overflow-hidden px-4 py-2" style="background: ${sliceBg}">
+                        <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="${proj.icon}" class="w-4 h-4 text-white animate-float-subtle shrink-0"></i>
+                            ${equalizersHtml}
+                        </div>
+                        <span class="text-[10px] font-black text-white uppercase tracking-wider group-hover:tracking-widest transition-all mt-1 drop-shadow-md text-center truncate max-w-[180px]">${proj.title}</span>
+                        ${activeIndicator}
                     </div>
                 `;
                 containerEl.appendChild(slice);
@@ -1393,8 +1641,8 @@
 
             if (projectsArray.length > 0) {
                 const endTip = document.createElement('div');
-                endTip.className = "h-16 w-10 bg-slate-200 dark:bg-slate-800 chevron-end";
-                endTip.style.marginLeft = "-22px";
+                endTip.className = "h-20 w-8 bg-slate-200 dark:bg-slate-800 chevron-end shadow-inner shrink-0";
+                endTip.style.marginLeft = "-18px";
                 endTip.style.zIndex = 50 - projectsArray.length;
                 containerEl.appendChild(endTip);
             }
@@ -1512,14 +1760,12 @@
             const el = document.getElementById(id);
             if (!el) return;
             
-            // Re-show card if hidden by filter
             if (el.style.display === 'none') {
                 filterExperience('all');
             }
 
             el.scrollIntoView({ behavior: 'smooth', block: 'center' });
             
-            // Trigger focus glow animation
             el.classList.add('ring-4', 'ring-blue-500/50', 'scale-[1.02]');
             setTimeout(() => {
                 el.classList.remove('ring-4', 'ring-blue-500/50', 'scale-[1.02]');
