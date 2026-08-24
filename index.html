@@ -31,6 +31,15 @@
     </script>
     <!-- Lucide Icons CDN -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        // Global helper for rendering icons safely in early DOM event handlers
+        window.safeCreateIcons = function() {
+            if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') {
+                lucide.createIcons();
+            }
+        };
+        var safeCreateIcons = window.safeCreateIcons;
+    </script>
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
@@ -266,25 +275,6 @@
             -webkit-text-fill-color: transparent;
         }
         @keyframes shine { to { background-position: 200% center; } }
-
-        .bento-card { transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); }
-        .bento-inner { 
-            background: rgba(255, 255, 255, 0.9); 
-            backdrop-filter: blur(12px); 
-            border: 1px solid #f1f5f9; 
-            box-shadow: 0 10px 30px -5px rgba(0,0,0,0.03); 
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); 
-            overflow: hidden; 
-        }
-        .dark .bento-inner { 
-            background: rgba(30, 41, 59, 0.7); 
-            border-color: rgba(255,255,255,0.05); 
-        }
-        .bento-card:hover .bento-inner { 
-            transform: translateY(-8px); 
-            box-shadow: 0 30px 60px -15px rgba(59, 130, 246, 0.2); 
-            border-color: #3b82f6; 
-        }
     </style>
 </head>
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 selection:bg-blue-600 selection:text-white overflow-x-hidden">
@@ -873,7 +863,6 @@
             <div class="mb-10 flex flex-col md:flex-row items-start md:items-end justify-between gap-4">
                 <div>
                     <div class="inline-flex items-center gap-2 px-3 py-1 bg-spotify/15 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] text-spotify mb-3">
-                        <!-- Official Spotify Logo SVG -->
                         <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current text-spotify animate-spin-slow">
                             <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.48.66.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141 C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.18-.1.2-.24-.78-.18-.6.18-1.14.78-1.32 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/>
                         </svg>
@@ -1159,7 +1148,6 @@
                     <!-- Card 1 -->
                     <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal">
                         <div class="flex items-center justify-between mb-6">
-                            <!-- Microsoft Excel Official Brand Logo SVG -->
                             <div class="w-12 h-12 bg-emerald-50 dark:bg-emerald-950/40 rounded-2xl flex items-center justify-center p-2 group-hover:scale-110 group-hover:-rotate-6 transition-transform">
                                 <svg viewBox="0 0 24 24" class="w-full h-full text-emerald-600 dark:text-emerald-400 fill-current">
                                     <path d="M22.37 3.5h-10.7v17h10.7a1.13 1.13 0 0 0 1.13-1.13V4.63a1.13 1.13 0 0 0-1.13-1.13zm-.37 15.5h-9V5h9v14zM1.63 6.5L8.5 5v14L1.63 17.5a1.13 1.13 0 0 1-.63-1V7.5a1.13 1.13 0 0 1 .63-1zm4.87 8.25l-1.37-2.25 1.37-2.25h-1.2l-.75 1.4-.75-1.4h-1.2l1.37 2.25-1.37 2.25h1.2l.75-1.4.75 1.4z"/>
@@ -1175,7 +1163,6 @@
                     <!-- Card 2 -->
                     <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal" style="transition-delay: 50ms;">
                         <div class="flex items-center justify-between mb-6">
-                            <!-- SQL / Database Official Logo SVG -->
                             <div class="w-12 h-12 bg-teal-50 dark:bg-teal-950/40 rounded-2xl flex items-center justify-center p-2.5 group-hover:scale-110 group-hover:rotate-6 transition-transform">
                                 <svg viewBox="0 0 24 24" class="w-full h-full text-teal-600 dark:text-teal-400 fill-current">
                                     <path d="M12 2C6.48 2 2 4.24 2 7v10c0 2.76 4.48 5 10 5s10-2.24 10-5V7c0-2.76-4.48-5-10-5zm0 2c4.87 0 8 1.79 8 3s-3.13 3-8 3-8-1.79-8-3 3.13-3 8-3zm0 16c-4.87 0-8-1.79-8-3v-2.26c1.9 1.41 5.09 2.26 8 2.26s6.1-.85 8-2.26V17c0 1.21-3.13 3-8 3zm0-5c-4.87 0-8-1.79-8-3V9.74c1.9 1.41 5.09 2.26 8 2.26s6.1-.85 8-2.26V12c0 1.21-3.13 3-8 3z"/>
@@ -1243,7 +1230,6 @@
                     <!-- App Card 1: Power BI & Tableau -->
                     <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal">
                         <div class="flex items-center justify-between mb-4">
-                            <!-- Official Microsoft Power BI SVG Logo -->
                             <div class="w-12 h-12 bg-amber-500/10 rounded-2xl flex items-center justify-center p-2.5 group-hover:scale-110 group-hover:rotate-12 transition-transform">
                                 <svg viewBox="0 0 24 24" class="w-full h-full text-amber-500 fill-current">
                                     <path d="M11 2h2v20h-2V2zm-5 6h2v14H6V8zm10 4h2v10h-2V12z"/>
@@ -1258,7 +1244,6 @@
                     <!-- App Card 2: Python & R Studio -->
                     <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal" style="transition-delay: 50ms;">
                         <div class="flex items-center justify-between mb-4">
-                            <!-- Official Python Snake Brand Logo SVG -->
                             <div class="w-12 h-12 bg-blue-500/10 rounded-2xl flex items-center justify-center p-2 group-hover:scale-110 group-hover:-rotate-12 transition-transform">
                                 <svg viewBox="0 0 24 24" class="w-full h-full">
                                     <path fill="#3776AB" d="M11.87 2c-4.46 0-4.18 1.93-4.18 1.93l.01 2h4.25v.6H6.1s-2.73.31-2.73 3.98c0 3.68 2.38 3.55 2.38 3.55h1.42V12.1s-.07-2.3 2.27-2.3h3.9c2.33 0 2.27 2.1 2.27 2.1v3.52H17s2.54.08 2.54-3.6c0-3.67-2.22-3.8-2.22-3.8h-1.42v1.98s.1 2.21-2.27 2.21h-3.9s-2.18.06-2.18-2.01V6.53s-.16-2.15 2.35-2.15h3.93c2.51 0 2.35 2.15 2.35 2.15V8.5h1.96V6.02S20.8 2 11.87 2z"/>
@@ -1274,7 +1259,6 @@
                     <!-- App Card 3: PostgreSQL & MySQL -->
                     <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal" style="transition-delay: 100ms;">
                         <div class="flex items-center justify-between mb-4">
-                            <!-- Official PostgreSQL Elephant Brand Logo SVG -->
                             <div class="w-12 h-12 bg-emerald-500/10 rounded-2xl flex items-center justify-center p-2.5 group-hover:scale-110 group-hover:rotate-6 transition-transform">
                                 <svg viewBox="0 0 24 24" class="w-full h-full text-emerald-600 dark:text-emerald-400 fill-current">
                                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14.5v-3.5h-2v3.5H9l3 3 3-3h-2zm-6-7.5c0-1.66 1.34-3 3-3h4c1.66 0 3 1.34 3 3v2h-2V9c0-.55-.45-1-1-1h-4c-.55 0-1 .45-1 1v2H7V9z"/>
@@ -1289,7 +1273,6 @@
                     <!-- App Card 4: Looker Studio & GA4 -->
                     <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal" style="transition-delay: 150ms;">
                         <div class="flex items-center justify-between mb-4">
-                            <!-- Official Google GA4 Brand Logo SVG -->
                             <div class="w-12 h-12 bg-indigo-500/10 rounded-2xl flex items-center justify-center p-2.5 group-hover:scale-110 group-hover:-translate-y-1 transition-transform">
                                 <svg viewBox="0 0 24 24" class="w-full h-full text-indigo-500 fill-current">
                                     <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-5h2v5zm4 0h-2V7h2v10zm4 0h-2v-3h2v3z"/>
@@ -1314,7 +1297,6 @@
                     <!-- App Card 6: Alteryx & JIRA / Git -->
                     <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 tech-card group reveal" style="transition-delay: 250ms;">
                         <div class="flex items-center justify-between mb-4">
-                            <!-- Official GitHub Logo SVG -->
                             <div class="w-12 h-12 bg-teal-500/10 rounded-2xl flex items-center justify-center p-2.5 group-hover:scale-110 group-hover:-rotate-12 transition-transform">
                                 <svg viewBox="0 0 24 24" class="w-full h-full text-teal-600 dark:text-teal-400 fill-current">
                                     <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
@@ -1520,7 +1502,6 @@
                     <div class="md:w-[45%] md:text-right">
                         <span class="text-[10px] font-black text-blue-600 uppercase tracking-widest block mb-2">Aug 2025 – May 2027</span>
                         <h3 class="text-2xl font-black text-slate-900 dark:text-white leading-tight flex items-center md:justify-end gap-2">
-                            <!-- Official LPU Seal Logo SVG -->
                             <svg viewBox="0 0 100 100" class="w-7 h-7 text-blue-600 dark:text-blue-400">
                                 <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="6"/>
                                 <path d="M30,65 L50,30 L70,65 Z" fill="none" stroke="currentColor" stroke-width="5"/>
@@ -1600,7 +1581,7 @@
             
             <div class="space-y-3">
                 <a id="modal-pdf-link" href="#" target="_blank" class="w-full flex items-center justify-center gap-3 bg-slate-900 dark:bg-white text-white dark:text-slate-950 py-4 rounded-2xl font-black shadow-xl hover:scale-[1.01] active:scale-95 transition-all">
-                    <i data-lucide="github" class="w-5 h-5"></i> View Certificate on GitHub
+                    <i data-lucide="award" class="w-5 h-5 text-amber-400"></i> Verify Official Certificate
                 </a>
                 <button onclick="closeModal()" class="w-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 py-3.5 rounded-2xl font-bold">Close Window</button>
             </div>
@@ -1629,7 +1610,11 @@
     </div>
 
     <script>
-        const safeCreateIcons = () => { if (typeof lucide !== 'undefined') lucide.createIcons(); };
+        // Ensure global binding
+        window.safeCreateIcons = window.safeCreateIcons || function() { 
+            if (typeof lucide !== 'undefined' && typeof lucide.createIcons === 'function') lucide.createIcons(); 
+        };
+        var safeCreateIcons = window.safeCreateIcons;
 
         // Theme Toggle
         const themeToggle = document.getElementById('theme-toggle');
@@ -2039,36 +2024,147 @@
             if (!canvas) return;
             const ctx = canvas.getContext('2d');
             const rect = canvas.getBoundingClientRect();
-            canvas.width = rect.width;
-            canvas.height = rect.height;
-
-            const w = canvas.width;
-            const h = canvas.height;
+            
+            const w = rect.width || canvas.clientWidth || 250;
+            const h = rect.height || canvas.clientHeight || 250;
+            if (canvas.width !== w || canvas.height !== h) {
+                canvas.width = w;
+                canvas.height = h;
+            }
 
             ctx.fillStyle = '#050505';
-            ctx.fillRect(0,0,w,h);
+            ctx.fillRect(0, 0, w, h);
 
-            ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+            ctx.lineWidth = 1;
+            for (let i = 1; i < 4; i++) {
+                ctx.beginPath();
+                ctx.moveTo((w / 4) * i, 0); ctx.lineTo((w / 4) * i, h);
+                ctx.moveTo(0, (h / 4) * i); ctx.lineTo(w, (h / 4) * i);
+                ctx.stroke();
+            }
+
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
+            ctx.setLineDash([3, 3]);
             ctx.beginPath();
             ctx.moveTo(w / 2, 0); ctx.lineTo(w / 2, h);
             ctx.moveTo(0, h / 2); ctx.lineTo(w, h / 2);
             ctx.stroke();
+            ctx.setLineDash([]);
+
+            ctx.strokeStyle = 'rgba(29, 185, 84, 0.08)';
+            const maxRadius = Math.min(w, h) * 0.45;
+            [0.25, 0.5, 0.75, 1.0].forEach(r => {
+                ctx.beginPath();
+                ctx.arc(w / 2, h / 2, maxRadius * r, 0, Math.PI * 2);
+                ctx.stroke();
+            });
+
+            ctx.fillStyle = '#666';
+            ctx.font = '9px monospace';
+            ctx.fillText('Energy ↑', 6, 14);
+            ctx.fillText('Acousticness →', w - 85, h - 8);
+
+            const targetPx = qx * w;
+            const targetPy = (1 - qy) * h;
+
+            matches.forEach(match => {
+                const px = match.acousticness * w;
+                const py = (1 - match.energy) * h;
+                ctx.strokeStyle = 'rgba(29, 185, 84, 0.4)';
+                ctx.lineWidth = 1.5;
+                ctx.setLineDash([4, 4]);
+                ctx.beginPath();
+                ctx.moveTo(targetPx, targetPy);
+                ctx.lineTo(px, py);
+                ctx.stroke();
+                ctx.setLineDash([]);
+            });
 
             trackDataset.forEach(track => {
                 const px = track.acousticness * w;
                 const py = (1 - track.energy) * h;
                 const isMatch = matches.some(m => m.title === track.title);
 
-                ctx.fillStyle = isMatch ? '#1db954' : '#404040';
-                ctx.beginPath();
-                ctx.arc(px, py, isMatch ? 6 : 4, 0, Math.PI * 2);
-                ctx.fill();
+                if (isMatch) {
+                    ctx.fillStyle = 'rgba(29, 185, 84, 0.25)';
+                    ctx.beginPath();
+                    ctx.arc(px, py, 10, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    ctx.fillStyle = '#1db954';
+                    ctx.beginPath();
+                    ctx.arc(px, py, 5, 0, Math.PI * 2);
+                    ctx.fill();
+                } else {
+                    ctx.fillStyle = '#404040';
+                    ctx.beginPath();
+                    ctx.arc(px, py, 4, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                ctx.fillStyle = isMatch ? '#1db954' : '#666666';
+                ctx.font = '8px sans-serif';
+                ctx.fillText(track.title.split(' ')[0], px + 8, py + 3);
             });
 
-            ctx.fillStyle = '#1db954';
+            ctx.strokeStyle = '#1db954';
+            ctx.lineWidth = 2;
             ctx.beginPath();
-            ctx.arc(qx * w, (1 - qy) * h, 6, 0, Math.PI * 2);
+            ctx.arc(targetPx, targetPy, 9, 0, Math.PI * 2);
+            ctx.stroke();
+
+            ctx.fillStyle = '#ffffff';
+            ctx.beginPath();
+            ctx.arc(targetPx, targetPy, 4, 0, Math.PI * 2);
             ctx.fill();
+        }
+
+        function initKnnCanvasEvents() {
+            const canvas = document.getElementById('knn-canvas');
+            if (!canvas) return;
+
+            let isDragging = false;
+
+            function updateVectorFromCoords(e) {
+                const rect = canvas.getBoundingClientRect();
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+                
+                let x = (clientX - rect.left) / rect.width;
+                let y = 1 - ((clientY - rect.top) / rect.height);
+
+                x = Math.max(0, Math.min(1, x));
+                y = Math.max(0, Math.min(1, y));
+
+                runKnnSimulation({ x, y });
+            }
+
+            canvas.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                updateVectorFromCoords(e);
+            });
+
+            window.addEventListener('mousemove', (e) => {
+                if (isDragging) updateVectorFromCoords(e);
+            });
+
+            window.addEventListener('mouseup', () => { isDragging = false; });
+
+            canvas.addEventListener('touchstart', (e) => {
+                isDragging = true;
+                updateVectorFromCoords(e);
+            }, { passive: true });
+
+            window.addEventListener('touchmove', (e) => {
+                if (isDragging) updateVectorFromCoords(e);
+            }, { passive: true });
+
+            window.addEventListener('touchend', () => { isDragging = false; });
+            
+            window.addEventListener('resize', () => {
+                runKnnSimulation();
+            }, { passive: true });
         }
 
         const reiasProperties = [
@@ -2122,63 +2218,89 @@
             if (brokEl) brokEl.innerText = `₹ ${brokerageMargin.toLocaleString()}`;
             const ovhEl = document.getElementById('reias-out-overhead');
             if (ovhEl) ovhEl.innerText = `₹ ${overheadAmount.toLocaleString()}`;
+
+            const logsLedger = document.getElementById('reias-logs-ledg');
+            if (logsLedger) {
+                logsLedger.innerHTML = `
+                    <div class="flex justify-between border-b border-neutral-900 pb-1">
+                        <span>[AUDIT-LOG] ${reiasProperties[selectedReiasPropIndex].name}</span>
+                        <span class="text-emerald-400 font-bold">VERIFIED</span>
+                    </div>
+                    <div class="flex justify-between pt-1 text-[9px] text-neutral-500">
+                        <span>Calculated Cut: ₹ ${brokerageMargin.toLocaleString()}</span>
+                        <span>Overhead: ${overheadPercent}%</span>
+                    </div>
+                `;
+            }
         }
 
-        // Official Logos Dataset for Professional Certificates
+        // Official Certificates Dataset with verified Coursera, Physics Wallah, Simplilearn, and Tata Forage Credentials
         const certs = [
             { 
                 t: "Data Science & GenAI", 
                 p: "PHYSICS WALLAH", 
-                ds: "Specialized in data science models, Python, and Generative AI framework implementation.", 
+                ds: "Completed Data Science with Generative AI Program. Cert ID: cf5cadd0-a313-4aa3-82d5-136693805173 (Sep 4, 2025). Founder Signed.", 
                 svgLogo: `<div class="w-full h-full rounded-full bg-black text-white font-black flex items-center justify-center font-serif text-lg tracking-tight border-2 border-amber-400">PW</div>`, 
                 color: "bg-purple-600", 
                 pdf: "https://github.com/Ritesh2026/Certifications/blob/main/Data_Science_GenAI_PW.pdf", 
-                cat: "ds" 
+                cat: "ds",
+                date: "Sep 4, 2025",
+                code: "cf5cadd0-a313-4aa3-82d5-136693805173"
             },
             { 
-                t: "GenAI Powered Analytics", 
-                p: "TATA | FORAGE JOB SIMULATION", 
-                ds: "Practised exploratory data analysis, risk profiling, and AI-driven delinquency predictions.", 
+                t: "GenAI Data Analytics Simulation", 
+                p: "TATA | FORAGE", 
+                ds: "Exploratory data analysis, risk profiling, delinquency predictions with AI, and AI-driven collections strategy. Verification Code: 2Kywc53Bai3NDn8k8 (Nov 21, 2025).", 
                 svgLogo: `<svg viewBox="0 0 100 100" class="w-full h-full text-blue-500 fill-current"><ellipse cx="50" cy="50" rx="45" ry="32" fill="none" stroke="currentColor" stroke-width="8"/><text x="50" y="58" font-family="'Inter', sans-serif" font-size="28" font-weight="900" text-anchor="middle">TATA</text></svg>`, 
                 color: "bg-blue-600", 
                 pdf: "https://github.com/Ritesh2026/Certifications/blob/main/Tata_GenAI_Analytics.pdf", 
-                cat: "ds" 
+                cat: "ds",
+                date: "Nov 21, 2025",
+                code: "2Kywc53Bai3NDn8k8"
             },
             { 
                 t: "Introduction to Looker", 
                 p: "GOOGLE CLOUD | COURSERA", 
-                ds: "Data exploration, visualization modeling, and business metrics mapping.", 
+                ds: "Authorized by Google Cloud & offered through Coursera. Verification Code: RR798OQT4D7V (Nov 27, 2025).", 
                 svgLogo: `<svg viewBox="0 0 24 24" class="w-full h-full"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>`, 
                 color: "bg-orange-600", 
-                pdf: "https://github.com/Ritesh2026/Certifications/blob/main/Looker_GoogleCloud.pdf", 
-                cat: "sql" 
+                pdf: "https://coursera.org/verify/RR798OQT4D7V", 
+                cat: "sql",
+                date: "Nov 27, 2025",
+                code: "RR798OQT4D7V"
             },
             { 
-                t: "Generative AI Studio", 
+                t: "Introduction to Generative AI Studio", 
                 p: "GOOGLE CLOUD | SIMPLILEARN", 
-                ds: "Prompt engineering, foundational LLM models, and cloud tool integrations.", 
+                ds: "Google Cloud course on Simplilearn SkillUp portal. Declaration of completion code: 9468904 (Nov 25, 2025).", 
                 svgLogo: `<svg viewBox="0 0 24 24" class="w-full h-full text-teal-400 fill-current"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM19 18H6c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95C8.08 7.14 9.94 6 12 6c2.62 0 4.88 1.86 5.39 4.43l.3 1.5 1.53.11c1.56.1 2.78 1.41 2.78 2.96 0 1.65-1.35 3-3 3z"/></svg>`, 
                 color: "bg-teal-600", 
                 pdf: "https://github.com/Ritesh2026/Certifications/blob/main/GenAI_Studio_GoogleCloud.pdf", 
-                cat: "ds" 
+                cat: "ds",
+                date: "Nov 25, 2025",
+                code: "9468904"
             },
             { 
                 t: "Introduction to MS Excel", 
                 p: "MICROSOFT | SIMPLILEARN", 
-                ds: "Financial spreadsheets, modeling arrays, and analytical functions.", 
-                svgLogo: `<svg viewBox="0 0 24 24" class="w-full h-full"><path fill="#f25022" d="M1 1h10v10H1z"/><path fill="#7fba00" d="M13 1h10v10H13z"/><path fill="#00a4ef" d="M1 13h10v10H1z"/><path fill="#ffb900" d="M13 13h10v10H13z"/></svg>`, 
+                ds: "Microsoft online course on Simplilearn SkillUp portal. Declaration of completion code: 9478739 (Nov 26, 2025).", 
+                svgLogo: `<svg viewBox="0 0 24 24" class="w-full h-full"><path fill="#f25022" d="M1 1h10v10H1z"/><path fill="#7fba00" d="M13 1h10v10H13z"/><path fill="#00a4ef" d="M1 13h10v10H1z"/><path fill="#ffb900" d="M13 13h10v10H1z"/></svg>`, 
                 color: "bg-emerald-600", 
                 pdf: "https://github.com/Ritesh2026/Certifications/blob/main/MS_Excel_Simplilearn.pdf", 
-                cat: "sql" 
+                cat: "sql",
+                date: "Nov 26, 2025",
+                code: "9478739"
             },
             { 
-                t: "Job Search with AI", 
+                t: "Accelerate Your Job Search with AI", 
                 p: "GOOGLE | COURSERA", 
-                ds: "Optimizing communication tools and tracking frameworks with AI engines.", 
+                ds: "Authorized by Google and offered through Coursera. Verification Code: 20PML5ENZMW7 (Nov 27, 2025).", 
                 svgLogo: `<svg viewBox="0 0 24 24" class="w-full h-full"><path fill="#0056D2" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l7 4.5-7 4.5z"/></svg>`, 
                 color: "bg-slate-800", 
-                pdf: "https://github.com/Ritesh2026/Certifications/blob/main/Job_Search_AI_Google.pdf", 
-                cat: "net" 
+                pdf: "https://coursera.org/verify/20PML5ENZMW7", 
+                cat: "net",
+                date: "Nov 27, 2025",
+                code: "20PML5ENZMW7"
             }
         ];
 
@@ -2210,21 +2332,25 @@
 
             filtered.forEach((cert, index) => {
                 const card = document.createElement('div');
-                card.className = "p-8 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-[2.5rem] tech-card cursor-pointer group relative overflow-hidden flex flex-col justify-between min-h-[220px]";
+                card.className = "p-8 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-[2.5rem] tech-card cursor-pointer group relative overflow-hidden flex flex-col justify-between min-h-[240px]";
                 card.onclick = () => openCertModal(cert);
                 card.innerHTML = `
                     <div class="relative z-10">
-                        <div class="w-14 h-14 mb-6 rounded-2xl flex items-center justify-center ${cert.color} shadow-lg group-hover:scale-110 transition-transform p-3">
-                            ${cert.svgLogo}
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 rounded-2xl flex items-center justify-center ${cert.color} shadow-lg group-hover:scale-110 transition-transform p-2.5">
+                                ${cert.svgLogo}
+                            </div>
+                            <span class="text-[9px] font-mono font-bold px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-500 rounded-full border border-slate-200 dark:border-slate-700">${cert.date}</span>
                         </div>
                         <h5 class="font-bold text-lg mb-1 leading-tight text-slate-900 dark:text-white">${cert.t}</h5>
-                        <p class="text-slate-400 text-[10px] font-black uppercase tracking-widest">${cert.p}</p>
+                        <p class="text-slate-400 text-[10px] font-black uppercase tracking-widest mb-2">${cert.p}</p>
+                        <p class="text-[10px] font-mono text-blue-500 font-bold truncate">Code: ${cert.code}</p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                    <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
                         <a href="${cert.pdf}" target="_blank" onclick="event.stopPropagation()" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 text-[10px] font-black uppercase tracking-wider rounded-full transition-all text-slate-700 dark:text-slate-300">
-                            <i data-lucide="external-link" class="w-3 h-3"></i> View Certificate
+                            <i data-lucide="award" class="w-3 h-3 text-amber-500"></i> Verify Certificate
                         </a>
-                        <span class="text-[9px] font-mono text-slate-400 font-bold">GitHub Verified</span>
+                        <span class="text-[9px] font-mono text-emerald-500 font-bold">Verified</span>
                     </div>`;
                 grid.appendChild(card);
             });
@@ -2235,7 +2361,7 @@
             const titleEl = document.getElementById('modal-title');
             if (titleEl) titleEl.innerText = data.t;
             const provEl = document.getElementById('modal-provider');
-            if (provEl) provEl.innerText = data.p;
+            if (provEl) provEl.innerText = `${data.p} • ${data.date}`;
             const descEl = document.getElementById('modal-desc');
             if (descEl) descEl.innerText = data.ds;
             
@@ -2332,7 +2458,7 @@
 
             function updateScrollSpy() {
                 let currentSectionId = '';
-                const scrollPosition = window.scrollY + 180; // offset top header
+                const scrollPosition = window.scrollY + 180;
 
                 sections.forEach(section => {
                     const top = section.offsetTop;
@@ -2364,6 +2490,7 @@
             selectMixTrack(0);
             loadReiasProperties();
             initScrollSpy();
+            initKnnCanvasEvents();
 
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
