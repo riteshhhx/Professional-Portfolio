@@ -333,26 +333,6 @@
         <a href="#beyond-academics" onclick="toggleMenu()" class="nav-link-item text-3xl hover:text-blue-600 transition-colors">Beyond</a>
         <a href="#education" onclick="toggleMenu()" class="nav-link-item text-3xl hover:text-blue-600 transition-colors">Education</a>
     </div>
-            <div class="flex items-center gap-4">
-                <a href="mailto:arritesh123@gmail.com" class="hidden md:block text-[11px] font-black px-6 py-2.5 bg-slate-900 dark:bg-white text-white dark:text-slate-950 rounded-full uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-md">Contact</a>
-                <button onclick="toggleMenu()" class="md:hidden p-2 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" aria-label="Toggle Menu">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Mobile Navigation Drawer -->
-    <div id="mobile-menu" class="fixed inset-0 z-50 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl opacity-0 -translate-y-full pointer-events-none transition-all duration-500 flex flex-col pt-28 px-10 space-y-6 text-center font-bold">
-        <a href="#experience" onclick="toggleMenu()" class="text-3xl hover:text-blue-600 transition-colors">Journey</a>
-        <a href="#projects" onclick="toggleMenu()" class="text-3xl hover:text-blue-600 transition-colors">Projects</a>
-        <a href="#sandbox" onclick="toggleMenu()" class="text-3xl hover:text-blue-600 transition-colors">Spotify Sandbox</a>
-        <a href="#reias-sandbox" onclick="toggleMenu()" class="text-3xl hover:text-blue-600 transition-colors">Reias Sandbox</a>
-        <a href="#skills" onclick="toggleMenu()" class="text-3xl hover:text-blue-600 transition-colors">Skills</a>
-        <a href="#certifications" onclick="toggleMenu()" class="text-3xl hover:text-blue-600 transition-colors">Certificates</a>
-        <a href="#beyond-academics" onclick="toggleMenu()" class="text-3xl hover:text-blue-600 transition-colors">Beyond</a>
-        <a href="#education" onclick="toggleMenu()" class="text-3xl hover:text-blue-600 transition-colors">Education</a>
-    </div>
 
     <!-- Hero Showcase Section -->
     <section class="pt-32 lg:pt-44 pb-20 px-6">
@@ -2345,43 +2325,6 @@
             }, 3500);
         }
 
-        const init = () => {
-            updateTimelines();
-            renderCerts();
-            initStackRotator();
-            selectMixTrack(0);
-            loadReiasProperties();
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        entry.target.querySelectorAll('.counter').forEach(animateCounter);
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-            safeCreateIcons();
-        };
-
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', init);
-        } else {
-            init();
-        }
-
-        function toggleMenu() {
-            const menu = document.getElementById('mobile-menu');
-            if (menu) {
-                menu.classList.toggle('opacity-0');
-                menu.classList.toggle('-translate-y-full');
-                menu.classList.toggle('pointer-events-none');
-            }
-        }
-    </script>
-</body>
-</html>
         // ScrollSpy logic for high-contrast section index tracking
         function initScrollSpy() {
             const sections = document.querySelectorAll('section[id]');
