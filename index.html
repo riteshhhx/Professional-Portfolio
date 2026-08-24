@@ -42,14 +42,41 @@
             transition: background-color 0.5s ease, color 0.5s ease;
         }
 
+        /* 3D Kinetic Reveal Transitions */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(45px) scale(0.96) rotateX(6deg);
+            filter: blur(6px);
+            transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), 
+                        transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), 
+                        filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform, filter;
         }
         .reveal.visible {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) scale(1) rotateX(0deg);
+            filter: blur(0px);
+        }
+
+        /* Active ScrollSpy Pill Highlighting */
+        .nav-link-item {
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+        .nav-link-item.active-nav-item {
+            color: #2563eb !important;
+            background: rgba(59, 130, 246, 0.12);
+            padding: 0.35rem 0.85rem !important;
+            border-radius: 9999px;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.25), inset 0 0 10px rgba(59, 130, 246, 0.1);
+            transform: scale(1.06);
+        }
+        .dark .nav-link-item.active-nav-item {
+            color: #60a5fa !important;
+            background: rgba(96, 165, 250, 0.16);
+            border-color: rgba(96, 165, 250, 0.4);
+            box-shadow: 0 0 25px rgba(96, 165, 250, 0.3);
         }
 
         .hero-frame {
@@ -75,8 +102,9 @@
         .dark ::-webkit-scrollbar-thumb { background: #475569; }
         ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
         
+        /* Kinetic 3D Hover Cards */
         .tech-card {
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
             border: 1px solid #f1f5f9;
@@ -86,8 +114,8 @@
             border-color: rgba(255,255,255,0.05);
         }
         .tech-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.22);
+            transform: translateY(-12px) scale(1.03) rotate(0.4deg);
+            box-shadow: 0 35px 70px -15px rgba(59, 130, 246, 0.28), 0 0 25px rgba(59, 130, 246, 0.15);
             border-color: #3b82f6;
         }
 
@@ -275,16 +303,36 @@
             <a href="#" class="text-xl font-black tracking-tighter flex items-center gap-2 group text-slate-900 dark:text-white">
                 <i data-lucide="hexagon" class="w-6 h-6 text-blue-600 dark:text-blue-400 group-hover:rotate-180 transition-transform duration-500"></i> RY
             </a>
-            <div class="hidden md:flex space-x-8 text-[11px] font-bold text-slate-500 dark:text-slate-400 font-sans tracking-widest uppercase">
-                <a href="#experience" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Journey</a>
-                <a href="#projects" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Projects</a>
-                <a href="#sandbox" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Spotify Sandbox</a>
-                <a href="#reias-sandbox" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Reias Sandbox</a>
-                <a href="#skills" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Skills</a>
-                <a href="#certifications" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Certificates</a>
-                <a href="#beyond-academics" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Beyond</a>
-                <a href="#education" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Education</a>
+            <div id="desktop-nav-links" class="hidden md:flex items-center space-x-4 text-[11px] font-bold text-slate-500 dark:text-slate-400 font-sans tracking-widest uppercase">
+                <a href="#experience" class="nav-link-item hover:text-blue-600 dark:hover:text-blue-400">Journey</a>
+                <a href="#projects" class="nav-link-item hover:text-blue-600 dark:hover:text-blue-400">Projects</a>
+                <a href="#sandbox" class="nav-link-item hover:text-blue-600 dark:hover:text-blue-400">Spotify Sandbox</a>
+                <a href="#reias-sandbox" class="nav-link-item hover:text-blue-600 dark:hover:text-blue-400">Reias Sandbox</a>
+                <a href="#skills" class="nav-link-item hover:text-blue-600 dark:hover:text-blue-400">Skills</a>
+                <a href="#certifications" class="nav-link-item hover:text-blue-600 dark:hover:text-blue-400">Certificates</a>
+                <a href="#beyond-academics" class="nav-link-item hover:text-blue-600 dark:hover:text-blue-400">Beyond</a>
+                <a href="#education" class="nav-link-item hover:text-blue-600 dark:hover:text-blue-400">Education</a>
             </div>
+            <div class="flex items-center gap-4">
+                <a href="mailto:arritesh123@gmail.com" class="hidden md:block text-[11px] font-black px-6 py-2.5 bg-slate-900 dark:bg-white text-white dark:text-slate-950 rounded-full uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-md">Contact</a>
+                <button onclick="toggleMenu()" class="md:hidden p-2 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" aria-label="Toggle Menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="fixed inset-0 z-50 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl opacity-0 -translate-y-full pointer-events-none transition-all duration-500 flex flex-col pt-28 px-10 space-y-6 text-center font-bold">
+        <a href="#experience" onclick="toggleMenu()" class="nav-link-item text-3xl hover:text-blue-600 transition-colors">Journey</a>
+        <a href="#projects" onclick="toggleMenu()" class="nav-link-item text-3xl hover:text-blue-600 transition-colors">Projects</a>
+        <a href="#sandbox" onclick="toggleMenu()" class="nav-link-item text-3xl hover:text-blue-600 transition-colors">Spotify Sandbox</a>
+        <a href="#reias-sandbox" onclick="toggleMenu()" class="nav-link-item text-3xl hover:text-blue-600 transition-colors">Reias Sandbox</a>
+        <a href="#skills" onclick="toggleMenu()" class="nav-link-item text-3xl hover:text-blue-600 transition-colors">Skills</a>
+        <a href="#certifications" onclick="toggleMenu()" class="nav-link-item text-3xl hover:text-blue-600 transition-colors">Certificates</a>
+        <a href="#beyond-academics" onclick="toggleMenu()" class="nav-link-item text-3xl hover:text-blue-600 transition-colors">Beyond</a>
+        <a href="#education" onclick="toggleMenu()" class="nav-link-item text-3xl hover:text-blue-600 transition-colors">Education</a>
+    </div>
             <div class="flex items-center gap-4">
                 <a href="mailto:arritesh123@gmail.com" class="hidden md:block text-[11px] font-black px-6 py-2.5 bg-slate-900 dark:bg-white text-white dark:text-slate-950 rounded-full uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-md">Contact</a>
                 <button onclick="toggleMenu()" class="md:hidden p-2 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" aria-label="Toggle Menu">
@@ -2312,6 +2360,76 @@
                     }
                 });
             }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+            safeCreateIcons();
+        };
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu) {
+                menu.classList.toggle('opacity-0');
+                menu.classList.toggle('-translate-y-full');
+                menu.classList.toggle('pointer-events-none');
+            }
+        }
+    </script>
+</body>
+</html>
+        // ScrollSpy logic for high-contrast section index tracking
+        function initScrollSpy() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link-item');
+
+            function updateScrollSpy() {
+                let currentSectionId = '';
+                const scrollPosition = window.scrollY + 180; // offset top header
+
+                sections.forEach(section => {
+                    const top = section.offsetTop;
+                    const height = section.offsetHeight;
+                    if (scrollPosition >= top && scrollPosition < top + height) {
+                        currentSectionId = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    const href = link.getAttribute('href')?.replace('#', '');
+                    if (href && href === currentSectionId) {
+                        link.classList.add('active-nav-item');
+                    } else {
+                        link.classList.remove('active-nav-item');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', updateScrollSpy, { passive: true });
+            window.addEventListener('resize', updateScrollSpy, { passive: true });
+            updateScrollSpy();
+        }
+
+        const init = () => {
+            updateTimelines();
+            renderCerts();
+            initStackRotator();
+            selectMixTrack(0);
+            loadReiasProperties();
+            initScrollSpy();
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        entry.target.querySelectorAll('.counter').forEach(animateCounter);
+                    }
+                });
+            }, { threshold: 0.12 });
 
             document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
             safeCreateIcons();
